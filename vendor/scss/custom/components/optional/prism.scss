@@ -4,7 +4,7 @@
 //
 //
 
-@import "CSS:../../components/plugins/prism";
+@import "../../components/plugins/prism";
 
 pre[class*='language-'], code[class*='language-']{
   background: mix(white, theme-color('primary'), 93%);
