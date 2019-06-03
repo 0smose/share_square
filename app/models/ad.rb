@@ -5,7 +5,7 @@ class Ad < ApplicationRecord
 	validates :category, presence: true
 	validates :duration, presence: true
 	validates :frequency, presence: true
-	validates :other_propositions, presence: true
+	validates :other_propositions, :inclusion => {:in => [true, false]}
 	validates :availability, presence: true
 
 	belongs_to :user
