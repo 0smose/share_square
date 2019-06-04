@@ -22,8 +22,7 @@
 							<p class="card-text"><%= @user.email %></p>
 							<p class="card-text"><b>Description:</b> <%= @user.description %></p>
 							<p class="card-text"><b>Compétence(s):</b> <%= @user.skills %></p>
-							<p class="card-text"><%= link_to "Editer mon profil", "#", class: "btn btn-sm btn-primary" %></p>
-							
+							<p class="card-text"><%= link_to "Editer mon profil", edit_user_path(params[:id]), class: "btn btn-sm btn-primary" %> 	
 						</div>
 					</div>
 				</div>
@@ -35,6 +34,7 @@
 <div class="container">
 	<div class="h3 mb-2 border-bottom border-gray">Mes annonces</div>
 	<div class="row">
+		<!-- If the current user does not have ad yet, we change thh text -->
 		<% if current_user.ads[0] == nil %> 
 		<div class="col col-12 mt-4">
 			<div class="p">Vous n'avez pas encore d'annonces en ligne.</div>
@@ -42,6 +42,7 @@
 		<% else %> 
 		<% current_user.ads.each do |ad| %>
 		<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
+			<!-- We display each ad with all informations -->
 			<div class="profil-box mt-3">
 				<div class="mb-2"><p><b>Mise en ligne le :</b> <%= ad.created_at %></div></p>
 					<p><b>Titre : </b><%= ad.title %></p>
@@ -51,7 +52,6 @@
 					<p><b>Type d'annonce : </b><%= ad.type.name %></p>
 					<p><b>Catégorie : </b><%= ad.category.name %></p>
 				</div>
-				
 			</div>
 			<% end %>
 		</div>
