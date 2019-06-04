@@ -10,17 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *---------- TEMPLATE'S CSS -----------
- *= require scss/bootstrap/bootstrap.scss
+ *
+ * ---------- TEMPLATE CSS ----------
+ *= require scss/theme
+ *= require assets/css/loaders/loader-typing.css
+ * ---------- BASE CSS ----------
  *= require_tree .
  *= require_self
  */
-
-
-.jumbotron {
-  background-image:url("test.jpg");
-   background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat;
-
-}
