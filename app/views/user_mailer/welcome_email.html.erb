@@ -6,7 +6,7 @@
 <body>
 <h1>Salut <%= @user.first_name %> et bienvenue sur Share Square !</h1>
 <p>Vous vous êtes inscrit sur https://share-square.herokuapp.com en utilisant l'email suivant : <%= @user.email %></p>
-<p>Pour accéder à votre compte, connectez-vous via <%= @url %></p>
+<p>Pour accéder à votre compte, connectez-vous via <a href="<%=@url%>"><%=@url%></a></p>
 <p>À très vite sur https://share-square.herokuapp.com !</p>
 </body>
 </html>
