@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+	before_action :authenticate_user!
 	before_action :set_conversation, except: [:index]
 	# We make sure that the user is actually authorized to view the requested conversation
 	before_action :check_participating!, except: [:index]

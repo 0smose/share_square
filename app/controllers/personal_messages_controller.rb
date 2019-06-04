@@ -1,4 +1,5 @@
 class PersonalMessagesController < ApplicationController
+  before_action :authenticate_user!
   # We check if a conversation between the users already exists 
 	before_action :find_conversation!
 
