@@ -9,10 +9,10 @@ class AdsController < ApplicationController
 	end
 
 	def new
-		Ad.new
+		@ad = Ad.new
 	end
 	def create
-		@ad = Ad.new(admin: current_user, frequency: params[:frequency], type: params[:type], duration: params[:duration], title: params[:title], description: params[:description], category: params[:category], other_propositions: params[:other_propositions], availability: params[:availability])
+		@ad = Ad.new(frequency: params[:frequency], type: params[:type], duration: params[:duration], title: params[:title], description: params[:description], category: params[:category], other_propositions: params[:other_propositions], availability: params[:availability])
 		@ad.save
 
 		if @ad.save
@@ -30,10 +30,11 @@ class AdsController < ApplicationController
 	def update
 		@ad = Ad.find(params[:id])
 		
-		if @ad = Ad.new(admin: current_user, frequency: params[:frequency], type: params[:type], duration: params[:duration], title: params[:title], description: params[:description], category: params[:category], other_propositions: params[:other_propositions], availability: params[:availability])
+		if @ad.update(frequency: params[:frequency], duration: params[:duration], title: params[:title], description: params[:description], other_propositions: params[:other_propositions], availability: params[:availability])
 			redirect_to ad_path
 			flash[:success] = "Votre annonce a bien été modifié"
 		else
+			flash[:alert] = "Try again"
 			render :edit
 		end		
 	end
