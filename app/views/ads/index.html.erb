@@ -11,7 +11,7 @@
 <div class="container">
 	<div class="row">
 
-		<% @ads.each do |ad| %>
+		<% @ad.each do |ad| %>
 		
 		<div class="col col-sm-4">
 			<div class="card shadow mb-3">
@@ -20,7 +20,7 @@
 				<div class="card-body test">
 					<p class="card-text"><%= ad.description %></p>
 					
-					<%= link_to "Voir l'annonce", '#', class: "btn btn-primary btn-sm" %>
+					<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
 				</div>
 
 			</div>

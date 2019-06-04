@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 
 	def index
-		Ad.all.reverse
+		@ad = Ad.all.reverse
 	end
 
 	def show
