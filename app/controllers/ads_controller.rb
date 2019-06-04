@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+
 	def index
 		Ad.all.reverse
 	end
@@ -50,4 +51,5 @@ def is_validated
 		redirect_to root_path
 		flash[:alert] = "cet annonce n'as pas été validé"
 	end
+
 end
