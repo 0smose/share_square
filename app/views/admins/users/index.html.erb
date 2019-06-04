@@ -1,0 +1,51 @@
+<div class="container-fluid">
+	<div class="row">
+		<!-- Dashboard Menu -->
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+							<span>Dashboard</span>
+						</h6>
+						<%=link_to "Accueil", admins_index_path, class: "nav-link active" %>  
+					</li>
+					<li class="nav-item">
+						<%=link_to "Annonces", admins_ads_path, class: "nav-link active" %> 
+					</li>
+					<li class="nav-item">
+						<%=link_to "Utilisateurs", admins_users_path, class: "nav-link active" %> 
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h2 class="text-center mt-4 mb-4"> Utilisateurs <%= link_to "Créer un utilisateur", new_admins_user_path, class: "btn btn-sm btn-info" %></h2><hr>
+			</div>
+			<div class="container">
+				<div class="row">
+					
+					<% @users.order(created_at: :asc).each do |u| %>
+					
+					<div class="col col-5 card my-2 mx-auto p-3 shadow">
+
+						<!-- We display each user in the dashboard -->
+						<p>
+							<%= "ID: #{u.id}" %><hr>				
+							<p><%= u.first_name %>
+							<%= "#{u.last_name}" %></p>
+							<p><%= u.email %></p>
+							<p class="text-muted"><%= "Admin: #{u.is_admin}" %></p>
+						</p>	
+						<%= link_to "Voir plus de détails", admins_user_path(u.id), class: "btn btn-primary" %>		
+					</div> 
+					<% end %>
+				</div>
+			</div>
+		</main>
+	</div>
+</div>
+
+

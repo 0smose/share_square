@@ -1,0 +1,60 @@
+<div class="container-fluid mt-4" >
+	<div class="row">
+		<div class="col col-6 mx-auto">
+			<div class="card mb-5 mx-auto">
+				<div class="row no-gutters shadow">
+					<% if @user.avatar.attached? == true %>
+					<div class="col-md-4">
+
+						<%= image_tag @user.avatar, alt: 'avatar', class: 'card-img' %>
+					</div>	
+					<% end %>			
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">Profil de <%= @user.first_name%></h5>
+							
+							<% if @user.last_name != nil %> 
+							<p class="card-text"><%= @user.first_name %> <%= @user.last_name.upcase %></p>
+							<% end %> 
+
+							<p class="card-text"><%= @user.email %></p>
+							<p class="card-text"><b>Description:</b> <%= @user.description %></p>
+							<p class="card-text"><b>Compétence(s):</b> <%= @user.skills %></p>
+							<p class="text-muted"><%= "Admin: #{@user.is_admin}" %></p>
+							<p class="card-text"><%= link_to "Editer ce profil", edit_admins_user_path(params[:id]), class: "btn btn-sm btn-primary" %> </p>
+							<p><%= link_to 'Supprimer ce compte', admins_user_path(@user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></p> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container mb-5">
+	<div class="h3 mb-2 border-bottom border-gray">Ses annonces</div>
+	<div class="row">
+		<!-- If the current user does not have ad yet, we change thh text -->
+		<% if current_user.ads[0] == nil %> 
+		<div class="col col-12 mt-4">
+			<div class="p">Il n'a pas encore d'annonces en ligne.</div>
+		</div>
+		<% else %> 
+		<% current_user.ads.each do |ad| %>
+		<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
+			<!-- We display each ad with all informations -->
+			<div class="profil-box mt-3">
+				<div class="mb-2"><p><b>Mise en ligne le :</b> <%= ad.created_at %></div></p>
+					<p><b>Titre : </b><%= ad.title %></p>
+					<p><b>Description : </b><%= ad.description %></p>
+					<p><b>Durée : </b><%= ad.duration %></p>
+					<p><b>Fréquence : </b><%= ad.frequency %></p>
+					<p><b>Type d'annonce : </b><%= ad.type.name %></p>
+					<p><b>Catégorie : </b><%= ad.category.name %></p>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<% end %>		
+	</div>
+</div>
