@@ -9,10 +9,11 @@ class User < ApplicationRecord
   validates :email,
   presence: true,
   uniqueness: true,
-  format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: " : use a valid email format" }
+  format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: " : Veuillez utiliser un mot de passde valide" }
   #validates :avatar should be added when ActiveStorage is ready!
   validates :description, length:  {in: 50..200}
   validates :skills, presence: true
 
   has_many :ads
+  has_one_attached :avatar
 end
