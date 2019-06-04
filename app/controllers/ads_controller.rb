@@ -33,10 +33,10 @@ class AdsController < ApplicationController
 		@ad = Ad.find(params[:id])
 		
 		if @ad.update(frequency: params[:frequency], duration: params[:duration], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), title: params[:title], description: params[:description], other_propositions: params[:other_propositions], availability: params[:availability])
-			redirect_to ad_path
+			redirect_to ad_path(@ad)
 			flash[:success] = "Votre annonce a bien été modifié"
 		else
-			flash[:alert] = "Try again"
+			flash[:alert] = "Vous n'avez pas rempli tous les champs, réessayez"
 			render :edit
 		end		
 	end
@@ -44,7 +44,7 @@ class AdsController < ApplicationController
 	def destroy
 		@ad = Ad.find(params[:id])
 		@ad.destroy
-		redirect_to root_path
+		redirect_to ads_path
 	end
 end
 
