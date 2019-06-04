@@ -15,4 +15,5 @@ class User < ApplicationRecord
   validates :skills, presence: true
 
   has_many :ads
+  has_one_attached :avatar
 end
