@@ -1,0 +1,31 @@
+<!-- JUMBOTRON -->
+<div class="jumbotron">
+	<h1 class="display-4 text-center">Trouve ce qu'il te plaît</h1>
+	<p class="lead text-center">Des milliers d'annonces </p>
+	<hr class="my-4">
+	<p>Faire des rencontres utiles !</p>
+</div>
+
+<!-- the list of the ads -->
+
+<div class="container">
+	<div class="row">
+
+		<% @ad.each do |ad| %>
+		
+		<div class="col col-sm-4">
+			<div class="card shadow mb-3">
+				<h5 class="card-header"><%= ad.title%></h5>
+
+				<div class="card-body test">
+					<p class="card-text"><%= ad.description %></p>
+					
+					<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
+				</div>
+
+			</div>
+		</div>
+		<% end %>
+
+	</div>
+</div>

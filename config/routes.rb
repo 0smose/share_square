@@ -7,4 +7,9 @@ Rails.application.routes.draw do
 
   # Route declarations :
   resources :home, only: [:index]
+  resources :ads
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    resources :avatars, only: [:create]
+  end
+
 end
