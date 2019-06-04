@@ -24,35 +24,37 @@ class AdsController < ApplicationController
 
 	def edit
 		@ad = Ad.find(params[:id])
-		# @cours =Type.find(1)
-		# @coup_de_main = Type.find(2)
-		# @projet = Type.find(3)
+		# @user = User.find(params[:id])
+		redirect_to root_path, notice: "Vous ne pouvez pas éditer l'annonce d'autrui !" unless @ad.user == current_user
 	end
 
 	def update
 		@ad = Ad.find(params[:id])
-		
-		if @ad.update(frequency: params[:frequency], duration: params[:duration], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), title: params[:title], description: params[:description], other_propositions: params[:other_propositions], availability: params[:availability])
-			redirect_to ad_path(@ad)
-			flash[:success] = "Votre annonce a bien été modifié"
+		if @ad.user == current_user
+			if @ad.update(frequency: params[:frequency], duration: params[:duration], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), title: params[:title], description: params[:description], other_propositions: params[:other_propositions], availability: params[:availability])
+				redirect_to ad_path(@ad)
+				flash[:success] = "Votre annonce a bien été modifié"
+			else
+				flash[:alert] = "Vous n'avez pas rempli tous les champs, réessayez"
+				render :edit
+			end		
 		else
-			flash[:alert] = "Vous n'avez pas rempli tous les champs, réessayez"
-			render :edit
-		end		
+			redirect_to root_path, notice: "Vous ne pouvez pas éditer l'annonce d'autrui"
+		end
 	end
 
-	def destroy
+		def destroy
+			@ad = Ad.find(params[:id])
+			@ad.destroy
+			redirect_to ads_path
+		end
+	end
+
+	def is_validated
 		@ad = Ad.find(params[:id])
-		@ad.destroy
-		redirect_to ads_path
-	end
-end
+		if @ad_path.validated != true
+			redirect_to root_path
+			flash[:alert] = "cet annonce n'as pas été validé"
+		end
 
-def is_validated
-	@ad = Ad.find(params[:id])
-	if @ad_path.validated != true
-		redirect_to root_path
-		flash[:alert] = "cet annonce n'as pas été validé"
 	end
-
-end
