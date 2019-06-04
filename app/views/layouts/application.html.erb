@@ -8,30 +8,39 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 
   <!-- LOAD FONTS -->
   <%= preload_link_tag("fonts/Inter-UI-upright.var.woff2", as: "font", type:"font/woff2", crossorigin: "anonymous") %>
   <%= preload_link_tag("fonts/Inter-UI.var.woff2", as: "font", type:"font/woff2", crossorigin: "anonymous") %>
 
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 
-<body data-smooth-scroll-offset="73">
-  
-  <!-- Layout for flash messages -->
-  <%= render 'layouts/flash' %>
-  <%= yield %>
+<body data-smooth-scroll-offset="73" data-aos-easing="ease">
 
+    <!-- Page loading animation -->
+    <%= render 'layouts/loader' %>
 
-  <%= javascript_include_tag 'application' %>
-  <!-- Removes page load animation when window is finished loading -->
-  <script type="text/javascript">
-    window.addEventListener("load", function () {
-      document.querySelector('body').classList.add('loaded');
+    <!-- Navbar -->
+    <%= render 'layouts/navbar' %>
+
+        <!-- Flash messages -->
+    <%= render 'layouts/flash' %>
+
+    <%= yield %>
+
+    <%= render 'layouts/back_to_top' %>
+
+    <%= javascript_include_tag 'application' %>
+    <!-- Removes page load animation when window is finished loading -->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {
+        document.querySelector('body').classList.add('loaded');
     });
-  </script>
+</script>
 
 </body>
 </html>
