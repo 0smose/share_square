@@ -8,11 +8,21 @@ class Admins::AdsController < ApplicationController
 
 	def show
 		@ad = Ad.find(params[:id])
-		@ad = Ad.user.email
+	end
+
+	def new
+		@ad = Ad.new
 	end
 
 	def create
-		@ads = Ad.all
+		@ad = Ad.new(user_id: current_user.id, title: params[:title], description: params[:description], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), duration: params[:duration], frequency: params[:frequency], other_propositions: params[:other_propositions], availability: params[:availability])
+		if @ad.save
+			flash[:success] = "Vous avez bien crée l'annonce"
+			redirect_to admins_ads_path
+		else
+			flash[:alert] = "Il y a eu un problème"
+			render :new
+		end
 	end
 
 	def edit
@@ -21,12 +31,13 @@ class Admins::AdsController < ApplicationController
 
 	def update
 		@ad = Ad.find(params[:id])
-		if @ad.update(title: params[:title], description: params[:description], duration: params[:duration], frequency: params[:frequency], other_propositions: params[:other_propositions], availability: params[:availability])
+		if @ad.update(title: params[:title], description: params[:description], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), duration: params[:duration], frequency: params[:frequency], other_propositions: params[:other_propositions], availability: params[:availability])
+			
 			flash[:success] = "Vous avez bien édité l'annonce"
-			redirect_to admins_item_path
+			redirect_to admins_ad_path
 		else
 			flash[:alert] = "Il y a eu un problème"
-			render 'edit'
+			render :edit
 		end
 	end
 
