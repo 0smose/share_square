@@ -9,6 +9,12 @@ class UserMailer < ApplicationMailer
 		# Wedefine teh website url
 		@url = 'http://share-square.herokuapp.com/users/sign_in' 
 		#We send a welcome email every time a user signs up
-		mail(to: @user.email, subjetc: "Bienvenue sur Share Square")
+		mail(to: @user.email, subject: "Bienvenue sur Share Square")
+	end
+
+	def good_bye_email(user)
+		@user = user
+		@url = 'http://share-square.herokuapp.com/users/sign_up'
+		mail(to: @user.email, subject: "A bientôt sur Share Square")
 	end
 end
