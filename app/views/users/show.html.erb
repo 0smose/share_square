@@ -51,6 +51,7 @@
 					<p><b>Fréquence : </b><%= ad.frequency %></p>
 					<p><b>Type d'annonce : </b><%= ad.type.name %></p>
 					<p><b>Catégorie : </b><%= ad.category.name %></p>
+					<%= link_to "Editer l'annonce", edit_ad_path(ad), class: "btn btn-primary" %>
 				</div>
 			</div>
 			<% end %>
