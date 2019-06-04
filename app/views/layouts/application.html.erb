@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShareSquare</title>
+    <meta charset="utf-8">
+    <title>Share Square</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A corporate Bootstrap theme by Medium Rare">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <!-- LOAD FONTS -->
+
+    <%= preload_link_tag("fonts/Inter-UI-upright.var.woff2", as: "font", type:"font/woff2", crossorigin: "anonymous") %>
+    <%= preload_link_tag("fonts/Inter-UI.var.woff2", as: "font", type:"font/woff2", crossorigin: "anonymous") %>
   </head>
 
-  <body>
+  <body data-smooth-scroll-offset="73">
     <%= yield %>
+
+
+    <%= javascript_include_tag 'application' %>
+      <!-- Removes page load animation when window is finished loading -->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {
+        document.querySelector('body').classList.add('loaded');
+      });
+    </script>
+
   </body>
 </html>

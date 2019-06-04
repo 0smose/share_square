@@ -13,6 +13,7 @@
  *
  * ---------- TEMPLATE CSS ----------
  *= require scss/theme
+ *= require assets/css/loaders/loader-typing.css
  * ---------- BASE CSS ----------
  *= require_tree .
  *= require_self
