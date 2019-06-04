@@ -42,7 +42,11 @@
       <b><%= select_tag 'availability',options_for_select(["le matin", "le midi", "le soir", "n'importe quand", "seulement le week-end"]), class: "form-control" %></b> </p>
       <br />
 
-      <%= submit_tag "Edit", class: "btn btn-primary mb-3" %>
+      <%= submit_tag "Editer", class: "btn btn-primary mb-3" %> <br>
 
-      <% end %>
+<% end %>
+       <%= button_to "Cliquez ici pour détruire l'annonce", @ad, :method => :delete, class: "btn btn-danger mb-4", data: {confirm: "Êtes-vous sûr ?"} %>
+            
+
+      
 </div>
