@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # Route declarations :
   resources :home, only: [:index]
-  resources :ads
+
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :avatars, only: [:create]
   end
@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy, :create, :new]
     resources :ads, only: [:index, :show, :edit, :create, :update, :destroy, :new]
   end
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :ads
 
 end
