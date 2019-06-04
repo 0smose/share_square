@@ -14,7 +14,7 @@
 					<% end %>
 					<li class="list-group-item">Disponibilités : <%= @ad.availability %></li>
 					
-					<%= link_to "Contacter l'utilisateur", '#', class: "btn btn-primary btn-sm mt-3" %>
+					<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user), class: "btn btn-primary btn-sm mt-3" %>
 				</ul>
 
 		</div>

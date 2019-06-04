@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     resources :avatars, only: [:create]
   end
 
+  resources :personal_messages, only: [:new, :create]
+  resources :conversations, only: [:index, :show]
+
 end
