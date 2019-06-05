@@ -16,7 +16,7 @@ class Admins::UsersController < ApplicationController
 
 	def create
 		@user = User.new(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], skills: params[:skills], email: params[:email], password: params[:password])
-		if @user.save
+			if @user.save
 				redirect_to admins_users_path 
 				flash[:success] = "L'utilisateur a bien été crée"
 			else 

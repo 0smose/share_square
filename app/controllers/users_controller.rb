@@ -41,5 +41,4 @@ class UsersController < ApplicationController
 		redirect_to "/"
 		flash[:success] = "Ton profil a été supprimé avec succès"
 	end
-
 end
