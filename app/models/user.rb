@@ -30,4 +30,23 @@ class User < ApplicationRecord
   def good_bye_send
     UserMailer.good_bye_email(self).deliver_now
   end
+
+  # We create a method to count how many unread messages a user has
+  def unread_messages
+    # We find the user conversations 
+    @user_conversations = Conversation.participating(self)
+    # We create an empty array to stock the unread messages
+    @unread_messages = []
+    # For each conversation we check all the messages
+    @user_conversations.each do |conversation|
+      conversation.personal_messages.each do |message|
+        # We stock in the array all the unread messages received by the user
+        if message.read != true && message.user_id != self.id
+          @unread_messages << message
+        end
+      end
+    end
+    # We return the number of elements in the array
+    return @unread_messages.size
+  end
 end
