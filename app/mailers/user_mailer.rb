@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
 	def welcome_email(user)
 		# We get the user
 		@user = user
-		# Wedefine teh website url
+		# Wedefine the website url
 		@url = 'http://share-square.herokuapp.com/users/sign_in' 
 		#We send a welcome email every time a user signs up
 		mail(to: @user.email, subject: "Bienvenue sur Share Square")
