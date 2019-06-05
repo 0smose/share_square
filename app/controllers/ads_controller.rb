@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :is_validated ]
 	def index
 		@ad = Ad.all.reverse
 	end
