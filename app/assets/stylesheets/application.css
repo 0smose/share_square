@@ -18,3 +18,8 @@
  *= require_tree .
  *= require_self
  */
+
+ /*Big icons (ex: landing page ad type)*/
+ .big-icon {
+ 	font-size:3.5em;
+ }
