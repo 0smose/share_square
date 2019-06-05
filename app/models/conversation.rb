@@ -2,6 +2,7 @@ class Conversation < ApplicationRecord
 	belongs_to :sender, class_name: 'User'
 	belongs_to :recipient, class_name: 'User'
 	validates :sender, uniqueness: {scope: :recipient}
+	after_create :new_conversation_send 
 
 	# We set up a has_many relation, specifying the default sorting rule (the oldest one comes first)
 	has_many :personal_messages, -> { order(created_at: :asc) }, dependent: :destroy
@@ -22,6 +23,10 @@ class Conversation < ApplicationRecord
 	# either as a sender or as a recipient of the exchanged messages.
 	def participates?(user)
   	sender == user || recipient == user
+	end
+
+	def new_conversation_send
+		ConversationMailer.new_conversation_email(self.sender, self.recipient).deliver_now 
 	end
 
 	#This scope returns a conversation for two users
