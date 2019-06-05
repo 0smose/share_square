@@ -41,7 +41,7 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link text-muted" %>
+              <%= link_to "Se déconnecter", destroy_user_session_path , method: 'delete', class: "nav-link text-muted" %>
             </li>
             <li class="nav-item">
               <%= link_to "Mon profil",  "#", class: "btn btn-primary ml-lg-2" %>
