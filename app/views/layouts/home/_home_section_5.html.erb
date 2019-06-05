@@ -1,0 +1,21 @@
+<!-- Section 5 - VIEW ADS - SUBSCRIBE -->
+<section class="p-0 m-0">
+	<div class="container-fluid bg-primary p-0 text-light text-center">
+		<div class="row">
+			<div class="col col-md-6 bg-primary-2 p-5 ">
+				<i class="fas fas fa-search big-icon" data-aos="fade-right"></i>
+				<h3 class="mt-2" data-aos="fade-up">Parcourir nos annonces</h3>
+				<div data-aos="fade-right" data-aos-delay="150" >
+					<%= link_to "Voir les annonces", ads_path, class:"btn btn-light" %>
+				</div>
+			</div>
+			<div class="col col-md-6 bg-primary p-5">
+				<i class="fas fa-user-plus big-icon" data-aos="fade-left"></i>
+				<h3 class="mt-2" data-aos="fade-up">S'inscrire</h3>
+				<div data-aos="fade-left" data-aos-delay="150" >
+					<%= link_to "S'inscrire", new_user_registration_path, class:"btn btn-light" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
