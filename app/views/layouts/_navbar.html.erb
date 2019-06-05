@@ -31,9 +31,9 @@
             <li class="nav-item">
               <%= link_to "A propos", "#", class: "nav-link" %>
             </li>
-            <!-- Display the admin dashboard button if the current user is admin -->
-            <% if user_signed_in? %> 
-            <% if current_user %>
+            <!-- Display the admin dashboard button if the current user is admin --> 
+            <% if user_signed_in? %>
+            <% if current_user.is_admin == true %>
             <li class="nav-item">
               <%= link_to "Dashboard", "admins/index", class: "nav-link" %>
             </li> 
