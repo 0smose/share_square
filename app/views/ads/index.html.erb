@@ -10,8 +10,9 @@
 
 <div class="container">
 	<div class="row">
-
+		
 		<% @ad.each do |ad| %>
+		<% if ad.validated == true %>
 		
 		<div class="col col-sm-4">
 			<div class="card shadow mb-3">
@@ -25,6 +26,7 @@
 
 			</div>
 		</div>
+		<% end %>
 		<% end %>
 
 	</div>
