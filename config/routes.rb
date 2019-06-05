@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   # Admin dashboard
   namespace :admins do
     root to: "admins#index"
-    resources :users, only: [:index, :show, :edit, :update, :destroy, :create, :new]
-    resources :ads, only: [:index, :show, :edit, :create, :update, :destroy, :new]
+    resources :users
+    resources :ads
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

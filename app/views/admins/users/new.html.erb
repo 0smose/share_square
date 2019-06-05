@@ -1,5 +1,7 @@
 <div class="container">
   <div class="row">
+    <!-- Partial for the dashboard -->
+    <%= render 'layouts/dashboard' %>
     <div class="col">
       <div class="text-dark">
         <h3 class="text-center mt-5 mb-4">Créer un utilisateur</h3> 
@@ -18,13 +20,13 @@
         <%= label_tag 'Description' %>
         <%= text_area_tag 'description', @user.description, placeholder: "50 caractères minimum", class: "form-control mb-3"  %>
 
-         <%= label_tag 'Compétences' %>
+        <%= label_tag 'Compétences' %>
         <%= text_field_tag 'skills', @user.skills, placeholder: "Développeur, cuisinier, ...", class: "form-control mb-3"  %>
 
-         <%= label_tag 'Email' %>
+        <%= label_tag 'Email' %>
         <%= text_field_tag 'email', @user.email, class: "form-control mb-3"  %>
 
-         <%= label_tag 'Mot de passe' %>
+        <%= label_tag 'Mot de passe' %>
         <%= password_field_tag 'password', @user.password, placeholder: "6 caractères minimum", class: "form-control mb-3"  %>
 
         <%= submit_tag "Créer", class: "btn btn-primary col-12 mb-4 mt-3" %>
