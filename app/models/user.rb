@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,6 +15,9 @@ class User < ApplicationRecord
   validates :description, length:  {in: 50..200}
   validates :skills, presence: true
 
+  has_many :sender_conversations, class_name: 'Conversation', foreign_key: 'sender_id'
+  has_many :recipient_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
+  has_many :personal_messages, dependent: :destroy
   has_many :ads
   has_one_attached :avatar
   after_create :welcome_send

@@ -1,0 +1,10 @@
+<h1>New message to <%= "#{@recipient.first_name} #{@recipient.last_name}" %></h1>
+
+<%= form_for @personal_message do |f| %>
+  <%= hidden_field_tag 'recipient_id', @recipient.id %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %>
