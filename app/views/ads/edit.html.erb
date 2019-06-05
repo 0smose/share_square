@@ -1,52 +1,48 @@
-<div class="col col-6 mx-auto mt-4 text-dark">
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col col-6 mx-auto mt-4 text-dark">
 
-      <h2>Editer l'annonce</h2>
+                <h2>Editer l'annonce</h2>
 
-      <!-- Zone du formulaire -->
-      <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
+                <!-- Zone du formulaire -->
+                <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
 
-      <b> <%= label_tag 'Titre' %></b>
-      <%= text_field_tag 'title', @ad.title, class: "form-control" %>
-      <br />
+                <%= label_tag 'Titre', nil, class: "font-weight-bold" %>
+                <%= text_field_tag 'title', @ad.title, class: "form-control" %>
 
-      <b><%= label_tag 'Description' %></b>
-      <%= text_field_tag 'description', @ad.description, class: "form-control"  %>
-      <br />
+                <%= label_tag 'Description', nil, class: "font-weight-bold mt-3" %>
+                <%= text_field_tag 'description', @ad.description, class: "form-control"  %>
 
-            <b><%= label_tag 'Type d\'activité' %></b>
-      <b><%= select_tag 'type',options_for_select(["Coup de main", "Cours", "Projet"]), class: "form-control" %></b>
-      <br/> 
+                <%= label_tag 'Type d\'activité', nil, class: "font-weight-bold mt-3" %>
+                <%= select_tag 'type',options_for_select(["Coup de main", "Cours", "Projet"]), class: "form-control" %>
 
-                  <b><%= label_tag 'Catégorie' %></b>
-      <b><%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control" %></b>
-      <br/> 
+                <%= label_tag 'Catégorie', nil, class: "font-weight-bold mt-3" %>
+                <%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control" %>
 
+                <%= label_tag 'Durée', nil, class: "font-weight-bold mt-3" %>
+                <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "encore plus"]), class: "form-control" %>
 
-      <b><%= label_tag 'Durée' %></b>
-      <b><%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "encore plus"]), class: "form-control" %></b>
-      <br/> 
+                <%= label_tag 'Fréquence', nil, class: "font-weight-bold mt-3" %>
+                <%= select_tag 'frequency',options_for_select(["quotidien", "tout les deux jours", "hebdomadaire", "mensuel"]), class: "form-control" %>
 
-      <b><%= label_tag 'Fréquence' %></b>
-      <b><%= select_tag 'frequency',options_for_select(["quotidien", "tout les deux jours", "hebdomadaire", "mensuel"]), class: "form-control" %></b>
-      <br />
+                <p class=" font-weight-bold mt-3 mb-0"> Êtes vous ouvert à d'autres modalités d'échange ? </p>
 
-      <p> <b>Êtes vous ouvert à d'autres modalités d'échange ?</b> </p>
+                <p class="mt-1 mb-0">
+                    <%= radio_button_tag(:other_propositions, "true") %>
+                    <%= label_tag(:other_propositions_yes, "Yes", class: 'mb-0') %> 
+                    <%= radio_button_tag(:other_propositions, "false") %>
+                    <%= label_tag(:other_propositions_no, "No", class: 'mb-0') %>
+                </p>
 
+                <%= label_tag 'Disponibilités', nil, class: "font-weight-bold mt-3"  %>
+                <%= select_tag 'availability',options_for_select(["le matin", "le midi", "le soir", "n'importe quand", "seulement le week-end"]), class: "form-control" %>
 
-      <%= radio_button_tag(:other_propositions, "true") %>
-      <%= label_tag(:other_propositions_yes, "Yes") %> <br>
-      <%= radio_button_tag(:other_propositions, "false") %>
-      <%= label_tag(:other_propositions_no, "No") %>
+                <%= submit_tag "Editer", class: "btn btn-primary mt-2 mb-3" %> 
 
-    <p>  <b><%= label_tag 'Disponibilités' %></b>
-      <b><%= select_tag 'availability',options_for_select(["le matin", "le midi", "le soir", "n'importe quand", "seulement le week-end"]), class: "form-control" %></b> </p>
-      <br />
-
-      <%= submit_tag "Editer", class: "btn btn-primary mb-3" %> <br>
-
-<% end %>
-       <%= button_to "Cliquez ici pour détruire l'annonce", @ad, :method => :delete, class: "btn btn-danger mb-4", data: {confirm: "Êtes-vous sûr ?"} %>
-            
-
-      
-</div>
+                <% end %>
+                <%= button_to "Cliquez ici pour détruire l'annonce", @ad, :method => :delete, class: "btn btn-danger mb-4", data: {confirm: "Êtes-vous sûr ?"} %>
+            </div>
+        </div>
+    </div>
+</section>
