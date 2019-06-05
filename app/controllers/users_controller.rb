@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :dont_show
 
 	def show
 		@user = User.find(params[:id])
