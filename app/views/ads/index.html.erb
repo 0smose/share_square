@@ -10,27 +10,44 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <!-- the list of the ads -->
-<div class="container">
-	<div class="row">
-		<% @ad.each do |ad| %>
-		<div class="col col-sm-4">
-			<div class="card shadow mb-3">
-				<h5 class="card-header"><%= ad.title%></h5>
 
-				<div class="card-body test">
-					<p class="card-text"><%= ad.description %></p>
-
-					<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
-				</div>
-
+<section>
+	<div class="container">
+		<div class="row mb-5">
+			<ul class="nav mb-3" data-isotope-filters="" data-isotope-id="projects">
+				<li class="nav-item">
+					<a class="nav-link .js-filter-initied" href="#" data-filter="*">All</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%= Type.find(2).name %>"><%= Type.find(2).name %></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%=Type.find(1).name%>"><%=Type.find(1).name%></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%=Type.find(3).name%>"><%=Type.find(3).name%></a>
+				</li>
+			</ul>	
+		</div>
+		<div class="row" data-isotope-collection="" data-isotope-id="projects">
+			<div class="row">
+				<% @ad.each do |ad| %>
+					<div class="mb-3 col-sm-4 mb-4" data-isotope-item="" data-category="<%= ad.type.name %>">
+						<div class="card shadow ">
+							<h5 class="card-header"><%= ad.title%></h5>
+							<div class="card-body test">
+								<p class="card-text"><%= ad.description %>
+								</p>
+								<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
+							</div>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
-		<% end %>
-
 	</div>
-</div>
+</section>
 

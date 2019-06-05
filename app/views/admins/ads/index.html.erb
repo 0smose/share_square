@@ -1,34 +1,44 @@
-<div class="container-fluid">
-	<div class="row">
+<section>
+	<div class="container-fluid">
+		<div class="row">
 
-		<!-- Partial for the dashboard -->
-		<%= render 'layouts/dashboard' %>
+			<!-- Partial for the dashboard -->
+			<%= render 'layouts/dashboard' %>
 
-		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-				<h2 class="text-center mt-4 mb-4">Annonces <%= link_to "Créer une annonce", new_admins_ad_path, class: "btn btn-sm btn-info" %></h2><hr>
-			</div>
-			<div class="container">
-				<div class="row">
-					
-					<% @ads.order(created_at: :asc).each do |a| %>
-					
-					<div class="col col-5 card my-2 mx-auto p-3 shadow">
-
-						<!-- We display each user in the dashboard -->
-						<p>
-							<%= "ID: #{a.id}" %><hr>				
-							<p><%= a.title %>
-							<p><b>Type d'annonce : </b><%= a.type.name %></p>
-							<p><b>Categorie : </b><%= a.category.name%></p>
-						</p>	
-						<%= link_to "Voir plus de détails", admins_ad_path(a.id), class: "btn btn-primary" %>		
-					</div> 
-					<% end %>
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+					<h2 class="text-center mt-3 mb-4">Annonces 📝 <%= link_to "Créer une annonce", new_admins_ad_path, class: "btn btn-sm btn-info" %></h2><hr>
 				</div>
-			</div>
-		</main>
+				<div class="container">
+					<div class="row">
+
+						<% @ads.order(created_at: :asc).each do |a| %>
+
+						<div class="col col-5 card my-2 mx-auto p-3 shadow">
+
+							<!-- We display each user in the dashboard -->
+							<p>
+								<%= "ID: #{a.id}" %><hr>				
+								<p><%= a.title %>
+								<p><b>Type d'annonce : </b><%= a.type.name %></p>
+								<p><b>Categorie : </b><%= a.category.name%></p>
+
+								<% if a.validated == true %>
+								<p class="text-muted"><b>En ligne :</b> Oui</p>
+								<% else %>
+									<p class="text-muted"><b>En ligne :</b> Non</p>
+								<% end %>
+
+								</p>	
+								<%= link_to "Voir plus de détails", admins_ad_path(a.id), class: "btn btn-primary" %>
+							</p>		
+						</div> 
+						<% end %>
+					</div>
+				</div>
+			</main>
+		</div>
 	</div>
-</div>
+</section>
 
 
