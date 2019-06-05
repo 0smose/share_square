@@ -12,8 +12,21 @@ class ConversationsController < ApplicationController
 	# We instantiate the @personal_message variable,	
 	# as it will be used inside the view to render a form (to send a new message) 
   @personal_message = PersonalMessage.new
+  set_to_read
 	end
 
+	# We create a method to change the message status from unread to read
+	# We call it in the show method above
+	def set_to_read
+		#We find all the messages in the current conversation
+		@conversation_messages = PersonalMessage.where(conversation_id: @conversation).all
+		@conversation_messages.each do |message|
+			# We mark as read the messages recieved by the current user 
+			if message.user_id != current_user.id
+				message.update(read: true) unless message.read != false
+			end
+		end
+	end
 	private
 
 	def set_conversation
