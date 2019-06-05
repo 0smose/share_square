@@ -1,61 +1,72 @@
-<div class="container mt-4" >
-	<div class="row">
-		<div class="col col-6 mx-auto">
-			<div class="card mb-5 mx-auto">
-				<div class="row no-gutters shadow">
-					<% if @user.avatar.attached? == true %>
-					<div class="col-md-4">
+<section>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Partial for the dashboard -->
+			<%= render 'layouts/dashboard_user' %>
 
-						<%= image_tag @user.avatar, alt: 'avatar', class: 'card-img' %>
-					</div>	
-					<% end %>			
-					<div class="col-md-8">
-						<div class="card-body">
-							<h5 class="card-title">Mon profil</h5>
-							
-							<p class="card-text"><%= @user.first_name %></p>
-							
-							<% if @user.last_name != nil %> 
-							<p class="card-text"><%= @user.last_name.upcase %></p>
-							<% end %> 
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+					<h2 class="text-center mt-3 mb-4"> Mon dashboard <i class="fas fa-user text-primary ml-1"></i></h2><hr>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col col-7 mx-auto">
+							<div class="card mb-5 mx-auto shadow">
+								<div class="row no-gutters">
+									<% if @user.avatar.attached? == true %>
+									<div class="col-md-4">
 
-							<p class="card-text"><%= @user.email %></p>
-							<p class="card-text"><b>Description:</b> <%= @user.description %></p>
-							<p class="card-text"><b>Compétence(s):</b> <%= @user.skills %></p>
-							<p class="card-text"><%= link_to "Editer mon profil", edit_user_path(params[:id]), class: "btn btn-sm btn-primary" %> 	
-						</div>
+										<%= image_tag @user.avatar, alt: 'avatar', class: 'card-img' %>
+									</div>	
+									<% end %>			
+									<div>
+										<div class="card-body col col-5">
+											<h5 class="card-title">Mon profil</h5>
+
+											<p class="card-text"><%= @user.first_name %></p>
+
+											<% if @user.last_name != nil %> 
+											<p class="card-text"><%= @user.last_name.upcase %></p>
+											<% end %> 
+
+											<p class="card-text"><%= @user.email %></p>
+											<p class="card-text"><b>Description:</b> <%= @user.description %></p>
+											<p class="card-text"><b>Compétence(s):</b> <%= @user.skills %></p>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+						<div class="container">
+							<div class="h3 mb-2 border-bottom border-gray">Mes annonces</div>
+							<div class="row">
+								<!-- If the current user does not have ad yet, we change thh text -->
+								<% if current_user.ads[0] == nil %> 
+								<div class="col col-12 mt-4">
+									<div class="p">Vous n'avez pas encore d'annonces en ligne.</div>
+								</div>
+								<% else %> 
+								<% current_user.ads.each do |ad| %>
+								<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
+									<!-- We display each ad with all informations -->
+									<div class="profil-box mt-3">
+										<div class="mb-2"><p><b>Mise en ligne le :</b> <%= ad.created_at %></div></p>
+										<p><b>Titre : </b><%= ad.title %></p>
+										<p><b>Description : </b><%= ad.description %></p>
+										<p><b>Durée : </b><%= ad.duration %></p>
+										<p><b>Fréquence : </b><%= ad.frequency %></p>
+										<p><b>Type d'annonce : </b><%= ad.type.name %></p>
+										<p><b>Catégorie : </b><%= ad.category.name %></p>
+										<%= link_to "Editer l'annonce", edit_ad_path(ad), class: "btn btn-primary" %>
+									</div>
+								</div>
+								<% end %>
+							</div>
+							<% end %>		
+						</div>				
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	</div>
-</div>
-
-<div class="container">
-	<div class="h3 mb-2 border-bottom border-gray">Mes annonces</div>
-	<div class="row">
-		<!-- If the current user does not have ad yet, we change thh text -->
-		<% if current_user.ads[0] == nil %> 
-		<div class="col col-12 mt-4">
-			<div class="p">Vous n'avez pas encore d'annonces en ligne.</div>
-		</div>
-		<% else %> 
-		<% current_user.ads.each do |ad| %>
-		<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
-			<!-- We display each ad with all informations -->
-			<div class="profil-box mt-3">
-				<div class="mb-2"><p><b>Mise en ligne le :</b> <%= ad.created_at %></div></p>
-					<p><b>Titre : </b><%= ad.title %></p>
-					<p><b>Description : </b><%= ad.description %></p>
-					<p><b>Durée : </b><%= ad.duration %></p>
-					<p><b>Fréquence : </b><%= ad.frequency %></p>
-					<p><b>Type d'annonce : </b><%= ad.type.name %></p>
-					<p><b>Catégorie : </b><%= ad.category.name %></p>
-					<%= link_to "Editer l'annonce", edit_ad_path(ad), class: "btn btn-primary" %>
-				</div>
-			</div>
-			<% end %>
-		</div>
-		<% end %>		
-	</div>
-</div>
+</section>
