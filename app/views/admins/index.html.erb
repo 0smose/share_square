@@ -1,42 +1,39 @@
-<div class="container-fluid">
-  <div class="row">
-    <!-- Partial for the dashboard -->
-    <%= render 'layouts/dashboard' %>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Partial for the dashboard -->
+      <%= render 'layouts/dashboard' %>
 
-    <!-- Main content -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h2><%= @total_ad_count %></h2>
-            <p>Annonces sont en ligne</p>
-          </div>
-          <div class="col">
-            <h2><%= @total_users_count %></h2>
-            <p>Utilisateurs sont inscrits</p>
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-3">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard administrateur 🏠</h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2><%= @total_ad_count %></h2>
+              <p>Annonces sont en ligne</p>
+            </div>
+            <div class="col">
+              <h2><%= @total_users_count %></h2>
+              <p>Utilisateurs sont inscrits</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="mt-4">
-        <% @ads.each do |a| %>
-        <div class="media">
+        <div class="mt-4">
+          <h4>Annonces en attente de validation <i class="far fa-calendar-check text-primary"></i></h4>
+          <% @ads.each do |a| %>
+          <% if a.validated == nil %>
           <p class="media-body pb-1 small lh-125 border-bottom border-gray">
-            <strong class="d-block"><%= a.title %> <i class="fa fa-trash text-danger" aria-hidden="true"></i></strong>
+            <p><%= a.title %><%= link_to(edit_admin_path(a.id)) do %>
+            <i class="far fa-eye float-right mr-4 text-primary ml-2"></i>
+            <% end %></p>
           </p>
+          <% end %>
+          <% end %>
         </div>
-        <% end %>
-      </div>
-    </main>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-
+      </main>
     </div>
   </div>
-</div>
+</section>
