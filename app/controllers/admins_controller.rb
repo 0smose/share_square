@@ -24,7 +24,7 @@ class AdminsController < ApplicationController
     @ad = Ad.find(params[:id])
     if @ad.update(validated: params[:validated])
       flash[:success] = "Vous avez bien édité l'annonce"
-      redirect_to admins_ad_path
+      redirect_to admins_path
     else
       flash[:alert] = "Il y a eu un problème"
       render :edit
