@@ -3,11 +3,11 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	
 	def show
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 	end
 
 	def dont_show
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 		if @user != current_user
 			redirect_to root_path
 			flash[:alert] = "Information confidentielle"
@@ -15,11 +15,11 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 	end
 
 	def update
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 		if current_user == @user
 			if @user.update(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], skills: params[:skills])
 				redirect_to user_path 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 		@user.destroy
 		redirect_to "/"
 		flash[:success] = "Ton profil a été supprimé avec succès"

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+ extend FriendlyId
+  friendly_id :user_slug_name, use: :slugged
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -48,5 +51,9 @@ class User < ApplicationRecord
     end
     # We return the number of elements in the array
     return @unread_messages.size
+  end
+
+  def user_slug_name
+    "#{self.first_name} #{self.last_name} #{self.id}"
   end
 end
