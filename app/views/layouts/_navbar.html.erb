@@ -35,7 +35,7 @@
             <% if user_signed_in? %>
             <% if current_user.is_admin == true %>
             <li class="nav-item">
-              <%= link_to "Dashboard", "admins/index", class: "nav-link" %>
+              <%= link_to "Dashboard", admins_path, class: "nav-link" %>
             </li> 
             <% end %>   
             <% end %>   
