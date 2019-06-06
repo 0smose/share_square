@@ -1,15 +1,22 @@
-<h1>Chatting with <%= "#{@conversation.with(current_user).first_name} #{@conversation.with(current_user).last_name}" %></h1>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1><%= "#{@conversation.with(current_user).first_name} #{@conversation.with(current_user).last_name}" %></h1>
 
-<div id="conversation-main">
-  <div id="conversation-body">
-    <%= render @conversation.personal_messages %>
-  </div>
+				<div id="conversation-main">
+					<div id="conversation-body">
+						<%= render @conversation.personal_messages %>
+					</div>
 
-  <%= form_for @personal_message do |f| %>
-    <%= hidden_field_tag 'conversation_id', @conversation.id %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-
-    <%= f.submit %>
-  <% end %>
-</div>
+					<%= form_for @personal_message do |f| %>
+						<%= hidden_field_tag 'conversation_id', @conversation.id %>
+						<%= f.label "Coucou" %>
+						<%= f.text_area :body %>
+					<%= f.submit %>
+					<% end %>
+				</div>				
+			</div>
+		</div>
+	</div>
+</section>
