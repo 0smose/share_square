@@ -1,6 +1,6 @@
 <!-- Partial for the flash alerts -->
 <% flash.each do |key, value| %>
-	<div class="<%= flash_class(key) %>" style="position:absolute; top: 80px; width:100%; z-index:999999;">
+	<div class="<%= flash_class(key) %>" style="position:absolute; top: 80px; width:100%; z-index:3">
 		<%= value %>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
 	</div>
