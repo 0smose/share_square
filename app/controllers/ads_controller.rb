@@ -21,7 +21,6 @@ class AdsController < ApplicationController
 			redirect_to root_path
 			flash[:success] = "Votre annonce a été crée"
 		else
-			flash[:alert] = "Il y a un eu un problème..."
 			render :new
 		end
 	end

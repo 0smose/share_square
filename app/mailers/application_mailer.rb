@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'thplyon02@protonmail.com'
+  default from: 'no-reply@share-square.com'
   layout 'mailer'
 end
