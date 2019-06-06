@@ -23,3 +23,13 @@
 .big-icon {
 	font-size:3.5em;
 }
+
+/*Font size for chat messages*/
+.chat-msg {
+	font-size:0.9em;
+}
+
+/*---------- PERSONAL BACKGROUND COLORS ---------*/
+.bg-light-grey {
+	background-color: #f8f9fa;
+}

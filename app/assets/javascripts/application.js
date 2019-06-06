@@ -56,5 +56,5 @@ window.addEventListener("load", function () {
 // JQuery
 $(document).ready(function() {
 	// Make an element disappear after a short time
-  $('.delay_fadeout').delay(4000).fadeOut(400); 
+  $('.delay_fadeout').delay(2750).fadeOut(400); 
 });
