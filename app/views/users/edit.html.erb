@@ -7,13 +7,11 @@
 
                   <h4>Éditer mes informations personnelles</h4>
 
-                  <% if @user.avatar.attached? == true %>
-                  <div class="col-md-4">
-                        <%= image_tag @user.avatar, alt: 'avatar', class: 'card-img' %>
-                  </div>
-                  <% end %>
+                 
+                   <%= user_avatar(@user.id, "avatar avatar-xlg") %>
 
-                  <%= form_tag user_avatars_path(@user), multipart: true, class: "btn btn-sm" do %>
+
+                  <%= form_tag user_avatars_path(@user.id), multipart: true, class: "btn btn-sm" do %>
                   <%= file_field_tag :avatar %>
                   <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm mt-2" %>
                   <% end %>
