@@ -1,6 +1,6 @@
 class ConversationMailer < ApplicationMailer
 	# We set the default sender address
-	default from: 'thplyon02@protonmail.com'
+	default from: 'no-reply@share-square.com'
 
 	def new_conversation_email(sender, recipient)
 		# We get the sender and the recipient

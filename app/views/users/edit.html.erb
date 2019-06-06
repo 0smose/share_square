@@ -1,10 +1,11 @@
 <section>
       <div class="container mt-4 ">
            <div class="row">
+            <!-- Partial user dashboard -->
             <%= render 'layouts/dashboard_user' %></%>
             <div class="col col-6 mx-auto text-dark">
 
-                  <h4>Editer vos informations personnelles</h4>
+                  <h4>Éditer mes informations personnelles</h4>
 
                   <% if @user.avatar.attached? == true %>
                   <div class="col-md-4">
@@ -20,23 +21,23 @@
                   <!-- Form zone  -->
                   <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
 
-                  <b><%= label_tag 'Prénom' %></b>
+                  <b><%= label_tag 'Mon prénom :' %></b>
                   <%= text_field_tag 'first_name', @user.first_name, class: "form-control"  %>
                   <br />
 
-                  <b><%= label_tag 'Nom' %></b>
+                  <b><%= label_tag 'Mon nom :' %></b>
                   <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
                   <br />
 
-                  <b><%= label_tag 'Description' %></b>
+                  <b><%= label_tag 'Ma description :' %></b>
                   <%= text_area_tag 'description', @user.description, class: "form-control"  %>
                   <br />
 
-                  <b><%= label_tag 'Compétences' %></b>
+                  <b><%= label_tag 'Mes compétences :' %></b>
                   <%= text_field_tag 'skills', @user.skills, class: "form-control"  %>
                   <br />
 
-                  <%= submit_tag "Editer", class: "btn btn-primary mb-3" %>
+                  <%= submit_tag "Éditer mon profil", class: "btn btn-primary mb-3" %>
 
                   <% end %>
             </div>

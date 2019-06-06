@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 	# We set the default sender address
-	default from: 'thplyon02@protonmail.com'
+	default from: 'no-reply@share-square.com'
 
 	# We prepare a method that will be called by the model each time an user is created
 	def welcome_email(user)

@@ -1,4 +1,8 @@
 class Ad < ApplicationRecord
+
+	 extend FriendlyId
+  friendly_id :title, use: :slugged
+
 	validates :title, presence: true, length: {maximum: 75}
 	validates :description, presence: true, length: {in: 50..2000}
 	validates :type, presence: true

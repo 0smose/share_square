@@ -30,7 +30,7 @@ class ConversationsController < ApplicationController
 	private
 
 	def set_conversation
-	  @conversation = Conversation.find_by(id: params[:id])
+	  @conversation = Conversation.friendly.find_by(slug: params[:id])
 	end
 
 	def check_participating!

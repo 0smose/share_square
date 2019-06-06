@@ -2,41 +2,41 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col col-6 mx-auto text-dark">
-
-                <h2>Créer une annonce</h2>
+                <%=render 'ads/error_messages' %>
+                <h2>Créer votre annonce</h2>
 
                 <!-- Zone du formulaire -->
                 <%= form_tag url_for(action: 'create'), method: "post", class: "mt-4" do %>
 
-                 <%= label_tag 'Titre', nil, class: "font-weight-bold" %>
+                 <%= label_tag 'Quel sera son titre ? :', nil, class: "font-weight-bold" %>
                 <%= text_field_tag 'title', @ad.title, class: "form-control" %>
 
-                <%= label_tag 'Description', nil, class: "font-weight-bold mt-3" %>
-                <%= text_field_tag 'description', @ad.description, class: "form-control"  %>
+                <%= label_tag 'Sa description :', nil, class: "font-weight-bold mt-3" %>
+                <%= text_area_tag 'description', @ad.description, placeholder: "50 caractères minimum", class: "form-control"  %>
                 
-                <%= label_tag 'Type d\'activité', nil, class: "font-weight-bold mt-3" %>
+                <%= label_tag 'Quel type d\'activité voulez-vous proposer / demander ? :', nil, class: "font-weight-bold mt-3" %>
                 <%= select_tag 'type',options_for_select(["Coup de main", "Cours", "Projet"]), class: "form-control" %>
 
-                <%= label_tag 'Catégorie', nil, class: "font-weight-bold mt-3" %>
+                <%= label_tag 'Sa catégorie :', nil, class: "font-weight-bold mt-3" %>
                 <%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control" %>
 
-                <%= label_tag 'Durée', nil, class: "font-weight-bold mt-3" %>
-                <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "encore plus"]), class: "form-control" %>
+                <%= label_tag 'Sa durée :', nil, class: "font-weight-bold mt-3" %>
+                <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control" %>
 
-                <%= label_tag 'Fréquence', nil, class: "font-weight-bold mt-3" %>
-                <%= select_tag 'frequency',options_for_select(["une seule fois", "quotidien", "tout les deux jours", "hebdomadaire", "mensuel"]), class: "form-control" %>
+                <%= label_tag 'Sa fréquence :', nil, class: "font-weight-bold mt-3" %>
+                <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control" %>
 
-                <p class=" font-weight-bold mt-3 mb-0"> Êtes vous ouvert à d'autres modalités d'échange ? </p>
+                <p class=" font-weight-bold mt-3 mb-0"> Êtes vous ouvert à d'autres modalités d'échange ? :</p>
 
-                <p class="mt-1 mb-0">
-                    <%= radio_button_tag(:other_propositions, "true") %>
-                    <%= label_tag(:other_propositions_yes, "Yes", class: 'mb-0') %> 
+                <p class="mt-1">
+                    <p><%= radio_button_tag(:other_propositions, "true") %>
+                    <%= label_tag(:other_propositions_yes, "Oui", class: 'mb-0') %></p>
                     <%= radio_button_tag(:other_propositions, "false") %>
-                    <%= label_tag(:other_propositions_no, "No", class: 'mb-0') %>
+                    <%= label_tag(:other_propositions_no, "Non", class: 'mb-0') %>
                 </p>
               
-                <%= label_tag 'Disponibilités', nil, class: "font-weight-bold mt-3"  %>
-                <%= select_tag 'availability',options_for_select(["le matin", "le midi", "le soir", "n'importe quand", "seulement le week-end"]), class: "form-control" %>
+                <%= label_tag 'Vos disponibilités :', nil, class: "font-weight-bold mt-2"  %>
+                <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"]), class: "form-control" %>
             
                 <%= submit_tag "Créer l'annonce", class: "btn btn-primary mb-3 mt-3" %>
 

@@ -1,4 +1,7 @@
 class Conversation < ApplicationRecord
+
+	extend FriendlyId
+	friendly_id :conversation_slug, use: :slugged
 	belongs_to :sender, class_name: 'User'
 	belongs_to :recipient, class_name: 'User'
 	validates :sender, uniqueness: {scope: :recipient}
@@ -33,4 +36,9 @@ class Conversation < ApplicationRecord
 	scope :between, -> (sender_id, recipient_id) do
   	where(sender_id: sender_id, recipient_id: recipient_id).or(where(sender_id: recipient_id, recipient_id: sender_id)).limit(1)
 	end
+
+	def conversation_slug
+		"#{self.sender.first_name} #{self.recipient.first_name}"
+	end
+
 end
