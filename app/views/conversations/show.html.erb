@@ -19,8 +19,7 @@
 							<%= render @conversation.personal_messages %>
 						</div>
 					</div>				
-				</div>
-			</div>
+		
 
 			<div class="row">
 				<div class="col">
@@ -28,12 +27,13 @@
 					<!-- Form to send a new message -->
 					<%= form_for @personal_message do |f| %>
 					<%= hidden_field_tag 'conversation_id', @conversation.id %>
-					<%= f.text_area :body %>
+					<%= f.text_area :body, class: "w100 col-10" %>
 
-					<%= f.submit "test", class: "btn btn-primary" %>
+					<%= f.submit "test", class: "btn btn-primary col-2" %>
 					<% end %>
 				</div>
 			</div>
 		</div>
-
+		</div>
+			</div>
 	</section>
