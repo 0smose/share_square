@@ -31,7 +31,7 @@ class PersonalMessagesController < ApplicationController
     # If the :recipient_id is set (that is, the “send a message” link was clicked),  
     if params[:recipient_id]
       # we try to find the other user to address the message.
-      @recipient = User.find_by(slug: params[:recipient_id])
+      @recipient = User.find_by(id: params[:recipient_id])
      
       # If the user was not found, redirect to the root path. 
        redirect_to(root_path) and return  unless @recipient
