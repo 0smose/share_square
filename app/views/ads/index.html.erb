@@ -44,6 +44,8 @@
 							<div class="card-body test">
 								<p class="card-text"><%= ad.description %>
 								</p>
+								<p class="card-text"><%= ad.user.first_name %> <%= ad.user.last_name %>
+								</p>
 								<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
 							</div>
 						</div>
