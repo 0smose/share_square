@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  # This controller manages the ads validation.
 	before_action :authenticate_user!
 	before_action :check_if_admin
 
@@ -27,17 +28,6 @@ class AdminsController < ApplicationController
     else
       flash[:alert] = "Il y a eu un problème"
       render :edit
-    end
-  end
-
-  def destroy
-    @ad = Ad.find(params[:id])
-    if @ad.destroy
-      flash[:success] = "Vous avez bien supprimé l'annonce"
-      redirect_to "/"
-    else
-      flash[:alert] = "Il y a eu un problème"
-      redirect_to "/"
     end
   end
 
