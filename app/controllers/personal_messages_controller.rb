@@ -15,10 +15,9 @@ class PersonalMessagesController < ApplicationController
                                           recipient_id: @recipient.id) 
     # The personnal messages are "created" and saved later in the data base
     @personal_message = current_user.personal_messages.build(personal_message_params)
+  
     @personal_message.conversation_id = @conversation.id
     @personal_message.save!
-
-    flash[:success] = "Votre message a bien été envoyé !"
     redirect_to conversation_path(@conversation)
   end
 
@@ -32,7 +31,8 @@ class PersonalMessagesController < ApplicationController
     # If the :recipient_id is set (that is, the “send a message” link was clicked),  
     if params[:recipient_id]
       # we try to find the other user to address the message.
-      @recipient = User.find_by(id: params[:recipient_id])
+      @recipient = User.find_by(slug: params[:recipient_id])
+     
       # If the user was not found, redirect to the root path. 
        redirect_to(root_path) and return  unless @recipient
       # If the user was found, check if the conversation between him and the current user already exist.
