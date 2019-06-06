@@ -22,13 +22,13 @@
 					<a class="nav-link .js-filter-initied" href="#" data-filter="*">Tout les types d'annonces</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%= Type.find(2).name %>"><%= Type.find(2).name %></a>
+					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%= Type.find_by(name: "Coup de main").name %>"><%= Type.find_by(name: "Coup de main").name %></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%=Type.find(1).name%>"><%=Type.find(1).name%></a>
+					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%= Type.find_by(name: "Cours").name%>"><%=Type.find_by(name: "Cours").name %></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%=Type.find(3).name%>"><%=Type.find(3).name%></a>
+					<a class="nav-link .js-filter-initied active" href="#" data-filter="<%=Type.find_by(name: "Projet").name%>"><%=Type.find_by(name: "Projet").name%></a>
 				</li>
 			</ul>	
 		</div>
