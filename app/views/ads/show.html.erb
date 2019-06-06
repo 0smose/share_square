@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-			<%= link_to "Retour aux annonces", ads_path, class: "btn btn-primary btn-sm" %> 
+				<%= link_to "Retour aux annonces", ads_path, class: "btn btn-primary btn-sm" %> 
 				<nav aria-label="breadcrumb" class="mt-3">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#"><%=@ad.type.name%></a></li>
@@ -22,7 +22,7 @@
 					<li class="list-group-item">Disponibilités : <%= @ad.availability %></li>	
 					<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user), class: "btn btn-primary btn-sm mt-3" %>
 				</ul>
-
+			</div>
 		</div>
 	</div>
 </section>
