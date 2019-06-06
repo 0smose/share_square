@@ -35,6 +35,7 @@
 		<div class="row " data-isotope-collection="" data-isotope-id="types">
 			<div class="container">
 				<% @ad.each do |ad| %>
+				<% if ad.validated == true %>
 				<div class="row">
 					<div class="col-sm-4" data-isotope-item="" data-category="<%= ad.type.name %>">
 						<div class="card shadow ">
@@ -47,6 +48,7 @@
 						</div>
 					</div>
 				</div>
+				<% end %>
 				<% end %>
 			</div>
 		</div>

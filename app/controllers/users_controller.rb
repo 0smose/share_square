@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :dont_show
 	before_action :authenticate_user!
-
+	
 	def show
 		@user = User.find(params[:id])
 	end
@@ -39,5 +39,4 @@ class UsersController < ApplicationController
 		redirect_to "/"
 		flash[:success] = "Ton profil a été supprimé avec succès"
 	end
-
 end

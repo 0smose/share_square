@@ -29,9 +29,14 @@
         <!-- Flash messages -->
     <%= render 'layouts/flash' %>
 
+    <!-- Page content -->
     <%= yield %>
 
+    <!-- Back to top button -->
     <%= render 'layouts/back_to_top' %>
+
+    <!-- Footer -->
+    <%= render 'layouts/footer' %>
 
     <%= javascript_include_tag 'application' %>
     <!-- Removes page load animation when window is finished loading -->
