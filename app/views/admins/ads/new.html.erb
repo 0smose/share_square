@@ -1,47 +1,50 @@
-<div class="container">
-      <div class="row">
-            <!-- Partial for the dashboard -->
-            <%= render 'layouts/dashboard' %>
-            <div class="col col-5 mx-auto mt-4 text-dark">
+<section>
+      <div class="container">
+            <div class="row">
+                  <!-- Partial for the dashboard -->
+                  <%= render 'layouts/dashboard' %>
+                  <div class="col col-5 mx-auto mt-3 text-dark">
 
-                  <h2 class="text-center">Créer une annonce</h2>
+                        <h2 class="text-center">Créer une annonce</h2>
 
-                  <!-- Zone du formulaire -->
-                  <%= form_tag url_for(action: 'create'), method: "post", class: "mt-4" do %>
+                        <!-- Zone du formulaire -->
+                        <%= form_tag url_for(action: 'create'), method: "post", class: "mt-4" do %>
 
-                  <%= label_tag 'Titre' %>
-                  <%= text_field_tag 'title', @ad.title, class: "form-control mb-3" %>
+                        <%= label_tag 'Son titre' %>
+                        <%= text_field_tag 'title', @ad.title, class: "form-control mb-3" %>
 
-                  <%= label_tag 'Description' %>
-                  <%= text_area_tag 'description', @ad.description, class: "form-control mb-3"  %>
-                  
+                        <%= label_tag 'Sa description' %>
+                        <%= text_area_tag 'description', @ad.description, class: "form-control mb-3"  %>
 
-                  <%= label_tag 'Type d\'activité' %>
-                  <%= select_tag 'type',options_for_select(["Coup de main", "Cours", "Projet"]), class: "form-control mb-3" %>
 
-                  <%= label_tag 'Catégorie' %>
-                  <%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control mb-3" %>
+                        <%= label_tag 'Son type d\'activité' %>
+                        <%= select_tag 'type',options_for_select(["Coup de main", "Cours", "Projet"]), class: "form-control mb-3" %>
 
-                  <%= label_tag 'Durée' %>
-                  <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control mb-3" %>
+                        <%= label_tag 'Sa catégorie' %>
+                        <%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control mb-3" %>
 
-                  <%= label_tag 'Fréquence' %>
-                  <%= select_tag 'frequency',options_for_select(["Quotidien", "Tout les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control mb-3" %>
-                  
-                  <p> Êtes vous ouvert à d'autres modalités d'échange ? </p>
+                        <%= label_tag 'Sa durée' %>
+                        <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control mb-3" %>
 
-                  <%= radio_button_tag(:other_propositions, "true") %>
-                  <%= label_tag(:other_propositions_yes, "Yes") %> <br>
-                  <%= radio_button_tag(:other_propositions, "false") %>
-                  <%= label_tag(:other_propositions_no, "No", class: "mb-3") %>
+                        <%= label_tag 'Sa fréquence' %>
+                        <%= select_tag 'frequency',options_for_select(["Quotidien", "Tout les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control mb-3" %>
 
-                  <p><%= label_tag 'Disponibilités' %>
-                  <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"]), class: "form-control mb-3" %> </p>
-                  
+                        <p> Êtes vous ouvert à d'autres modalités d'échange ? </p>
 
-                  <%= submit_tag "Créer l'annonce", class: "btn btn-primary mb-3" %>
+                        <%= radio_button_tag(:other_propositions, "true") %>
+                        <%= label_tag(:other_propositions_yes, "Yes") %> <br>
+                        <%= radio_button_tag(:other_propositions, "false") %>
+                        <%= label_tag(:other_propositions_no, "No", class: "mb-3") %>
 
-                  <% end %>
+                        <p><%= label_tag 'Vos disponibilités' %>
+                              <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"]), class: "form-control mb-3" %> </p>
+
+
+                              <%= submit_tag "Créer l'annonce", class: "btn btn-primary mb-3" %>
+                        </p>
+
+                        <% end %>
+                  </div>
             </div>
       </div>
-</div>
+</section>
