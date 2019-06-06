@@ -18,7 +18,6 @@ class PersonalMessagesController < ApplicationController
   
     @personal_message.conversation_id = @conversation.id
     @personal_message.save!
-
     redirect_to conversation_path(@conversation)
   end
 
@@ -35,8 +34,7 @@ class PersonalMessagesController < ApplicationController
       @recipient = User.find_by(slug: params[:recipient_id])
      
       # If the user was not found, redirect to the root path. 
-      # ---------FLASH ERROR TO DISPLAY -------------
-      redirect_to(root_path) and return unless @recipient
+       redirect_to(root_path) and return  unless @recipient
       # If the user was found, check if the conversation between him and the current user already exist.
       @conversation = Conversation.between(current_user.id, @recipient.id)[0]
     else

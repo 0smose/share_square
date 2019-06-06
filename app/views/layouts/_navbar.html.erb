@@ -29,13 +29,13 @@
               <%= link_to "Voir les annonces", ads_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "A propos", "#", class: "nav-link" %>
+              <%= link_to "A propos", static_pages_about_us_path, class: "nav-link" %>
             </li>
             <!-- Display the admin dashboard button if the current user is admin --> 
             <% if user_signed_in? %>
             <% if current_user.is_admin == true %>
             <li class="nav-item">
-              <%= link_to "Dashboard", "admins/index", class: "nav-link" %>
+              <%= link_to "Dashboard", admins_path, class: "nav-link" %>
             </li> 
             <% end %>   
             <% end %>   
