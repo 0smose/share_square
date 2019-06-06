@@ -58,3 +58,6 @@ $(document).ready(function() {
 	// Make an element disappear after a short time
   $('.delay_fadeout').delay(4000).fadeOut(400); 
 });
+
+// JS
+//= require ads/script

@@ -33,6 +33,17 @@
 				</li>
 			</ul>	
 		</div>
+		<div class="categories">	
+		<p class="all_categories">Toutes les catégories d'annonces </p>
+
+		<% @categories.each do |category| %>
+		
+		<li class="nav-item adcategory">
+			<%= category.name %>
+		</li>
+			<% end %>
+	</div>
+
 		<div class="row " data-isotope-collection="" data-isotope-id="types">
 			<div class="container">
 				<% @ad.each do |ad| %>
@@ -40,7 +51,7 @@
 				<div class="row">
 					<div class="col-sm-4" data-isotope-item="" data-category="<%= ad.type.name %>">
 						<div class="card shadow ">
-							<h5 class="card-header"><%= ad.title%></h5>
+							<h5 class="card-header"><%= ad.category.name%></h5>
 							<div class="card-body test">
 								<p class="card-text"><%= ad.description %>
 								</p>

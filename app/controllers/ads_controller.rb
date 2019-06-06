@@ -4,6 +4,7 @@ class AdsController < ApplicationController
 
 	def index
 		@ad = Ad.all.reverse
+		@categories = Category.all
 	end
 
 	def show
