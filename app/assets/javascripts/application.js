@@ -43,6 +43,7 @@
 //= require activestorage
 //= require_tree .
 
+
 // ---------- THEME SCRIPTS ----------
 
 // Removes page load animation when window is finished loading -->
