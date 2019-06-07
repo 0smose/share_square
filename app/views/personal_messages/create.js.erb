@@ -1,0 +1,8 @@
+// Display new message with Ajax
+document.getElementById("conversation-body").insertAdjacentHTML("beforeend", "<%= j render 'personal_message', personal_message: @personal_message %>");
+
+
+$("#send-btn").click(function() {
+	var textField = $("#text-field");
+    textField.value = '';
+});
