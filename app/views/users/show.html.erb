@@ -2,33 +2,46 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<div class="h3 mb-2 border-bottom border-gray">Mes annonces</div>
+				<p class="h3 mb-2 border-bottom border-gray">Mes annonces</p>
 				<!-- If the current user doe'n have any ad yet, we change the text -->
 				<% if current_user.ads[0] == nil %> 
-				<div class="mt-4">
-					<div class="p">Vous n'avez pas encore d'annonces en ligne.</div>
-				</div>
-				<% else %> 
-				<% current_user.ads.each do |ad| %>
-				<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
-					<!-- We display each ad with all informations -->
-					<div class="profil-box mt-3">
-						<div class="mb-2"><p><b>Mise en ligne le :</b> <%= ad.created_at %></div></p>
-						<p><b>Titre : </b><%= ad.title %></p>
-						<p><b>Description : </b><%= ad.description %></p>
-						<p><b>Durée : </b><%= ad.duration %></p>
-						<p><b>Fréquence : </b><%= ad.frequency %></p>
-						<p><b>Type d'annonce : </b><%= ad.type.name %></p>
-						<p><b>Catégorie : </b><%= ad.category.name %></p>
-						<%= link_to "Editer l'annonce", edit_ad_path(ad), class: "btn btn-primary" %>
-						 <p><%= link_to "Supprimer l'annonce", ad_path(ad), :method => :delete, class: "btn btn-danger mt-2", data: {confirm: "Êtes-vous sûr ?"} %>
-						 </p>
+					<div class="mt-4">
+						<p>Vous n'avez pas encore d'annonces en ligne.</p>
 					</div>
-				</div>
-				<% end %>
+				<% else %> 
+					<% current_user.ads.each do |ad| %>
+						<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
+							<!-- We display each ad with all informations -->
+							<div class="profil-box mt-3">
+								<% if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.localtime.strftime("%d/%m/%y") %>
+
+								  <p class="mb-2"><b>Mise en ligne :</b> Aujourd'hui <%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
+								<% elsif ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.yesterday.localtime.strftime("%d/%m/%y") %>
+								<p class="mb-2"><b>Mise en ligne :</b> Hier <%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
+
+								<% else %>
+								
+								<p class="mb-2"><b>Mise en ligne le : </b><%= ad.created_at.localtime.strftime("%d/%m/%y %H:%M") %></p>
+								<% end %>
+								
+								<p><b>Type d'annonce : </b> </b><%= ad.type.name %></p>
+								<p><b>Catégorie : </b><%= ad.category.name %></p>
+								<p><b>Titre : </b><%= ad.title %></p>
+								<p><b>Description : </b><%= ad.description %></p>
+								<p><b>Durée : </b><%= ad.duration %></p>
+								<p><b>Fréquence : </b><%= ad.frequency %></p>
+								
+								<div class="text-center">
+								<%= link_to "Editer l'annonce", edit_ad_path(ad), class: "btn btn-primary" %>
+								 <p><%= link_to "Supprimer l'annonce", ad_path(ad), :method => :delete, class: "btn btn-danger mt-2 ", data: {confirm: "Êtes-vous sûr ?"} %>
+								 </p>
+								</div>
+							</div>
+						</div>
+					<% end %>
 				<% end %>		
-			</div>		
+				</div>		
+			</div>
 		</div>
 	</div>
-</div>
 </section>
