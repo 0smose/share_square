@@ -52,11 +52,6 @@ footer {
 .bg-light-grey {
 	background-color: #f8f9fa;
 }
- /*personal settings for ads index */
-
-.card-width {
-	min-width: 1000px;
-}
 
 /*---------- Ad index buttons change color when checked ---------*/
 .button.is-checked {
