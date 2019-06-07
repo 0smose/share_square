@@ -19,6 +19,25 @@
 *= require_self
 */
 
+
+/* Make the footer sticky */
+
+html {
+	position: relative;
+	min-height:100%;
+}
+
+body {
+	margin-bottom:280px;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	height: 280px;
+}
+
 /*Big icons (ex: landing page ad type)*/
 .big-icon {
 	font-size:3.5em;
