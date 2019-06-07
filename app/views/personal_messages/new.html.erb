@@ -1,16 +1,23 @@
-<section>
+<section class="mt-3">
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				<h1>New message to <%= "#{@recipient.first_name} #{@recipient.last_name}" %></h1>
-
-				<%= form_for @personal_message do |f| %>
-				<%= hidden_field_tag 'recipient_id', @recipient.id %>
-
-				<%= f.text_area :body %>
-
-				<%= f.submit %>
-				<% end %>				
+			<div class="col col-8 offset-md-2">
+				<h4>Contacter <%= "#{@recipient.first_name}" %> <%= "#{@recipient.last_name}" %></h4>
+				<div class="row m-0 p-0 mt-0 bg-light-grey">
+					<div class="col p-4">
+						<%= form_for @personal_message do |f| %>
+						<%= hidden_field_tag 'recipient_id', @recipient.id %>
+						<div class="container">
+							<div class="row no-gutter">
+								<%= f.text_field :body, placeholder: "Écrire un nouveau message..", class: "col-9 py-2" %>
+								<%= button_tag(type: "submit", class: " col-2 py-2 btn btn-primary btn ml-1") do %>
+								<i class="fas fa-paper-plane"></i>
+								<% end %>
+							</div>
+						</div>
+						<% end %>			
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
