@@ -58,5 +58,7 @@ $(document).ready(function() {})
 	// Make an element disappear after a short time
 
 
-//= require script
+//= require ads_filter
+	//Manages the double filter in ad's index
+
 
