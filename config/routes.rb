@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # ------- Route declarations : ---------
   resources :home, only: [:index]
   resources :ads
-  resources :admins, only: [:index, :edit, :update]
+  resources :admins, only: [:index, :edit, :update, :destroy]
 
   # Static pages
   get 'static_pages/about_us'

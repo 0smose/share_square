@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_many :sender_conversations, class_name: 'Conversation', foreign_key: 'sender_id'
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
   has_many :personal_messages, dependent: :destroy
-  has_many :ads
+  has_many :ads, dependent: :destroy
   has_one_attached :avatar
   after_create :welcome_send
   after_destroy :good_bye_send

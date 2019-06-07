@@ -23,11 +23,22 @@ class AdminsController < ApplicationController
   def update
     @ad = Ad.find(params[:id])
     if @ad.update(validated: params[:validated])
-      flash[:success] = "Vous avez bien édité l'annonce"
+      flash[:success] = "Vous avez bien validé l'annonce !"
       redirect_to admins_path
     else
       flash[:alert] = "Il y a eu un problème"
       render :edit
+    end
+  end
+
+  def destroy
+    @ad = Ad.find(params[:id])
+    if @ad.destroy
+      flash[:success] = "L'annonce a bien été supprimée !"
+      redirect_to admins_users_path
+    else
+      flash[:alert] = "Il y a eu un problème !"
+      redirect_to admins_users_path
     end
   end
 
