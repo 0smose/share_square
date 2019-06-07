@@ -3,6 +3,7 @@ class PersonalMessagesController < ApplicationController
   # We check if a conversation between the users already exists 
   before_action :find_conversation!
 
+
   def new
     # If the conversation does exist, redirect to the “show conversation” action.
     redirect_to conversation_path(@conversation) and return if @conversation
@@ -17,10 +18,16 @@ class PersonalMessagesController < ApplicationController
     @personal_message = current_user.personal_messages.build(personal_message_params)
 
     @personal_message.conversation_id = @conversation.id
+    
     if @personal_message.save
-      redirect_to conversation_path(@conversation)
+      # Ajax protocol 
+      respond_to do |format|
+        format.html { redirect_to conversation_path(@conversation) }
+        format.js { }
+      end
     end
   end
+
 
   private
 
