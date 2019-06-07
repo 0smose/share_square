@@ -53,8 +53,8 @@
     <div class="grid">
       <% @ads.each do |ad|%>
       <% if ad.validated == true %>
-      <div class= "type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>"> <%="#{ad.type.name} #{ad.category.name}"%>
-        <div class="card shadow ">
+      <div class="type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>">
+        <div class="card shadow">
           <h5 class="card-header"><%= ad.title%></h5>
             <div class="card-body test">
               <p class="card-text"><%= ad.description %>

@@ -54,7 +54,7 @@ window.addEventListener("load", function () {
 // ---------- PERSONAL SCRIPTS ----------
 
 // JQuery
-$(document).ready(function() {
+$(document).ready(function() {})
 	// Make an element disappear after a short time
 
 
