@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  # Devise
+  # Routes for Devise
   devise_for :users
 
   # We define root to the homepage
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # ------- Route declarations : ---------
   resources :home, only: [:index]
   resources :ads
-  resources :admins, only: [:edit, :update, :index]
+  resources :admins, only: [:index, :edit, :update]
 
   # Static pages
   get 'static_pages/about_us'
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
    # Message system
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
+
 
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :avatars, only: [:create]

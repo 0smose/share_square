@@ -28,48 +28,49 @@
           <!-- User picture -->
           <span style="cursor:pointer;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= user_avatar(current_user.id, "avatar avatar-sm dropdown-toggle") %>
-           <span><%= current_user.first_name %></span> <i class="fas fa-caret-down"></i>
-         </span>
-         <!-- User dropdown menu content -->
-         <div class="dropdown-menu dropdown-menu-right dropdown-content">
-          <!-- Add admin dashboard if user is admin -->
-          <% if current_user.is_admin %>
-          <%= link_to "Espace admin", admins_path, class: "nav-link text-dark" %>
+            <span><%= current_user.first_name %></span> <i class="fas fa-caret-down"></i>
+          </span>
+          <!-- User dropdown menu content -->
+          <div class="dropdown-menu dropdown-menu-right dropdown-content">
+            <!-- Add admin dashboard if user is admin -->
+            <% if current_user.is_admin %>
+            <%= link_to "Espace admin", admins_path, class: "nav-link text-dark" %>
+            <% end %>
+            <%=link_to "Mes annonces", user_path(current_user), class: "nav-link text-dark" %>
+            <%=link_to "Mon profil", edit_user_path(current_user), class: "nav-link text-dark" %>
+            <%= link_to "Se déconnecter", destroy_user_session_path , method: 'delete', class: "nav-link text-primary-2" %>
+          </div>
+          <% else %>
+          <!-- If user isn't signed in -->
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link d-inline" %>
+          <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link btn btn-primary text-light d-inline" %>
           <% end %>
-          <%= link_to "Mon espace", user_path(current_user), class: "nav-link text-dark" %>
-          <%= link_to "Se déconnecter", destroy_user_session_path , method: 'delete', class: "nav-link text-primary-2" %>
         </div>
-        <% else %>
-        <!-- If user isn't signed in -->
-        <%= link_to "Se connecter", new_user_session_path, class: "nav-link d-inline" %>
-        <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link btn btn-primary text-light d-inline" %>
-        <% end %>
+        <div class="ml-2">
+          <!-- Icons for mobile display (hamburger and close) -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <svg class="icon navbar-toggler-open" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17V17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17V17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12V12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12V12ZM4 6C3.44772 6 3 6.44772 3 7V7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7V7C21 6.44772 20.5523 6 20 6H4Z" fill="#212529"></path>
+            </svg>
+            <svg class="icon navbar-toggler-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.2426 6.34311L6.34309 16.2426C5.95257 16.6331 5.95257 17.2663 6.34309 17.6568C6.73362 18.0473 7.36678 18.0473 7.75731 17.6568L17.6568 7.75732C18.0473 7.36679 18.0473 6.73363 17.6568 6.34311C17.2663 5.95258 16.6331 5.95258 16.2426 6.34311Z" fill="#212529"></path>
+              <path d="M17.6568 16.2426L7.75734 6.34309C7.36681 5.95257 6.73365 5.95257 6.34313 6.34309C5.9526 6.73362 5.9526 7.36678 6.34313 7.75731L16.2426 17.6568C16.6331 18.0473 17.2663 18.0473 17.6568 17.6568C18.0474 17.2663 18.0474 16.6331 17.6568 16.2426Z" fill="#212529"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="ml-2">
-        <!-- Icons for mobile display (hamburger and close) -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <svg class="icon navbar-toggler-open" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17V17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17V17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12V12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12V12ZM4 6C3.44772 6 3 6.44772 3 7V7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7V7C21 6.44772 20.5523 6 20 6H4Z" fill="#212529"></path>
-          </svg>
-          <svg class="icon navbar-toggler-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.2426 6.34311L6.34309 16.2426C5.95257 16.6331 5.95257 17.2663 6.34309 17.6568C6.73362 18.0473 7.36678 18.0473 7.75731 17.6568L17.6568 7.75732C18.0473 7.36679 18.0473 6.73363 17.6568 6.34311C17.2663 5.95258 16.6331 5.95258 16.2426 6.34311Z" fill="#212529"></path>
-            <path d="M17.6568 16.2426L7.75734 6.34309C7.36681 5.95257 6.73365 5.95257 6.34313 6.34309C5.9526 6.73362 5.9526 7.36678 6.34313 7.75731L16.2426 17.6568C16.6331 18.0473 17.2663 18.0473 17.6568 17.6568C18.0474 17.2663 18.0474 16.6331 17.6568 16.2426Z" fill="#212529"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="collapse navbar-collapse justify-content-between order-lg-2" style="">
-      <div class="py-2 py-lg-0">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <%= link_to "Annonces", ads_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "A propos", static_pages_about_us_path, class: "nav-link" %>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse justify-content-between order-lg-2" style="">
+        <div class="py-2 py-lg-0">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "Annonces", ads_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "A propos", static_pages_about_us_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>
