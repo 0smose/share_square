@@ -1,19 +1,19 @@
-<!-- Dashboard Menu -->
-<nav class="col-md-2 d-none d-md-block border-right sidebar">
-	<div class="row justify-content-center sticky-top no-gutters">
-		<ul class="nav ">
-			<li class="nav-item">
-				<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-					<h3 class="mt-3">Dashboard</h3><hr>
-				</h6>
-				<%=link_to "Accueil 🏠", admins_path, class: "nav-link active" %> <hr> 
-			</li>
-			<li class="nav-item">
-				<%=link_to "Annonces 📝", admins_ads_path, class: "nav-link active" %> <hr>
-			</li>
-			<li class="nav-item">
-				<%=link_to "Utilisateurs 👥", admins_users_path, class: "nav-link active" %> <hr>
-			</li>
-		</ul>
-	</div>
-</nav>
+<!-- Dashboard menu -->
+<div class="col-sm-12 col-md-3 bg-primary-alt p-3">
+    <div class="row">
+        <div class="col">
+            <h5 class= "mb-3 p-0">Dashboard administrateur</h5>
+            <ul class="list-group-flush p-0 m-0">
+                <li class="list-group-item bg-transparent px-0">
+                   <i class="fas fa-home text-primary"></i> <%=link_to "Accueil", admins_path %> 
+               </li>
+               <li class="list-group-item bg-transparent px-0">
+                   <i class="fas fa-sticky-note text-primary"></i> <%=link_to "Annonces", admins_ads_path %>
+               </li>
+               <li class="list-group-item bg-transparent border-bottom px-0">
+                  <i class="fas fa-user-friends text-primary"></i> <%=link_to "Utilisateurs", admins_users_path%>
+              </li>
+          </ul>
+      </div>
+    </div>
+</div>
