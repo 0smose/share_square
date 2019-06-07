@@ -6,8 +6,6 @@
 					<h4>
 						<%= user_avatar(@conversation.with(current_user).id, "avatar avatar mr-1") %> <%= "#{@conversation.with(current_user).first_name} #{@conversation.with(current_user).last_name}" %>
 					</h4>
-
-					<hr class="mt-3 mb-0">
 				</div>
 			</div>
 
@@ -19,21 +17,26 @@
 							<%= render @conversation.personal_messages %>
 						</div>
 					</div>				
-		
-
-			<div class="row">
-				<div class="col">
-					<hr class="mt-0 mb-3">
-					<!-- Form to send a new message -->
-					<%= form_for @personal_message do |f| %>
-					<%= hidden_field_tag 'conversation_id', @conversation.id %>
-					<%= f.text_area :body, class: "w100 col-10" %>
-
-					<%= f.submit "test", class: "btn btn-primary col-2" %>
-					<% end %>
+					<div class="row">
+						<div class="col">
+							<hr class="mt-3 mb-4">
+							<!-- Form to send a new message -->
+							<%= form_for @personal_message do |f| %>
+							<%= hidden_field_tag 'conversation_id', @conversation.id %>
+								<div class="container">
+									<div class="row no-gutter">
+										<%= f.text_field :body, class: "col-9 border py-2" %>
+										<%= button_tag(type: "submit", class: " col-2 py-2 btn btn-primary btn ml-1") do %>
+										<i class="fas fa-paper-plane"></i>
+										<% end %>
+									</div>
+								</div>
+							<% end %>
+						</div>
+					</div>
 				</div>
 			</div>
+
 		</div>
-		</div>
-			</div>
-	</section>
+	</div>
+</section>
