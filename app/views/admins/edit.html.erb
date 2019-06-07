@@ -37,7 +37,7 @@
             <!-- Validation / suppression du formulaire -->
             <div class="row px-2 mt-3">
                 <div class="col">
-                    <%= link_to "Valider", admin_path, method: "patch", class: "btn btn-primary" %>
+                    <%= link_to "Valider", admin_path(validated: true), method: "patch", class: "btn btn-primary" %>
                     <%= link_to "Supprimer", admin_path, method: "delete", class: "btn btn-danger ml-2" %>
                 </div>
             </div>
