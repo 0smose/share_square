@@ -48,6 +48,12 @@ footer {
 	font-size:0.9em;
 }
 
+
+/*---------- PERSONAL COLORS ---------*/
+.text-default {
+	color: #495057;
+}
+
 /*---------- PERSONAL BACKGROUND COLORS ---------*/
 .bg-light-grey {
 	background-color: #f8f9fa;
