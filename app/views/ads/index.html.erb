@@ -1,73 +1,81 @@
 <!-- JUMBOTRON -->
 <div class="jumbotron">
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col">
-        <h1 class="display-4 text-center">Trouve ce qu'il te plaît</h1>
-        <p class="lead text-center">Des milliers d'annonces </p>
-        <hr class="my-3">
-        <p>Faire des rencontres utiles !</p>
-        <%= link_to "Créer une annonce",new_ad_path, class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col">
+				<h1 class="display-4 text-center">Trouve ce qu'il te plaît</h1>
+				<p class="lead text-center">Des milliers d'annonces </p>
+				<hr class="my-3">
+				<p>Faire des rencontres utiles !</p>
+				<%= link_to "Créer une annonce",new_ad_path, class: "btn btn-primary" %>
+			</div>
+		</div>
+	</div>
 </div>
 
 
-<!-- the list of the ads -->
+<!-- the list of the filters -->
 <section>
-  <div class="container">
-    <div class="row mb-5">
-      <div class="col col-3">
-      <div class="filters">
-        
-        <div class="ui-group mb-3">
-          <h5>Filtrer par type</h5>
-          <div class="button-group js-radio-button-group" data-filter-group="type">
-            <button class="button is-checked" data-filter="">any</button>
-            <button class="button" data-filter=".Projet">projet</button>
-            <button class="button" data-filter=".Cours">cours</button>
-            <button class="button" data-filter=".Coup">coup de main</button>
-          </div>
-        </div>
-        </div>
-        <div class="ui-group mb-3">
-          <h5>Filtrer par catégorie</h5>
-          <div class="button-group js-radio-button-group" data-filter-group="category">
-            <button class="button is-checked" data-filter="">any</button>
-            <button class="button" data-filter=".Cuisine">cuisine</button>
-            <button class="button" data-filter=".Mecanique">mecanique</button>
-            <button class="button" data-filter=".Artisanat">artisanat</button>
-            <button class="button" data-filter=".Musique">musique</button>
-            <button class="button" data-filter=".Art">art</button>
-            <button class="button" data-filter=".Jeux">jeux</button>
-            <button class="button" data-filter=".Technologie">technologie</button>
-            <button class="button" data-filter=".Sport">sport</button>
-            <button class="button" data-filter=".Jardinage">jardinage</button>
-            <button class="button" data-filter=".Ecriture">ecriture</button>
-            <button class="button" data-filter=".Langues">langues</button>
-          </div>
-        </div>
-      </div>
-    <div class="col col-9">
-    <div class="grid">
-      <% @ads.each do |ad|%>
-      <% if ad.validated == true %>
-      <div class="type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>">
-        <div class="card shadow">
-          <h5 class="card-header"><%= ad.title%></h5>
-            <div class="card-body test">
-              <p class="card-text"><%= ad.description %>
-              </p>
-              <p class="card-text"><%= ad.user.first_name %> <%= ad.user.last_name %>
-              </p>
-              <%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
-            </div>
-        </div>
-      </div>
-      <%end%>
-      <%end%>
-    </div>
-    </div>
-    </div>
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-sm-12 col-md-2">
+				<div class="filters">
+					<div class="ui-group mb-3">
+						<h5 class="text-center">Types</h5>
+						<div class="button-group js-radio-button-group list-unstyled btn-block btn-sm" data-filter-group="type">
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm is-checked" data-filter="">Tout</button></li>
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm " data-filter=".Projet">projet</button></li>
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cours">cours</button></li>
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Coup">coup de main</button></li>
+						</div>
+					</div>
+				
+					<div class="ui-group mb-3">
+						<h5 class="text-center">Catégories</h5>
+						<ul class="button-group js-radio-button-group list-unstyled btn-sm" data-filter-group="category">
+							<li class="mb-1"><button class="button btn btn-light is-checked btn-block btn-sm" data-filter="">Tout</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cuisine">cuisine</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Mecanique">mecanique</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Artisanat">artisanat</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Musique">musique</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Art">art</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jeux">jeux</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Technologie">technologie</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Sport">sport</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jardinage">jardinage</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Ecriture">ecriture</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Langues">langues</button></li> 
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+			<!-- the list of the ads -->
+
+			<div class="col-sm-12 col-md-10 grid">
+				<div class="container">
+					<% @ads.each do |ad|%>
+						<div class="row">
+							<div class="col-12">
+								<% if ad.validated == true %>
+									<div class="type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>">
+										<div class="card shadow card-width">
+											<h5 class="card-header"><%= ad.title%></h5>
+											<div class="card-body">
+												<p class="card-text"><%= ad.description %>
+												</p>
+												<p class="card-text"><%= ad.user.first_name %> <%= ad.user.last_name %>
+												</p>
+												<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
+											</div>
+										</div>
+									</div>
+								<%end%>
+							</div>
+						</div>
+					<%end%>		
+				</div>
+			</div>
+		</div>
+	</div>	
 </section>

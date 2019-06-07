@@ -18,7 +18,7 @@ class AdsController < ApplicationController
 		@ad = Ad.new(user_id: current_user.id, frequency: params[:frequency], duration: params[:duration], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), title: params[:title], description: params[:description], other_propositions: params[:other_propositions], availability: params[:availability])
 
 		if @ad.save
-			redirect_to root_path
+			redirect_to ads_path
 			flash[:success] = "Votre annonce a été crée"
 		else
 			render :new
