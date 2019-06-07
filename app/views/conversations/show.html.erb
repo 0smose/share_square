@@ -26,7 +26,7 @@
 								<div class="container">
 									<div class="row no-gutter">
 										<%= f.text_field :body, class: "col-9 border py-2", id: "text-field" %>
-										<%= f.submit(type: "submit", class: " col-2 py-2 btn btn-primary btn ml-1", id: "send-btn") do %>
+										<%= button_tag(type: "submit", class: "col-2 py-2 btn btn-primary btn ml-1", id: "send-btn") do %>
 										<i class="fas fa-paper-plane"></i>
 										<% end %>
 									</div>
