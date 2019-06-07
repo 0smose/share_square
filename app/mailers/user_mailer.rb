@@ -15,6 +15,7 @@ class UserMailer < ApplicationMailer
 	def good_bye_email(user)
 		@user = user
 		@url = 'http://share-square.herokuapp.com/users/sign_up'
+		@home = 'https://share-square.herokuapp.com'
 		mail(to: @user.email, subject: "A bientôt sur Share Square")
 	end
 end
