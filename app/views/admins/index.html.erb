@@ -15,12 +15,12 @@
                     <div class="col">
                         <ul class="list-group">
                             <% @ads.each do |a| %>
-                            <% if a.validated == nil %>
-                                <%= link_to edit_admin_path(a.id), class:"list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
-                                <%= a.title %>
-                                <i class="far fa-eye text-primary"></i>
-                                <% end %>                           
-                            <% end %>
+                                <% if a.validated == nil %>
+                                    <%= link_to edit_admin_path(a.id), class:"list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
+                                    <%= a.title %>
+                                    <i class="far fa-eye text-primary"></i>
+                                    <% end %>                           
+                                <% end %>
                             <% end %>
                         </ul>
                     </div>
