@@ -66,3 +66,10 @@ footer {
   background-color: #FF8E88;
   border-color: #FF8E88;
 }
+
+/*---------- Ad scrollbar to messaging system ----------*/
+.scrollbar {
+  height: 500px;
+  overflow-y: scroll;
+  
+}
