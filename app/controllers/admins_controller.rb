@@ -3,7 +3,6 @@ class AdminsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :check_if_admin
 
-
 	def index
 		@ads = Ad.all
 
@@ -22,6 +21,7 @@ class AdminsController < ApplicationController
 
   def update
     @ad = Ad.find(params[:id])
+    @ad.validated_will_change!
     if @ad.update(validated: params[:validated])
       flash[:success] = "Vous avez bien validé l'annonce !"
       redirect_to admins_path
