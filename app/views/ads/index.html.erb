@@ -13,7 +13,6 @@
 	</div>
 </div>
 
-
 <!-- the list of the filters -->
 <section>
 	<div class="container">
@@ -24,57 +23,34 @@
 						<h5 class="text-center">Types</h5>
 						<div class="button-group js-radio-button-group list-unstyled btn-block btn-sm" data-filter-group="type">
 							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm is-checked" data-filter="">Tout</button></li>
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm " data-filter=".Projet">projet</button></li>
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cours">cours</button></li>
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Coup">coup de main</button></li>
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm " data-filter=".Projet">Projet</button></li>
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cours">Cours</button></li>
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Coup">Coup de main</button></li>
 						</div>
 					</div>
-				
+
 					<div class="ui-group mb-3">
 						<h5 class="text-center">Catégories</h5>
 						<ul class="button-group js-radio-button-group list-unstyled btn-sm" data-filter-group="category">
 							<li class="mb-1"><button class="button btn btn-light is-checked btn-block btn-sm" data-filter="">Tout</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cuisine">cuisine</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Mecanique">mecanique</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Artisanat">artisanat</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Musique">musique</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Art">art</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jeux">jeux</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Technologie">technologie</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Sport">sport</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jardinage">jardinage</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Ecriture">ecriture</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Langues">langues</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cuisine">Cuisine</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Mecanique">Mecanique</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Artisanat">Artisanat</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Musique">Musique</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Art">Art</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jeux">Jeux</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Technologie">Technologie</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Sport">Sport</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jardinage">Jardinage</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Ecriture">Écriture</button></li> 
+							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Langues">Langues</button></li> 
 						</ul>
 					</div>
 				</div>
 			</div>
 		
-			<!-- the list of the ads -->
-
-			<div class="col-sm-12 col-md-10 grid">
-				<div class="container">
-					<% @ads.each do |ad|%>
-						<div class="row">
-							<div class="col-12">
-								<% if ad.validated == true %>
-									<div class="type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>">
-										<div class="card shadow min-vw-50">
-											<h5 class="card-header"><%= ad.title%></h5>
-											<div class="card-body">
-												<p class="card-text"><%= ad.description %>
-												</p>
-												<p class="card-text"><%= ad.user.first_name %> <%= ad.user.last_name %>
-												</p>
-												<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
-											</div>
-										</div>
-									</div>
-								<%end%>
-							</div>
-						</div>
-					<%end%>		
-				</div>
+			<div class="grid col-sm-12 col-md-10 p-0 m-0">
+				<%= render '/ads/index_ads' %>				
 			</div>
 		</div>
 	</div>	
