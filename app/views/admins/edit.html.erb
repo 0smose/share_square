@@ -5,43 +5,44 @@
             <!-- Main content -->
             <div class="col-sm-12 col-md-9">
                 <div class="container">
-                  <!-- Ad review -->
-                  <div class="row">
-                    <div class="col">
-                        <h4 class="p-2 bg-primary-alt"><i class="far fa-eye text-primary"></i> Ad Review</h4>
+                    <!-- Ad review -->
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="p-2 bg-primary-alt"><i class="far fa-eye text-primary"></i> Ad Review</h4>
+                        </div>
                     </div>
-                </div>
-                <div class="row px-2">
-                    <div class="col">
-                      <h5><%= @ad.title%></h5>
-                  </div>
-              </div>
-              <div class="row px-2">
-                <div class="col">
-                    <ul class="list-group list-group-flush border-bottom">
-                        <li class="list-group-item"><b>Description : </b><%= @ad.description %></li>
-                        <li class="list-group-item"><b>Durée : </b><%= @ad.duration %></li>
-                        <li class="list-group-item"><b>Fréquence : </b><%= @ad.frequency %></li>
-                        <% if @ad.other_propositions == true %>
-                        <li class="list-group-item">Cet utilisateur accepte d'autres propositions d'échange</li>
-                        <% else %>
-                        <li class="list-group-item">Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
-                        <% end %>
-                        <li class="list-group-item"><b>Disponibilités : </b><%= @ad.availability %></li>
-                        <% if @ad != nil %>
-                        <li class="list-group-item"><b>Utilisateur : </b><%= @ad.user.email %></li>
-                        <% end %>
-                    </ul>
-                </div>
-            </div>
-            <!-- Validation / suppression du formulaire -->
-            <div class="row px-2 mt-3">
-                <div class="col">
-                    <%= link_to "Valider", admin_path(validated: true), method: "patch", class: "btn btn-primary" %>
-                    <%= link_to "Supprimer", admin_path, method: "delete", class: "btn btn-danger ml-2" %>
+                    <div class="row px-2">
+                        <div class="col">
+                            <h5><%= @ad.title%></h5>
+                        </div>
+                    </div>
+                    <div class="row px-2">
+                        <div class="col">
+                            <ul class="list-group list-group-flush border-bottom">
+                                <li class="list-group-item"><b>Description : </b><%= @ad.description %></li>
+                                <li class="list-group-item"><b>Durée : </b><%= @ad.duration %></li>
+                                <li class="list-group-item"><b>Fréquence : </b><%= @ad.frequency %></li>
+                                <% if @ad.other_propositions == true %>
+                                <li class="list-group-item">Cet utilisateur accepte d'autres propositions d'échange</li>
+                                <% else %>
+                                <li class="list-group-item">Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
+                                <% end %>
+                                <li class="list-group-item"><b>Disponibilités : </b><%= @ad.availability %></li>
+                                <% if @ad != nil %>
+                                <li class="list-group-item"><b>Utilisateur : </b><%= @ad.user.email %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Validation / suppression du formulaire -->
+                    <div class="row px-2 mt-3">
+                        <div class="col">
+                            <%= link_to "Valider", admin_path(validated: true), method: "patch", class: "btn btn-primary" %>
+                            <%= link_to "Supprimer", admin_path, method: "delete", class: "btn btn-danger ml-2" %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
