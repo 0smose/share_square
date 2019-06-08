@@ -5,43 +5,42 @@
 				<p class="h3 mb-2 mt-3 border-bottom border-gray">Mes annonces</p>
 				<!-- If the current user doe'n have any ad yet, we change the text -->
 				<% if current_user.ads[0] == nil %> 
-					<div class="mt-4">
-						<p>Vous n'avez pas encore d'annonces en ligne.</p>
-					</div>
+				<div class="mt-4">
+					<p>Vous n'avez pas encore d'annonces en ligne.</p>
+				</div>
 				<% else %> 
-					<% current_user.ads.each do |ad| %>
-						<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
-							<!-- We display each ad with all informations -->
-							<div class="profil-box mt-3">
-								<% if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.localtime.strftime("%d/%m/%y") %>
-
-								  <p class="mb-2"><b>Mise en ligne :</b> Aujourd'hui <%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
-								<% elsif ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.yesterday.localtime.strftime("%d/%m/%y") %>
-								<p class="mb-2"><b>Mise en ligne :</b> Hier <%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
-
-								<% else %>
-								
-								<p class="mb-2"><b>Mise en ligne le : </b><%= ad.created_at.localtime.strftime("%d/%m/%y %H:%M") %></p>
-								<% end %>
-								
-								<p><b>Type d'annonce : </b> </b><%= ad.type.name %></p>
-								<p><b>Catégorie : </b><%= ad.category.name %></p>
-								<p><b>Titre : </b><%= ad.title %></p>
-								<p><b>Description : </b><%= ad.description %></p>
-								<p><b>Durée : </b><%= ad.duration %></p>
-								<p><b>Fréquence : </b><%= ad.frequency %></p>
-								
-								<div class="text-center">
-								<%= link_to "Editer l'annonce", edit_ad_path(ad), class: "btn btn-primary" %>
-								 <p><%= link_to "Supprimer l'annonce", ad_path(ad), :method => :delete, class: "btn btn-danger mt-2 ", data: {confirm: "Êtes-vous sûr ?"} %>
-								 </p>
-								</div>
-							</div>
-						</div>
-					<% end %>
+				<% current_user.ads.each do |ad| %>
+				<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
+					<!-- We display each ad with all informations -->
+					<div class="profil-box mt-3">
+						<h2 class="mt-2"><%= ad.title%></h2>
+						<ul class="list-group list-group-flush mb-3 mt-3">
+							<li class="list-group-item"><%= ad.description %></li>
+							<li class="list-group-item">Durée de l'activité : <%= ad.duration %></li>
+							<li class="list-group-item">Fréquence : <%= ad.frequency %></li>
+							<% if ad.other_propositions == true %>
+							<li class="list-group-item">Cet utilisateur accepte d'autres propositions d'échange</li>
+							<% else %>
+							<li class="list-group-item">Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
+							<% end %>
+							<li class="list-group-item">Disponibilités : <%= ad.availability %></li>
+							<li class="list-group-item">Annonce crée par : <%= ad.user.first_name %> <%= ad.user.last_name %></li>
+							<% if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+							<li class="list-group-item">Mise en ligne : Aujourd'hui à <%= ad.created_at.hour %>:<%= ad.created_at.min %></li>
+							<% elsif ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+							<li class="list-group-item"><b>Mise en ligne :</b> Hier à<%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></li>
+							<% else %>					
+							<li class="list-group-item">Mise en ligne le : <%= ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=ad.created_at.localtime.strftime("%H:%M")%></li>
+							<% end %>
+							<% if current_user != ad.user %>
+							<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: ad.user.id), class: "btn btn-primary btn-sm mt-3" %>
+							<%end%>
+						</ul>
+					</div>
+				</div>
+				<% end %>
 				<% end %>		
-				</div>		
-			</div>
+			</div>		
 		</div>
 	</div>
 </section>

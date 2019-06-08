@@ -16,7 +16,7 @@ class Admins::AdsController < ApplicationController
 			flash[:success] = "Vous avez bien crée l'annonce"
 			redirect_to admins_ads_path
 		else
-			flash[:alert] = "Il y a eu un problème"
+			flash[:alert] = "Vous n'avez pas rempli tous les champs, réessayez"
 			render :new
 		end
 	end
@@ -32,7 +32,7 @@ class Admins::AdsController < ApplicationController
 			flash[:success] = "Vous avez bien édité l'annonce"
 			redirect_to admins_ads_path
 		else
-			flash[:alert] = "Il y a eu un problème"
+			flash[:alert] = "Vous n'avez pas rempli tous les champs, réessayez"
 			render :edit
 		end
 	end

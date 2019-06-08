@@ -29,7 +29,7 @@
 							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Coup">coup de main</button></li>
 						</div>
 					</div>
-				
+
 					<div class="ui-group mb-3">
 						<h5 class="text-center">Catégories</h5>
 						<ul class="button-group js-radio-button-group list-unstyled btn-sm" data-filter-group="category">
@@ -49,30 +49,37 @@
 					</div>
 				</div>
 			</div>
-		
+
 			<!-- the list of the ads -->
 
 			<div class="col-sm-12 col-md-10 grid">
 				<div class="container">
 					<% @ads.each do |ad|%>
-						<div class="row">
-							<div class="col-12">
-								<% if ad.validated == true %>
-									<div class="type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>">
-										<div class="card shadow min-vw-50">
-											<h5 class="card-header"><%= ad.title%></h5>
-											<div class="card-body">
-												<p class="card-text"><%= ad.description %>
-												</p>
-												<p class="card-text"><%= ad.user.first_name %> <%= ad.user.last_name %>
-												</p>
-												<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
-											</div>
-										</div>
+					<div class="row">
+						<div class="col-12">
+							<% if ad.validated == true %>
+							<div class="type-category <%=ad.type.name.chomp("de main")%> <%=ad.category.name%>">
+								<div class="card shadow min-vw-50">
+									<h5 class="card-header"><%= ad.title%></h5>
+									<div class="card-body">
+										<p class="card-text"><%= ad.description %>
+										</p>
+										<p class="card-text"><%= ad.user.first_name %> <%= ad.user.last_name %>
+										</p>
+										<%if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+											<p class="card-text">Mise en ligne : aujourd'hui à <%= ad.created_at.hour %>:<%= ad.created_at.min %></p>
+										<% elsif ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+											<p class="card-text">Mise en ligne : hier à<%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
+										<% else %>					
+											<p class="card-text">Mise en ligne le : <%= ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=ad.created_at.localtime.strftime("%H:%M")%></p>
+										<% end %>
+										<%= link_to "Voir l'annonce", ad_path(ad), class: "btn btn-primary btn-sm" %>
 									</div>
-								<%end%>
+								</div>
 							</div>
+							<%end%>
 						</div>
+					</div>
 					<%end%>		
 				</div>
 			</div>

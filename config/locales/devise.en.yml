@@ -69,10 +69,8 @@ en:
         user:
           attributes:
             first_name:
-              name: "Prénom"
               blank: ": veuillez entrer votre prénom."
             last_name:
-              name: "Nom"
               blank: ": veuillez entrer votre nom."
             description: 
               blank: ": veuillez entrer une description d'au moins 50 caractères."
