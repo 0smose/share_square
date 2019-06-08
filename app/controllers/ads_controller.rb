@@ -47,11 +47,15 @@ class AdsController < ApplicationController
 	end
 
 	def destroy
-		@ad = Ad.friendly.find(params[:id])
-		@ad.destroy
-		redirect_to ads_path
+		@ad = Ad.friendly.find(params[:id])	
+		if @ad.destroy
+			redirect_to ads_path
+			flash[:success] = "Votre annonce a bien été supprimé"
+		else 
+			flash[:alert] = "Un problème est survenu"
+			render :edit
+		end
 	end
-	
 	# Method to check if the ad is validated or not
 	def is_validated
 		@ads = Ad.all

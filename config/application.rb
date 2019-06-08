@@ -15,5 +15,8 @@ module ShareSquare
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Set Time Zone to Europe
+   	config.time_zone = "Europe/Paris"
   end
 end
