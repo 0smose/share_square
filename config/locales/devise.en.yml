@@ -4,17 +4,17 @@ en:
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_instructions: "Vous allez recevoir un email avec les instructions pour changer votre mot de passe."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
+      already_authenticated: "Vous êtes déjà connecté."
       inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
+      invalid: "Vous avez entré un mauvais %{authentication_keys} ou un mauvais mot de passe."
+      locked: "Votre compte est bloqué."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "Vous avez entré un mauvais %{authentication_keys} ou un mauvais mot de passe."
       timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "Vous devez vous connecter avant de continuer."
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
@@ -24,21 +24,21 @@ en:
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
-        subject: "Email Changed"
+        subject: "Vous avez changé votre email avec succès."
       password_change:
-        subject: "Password Changed"
+        subject: "Vous avez changé votre mot de passe avec succès."
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      no_token: "Vous ne pouvez pas accéder à cette page sans venir d'un email de changement de mot de passe. Si vous ne venez pas d'un tel email, veuillez vous assurer d'utiliser le lien entier fourni."
+      send_instructions: "Vous allez recevoir un email avec les instructions pour changer votre mot de passe."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password has been changed successfully. You are now signed in."
+      updated: "Votre mot de passe a été changé avec succès. Vous êtes maintenant connecté."
       updated_not_active: "Your password has been changed successfully."
     registrations:
-      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
-      signed_up: "Welcome! You have signed up successfully."
+      destroyed: "Au revoir ! Votre compte a bien été supprimé. Nous espèrons vous revoir très bientôt sur Share Square."
+      signed_up: "Bienvenue sur Share Square ! Vous vous êtes inscrit avec succès."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
@@ -46,11 +46,11 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "Vous vous êtes connecté avec succès."
+      signed_out: "Vous vous êtes déconnecté avec succès."
+      already_signed_out: "Vous vous êtes déconnecté avec succès."
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_instructions: "Vous allez recevoir un email avec les instructions pour changer votre mot de passe."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
@@ -61,5 +61,28 @@ en:
       not_found: "not found"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+        other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              name: "Prénom"
+              blank: ": veuillez entrer votre prénom."
+            last_name:
+              name: "Nom"
+              blank: ": veuillez entrer votre nom."
+            description: 
+              blank: ": veuillez entrer une description d'au moins 50 caractères."
+              too_short: ": veuillez entrer une description d'au moins 50 caractères."
+            skills:
+              blank: ": veuillez entrer au moins une de vos compétences."
+            email: 
+              blank: ": veuillez entrer un email."
+              invalid: ": veuillez entrer un email valide."
+              taken: ": cet email est déjà utilisé."
+            password:
+              blank: ": veuillez entrer un mot de passe."
+              too_short: ": votre mot de passe est trop court (%{count} cractères minimum)."
