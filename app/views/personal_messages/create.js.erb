@@ -1,6 +1,7 @@
 // Display new message with Ajax
 document.getElementById("conversation-body").insertAdjacentHTML("beforeend", "<%= j render 'personal_message', personal_message: @personal_message %>");
-
+// We call the function to keep the scrollbar down
+updateScroll()
 // We stock the text field in a "var" variable so it can be reused
 var textField = document.getElementById("text-field")
 
