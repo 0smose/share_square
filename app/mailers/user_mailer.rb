@@ -18,4 +18,28 @@ class UserMailer < ApplicationMailer
 		@home = 'https://share-square.herokuapp.com'
 		mail(to: @user.email, subject: "A bientôt sur Share Square")
 	end
+
+	def validated(user, ad)
+		@user = user
+		@ad = ad
+		@home = 'https://share-square.herokuapp.com'
+		mail(to: @user.email, subject: "Bonne nouvelle")
+	end
+
+	def ad_validated(user, ad)
+		@user = user
+		@ad = ad
+		@home = 'https://share-square.herokuapp.com'
+		@url = 'http://share-square.herokuapp.com/ads'
+		mail(to: @user.email, subject: "Bonne nouvelle")
+	end
+
+	def ad_not_validated(user, ad)
+		@user = user
+		@ad = ad
+		@home = 'https://share-square.herokuapp.com'
+		@url = 'http://share-square.herokuapp.com/ads'
+		mail(to: @user.email, subject: "Mauvaise nouvelle")
+	end
+
 end
