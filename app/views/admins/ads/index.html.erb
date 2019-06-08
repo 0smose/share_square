@@ -9,16 +9,15 @@
 					<!-- Ads -->
 					<div class="row">
 						<div class="col">
-							<h4 class="p-2 bg-primary-alt"><i class="fas fa-sticky-note text-primary"></i> Edition d'annonces</h4>
+							<h4 class="p-2 bg-primary-alt"><i class="fas fa-fa-user-friends text-primary"></i> Edition d'annonces</h4>
 						</div>
 					</div>
 					<!-- Number of ads + create ad button -->
 					<div class="row px-2">
 						<div class="col">
-							<p>
+							<p class="ml-1">
 								<%= @ads.count %> annonces sont en ligne.
 							</p>
-							<%= link_to "Créer une annonce", new_admins_ad_path, class: "btn btn btn-primary" %>
 						</div>
 					</div>
 					<div class="row">

@@ -1,5 +1,5 @@
 <section>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<!-- Partial for the dashboard -->
 			<%= render 'admins/dashboard' %>
@@ -9,10 +9,9 @@
 					<!-- Ads -->
 					<div class="row">
 						<div class="col">
-							<h4 class="p-2 bg-primary-alt"><i class="fas fa-sticky-note text-primary"></i> Utilisateurs</h4>
+							<h4 class="p-2 bg-primary-alt"><i class="fas fa-user-friends text-primary"></i> Utilisateurs</h4>
 						</div>
 					</div>
-
 					<div class="row">
 						<div class="col mx-2 mb-3">
 							<%= link_to "Créer un utilistaeur", new_admins_user_path, class: "btn btn btn-primary" %>

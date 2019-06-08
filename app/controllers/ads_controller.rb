@@ -19,7 +19,7 @@ class AdsController < ApplicationController
 
 		if @ad.save
 			redirect_to ads_path
-			flash[:success] = "Votre annonce a bien été crée, elle seras visible apres la validation d'un administrateur."
+			flash[:success] = "Votre annonce a bien été crée, elle sera visible après validation par un administrateur."
 		else
 			render :new
 		end
