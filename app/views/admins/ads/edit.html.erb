@@ -11,12 +11,14 @@
                     <div class="row">
                         <div class="col">
                             <h4 class="p-2 bg-primary-alt"><i class="fas fa-sticky-note text-primary"></i> Éditer l'annonce</h4>
+                            <!-- Errors partial -->
+                            <%= render 'ads/error_messages' %>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col mx-2">
                             <!-- Form zone -->
-                            <%= form_tag url_for(action: 'update'), method: "patch" do %>
+                            <%= form_tag url_for(action: 'update'), method: "patch", autocomplete: "on" do %>
 
                             <%= label_tag 'Son titre', nil, class: "font-weight-bold" %>
                             <%= text_field_tag 'title', @ad.title, class: "form-control mb-3" %>
@@ -41,7 +43,7 @@
 
                             <%= radio_button_tag(:other_propositions, "true") %>
                             <%= label_tag(:other_propositions_yes, "Yes", class: "mr-2") %>
-                            <%= radio_button_tag(:other_propositions, "false") %>
+                            <%= radio_button_tag(:other_propositions, checked = false, "false") %>
                             <%= label_tag(:other_propositions_no, "No", class: "mb-3") %>
 
                             <p>

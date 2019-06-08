@@ -29,5 +29,17 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+en:  
+  activerecord:
+    models: 
+      ad: "Annonces"
+    errors:
+      models:
+        ad:
+          attributes:
+            title:
+              blank: ": vous devez entrer un titre."
+              too_short: ": 75 caractères maximum."
+            description:
+              blank: ": vous devez entrer une description."
+              too_short: ": 50 caractères minimum."

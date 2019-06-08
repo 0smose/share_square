@@ -1,6 +1,6 @@
 class Ad < ApplicationRecord
 
-	 extend FriendlyId
+	extend FriendlyId
   friendly_id :title, use: :slugged
 
 	validates :title, presence: true, length: {maximum: 75}
@@ -15,6 +15,20 @@ class Ad < ApplicationRecord
 	belongs_to :user
 	belongs_to :type
 	belongs_to :category
+
+	after_update_commit :ad_validated_send
+
+	after_destroy :ad_not_validated_send
+
+	def ad_validated_send
+		if self.validated == true
+			UserMailer.ad_validated(self.user, self).deliver_now
+		end
+	end
+
+	def ad_not_validated_send
+		UserMailer.ad_not_validated(self.user, self).deliver_now
+	end
 end
 
 
