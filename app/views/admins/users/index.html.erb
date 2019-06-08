@@ -3,33 +3,29 @@
 		<div class="row">
 			<!-- Partial for the dashboard -->
 			<%= render 'admins/dashboard' %>
-
-			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-					<h2 class="text-center mt-3 mb-4"> Utilisateurs 👥 <%= link_to "Créer un utilisateur", new_admins_user_path, class: "btn btn-sm btn-info" %></h2><hr>
-				</div>
+			<!-- Main content -->
+			<div class="col-sm-12 col-md-9">
 				<div class="container">
+					<!-- Ads -->
 					<div class="row">
+						<div class="col">
+							<h4 class="p-2 bg-primary-alt"><i class="fas fa-sticky-note text-primary"></i> Utilisateurs</h4>
+						</div>
+					</div>
 
-						<% @users.order(created_at: :asc).each do |u| %>
-
-						<div class="col col-5 card my-2 mx-auto p-3 shadow">
-
-							<!-- We display each user in the dashboard -->
-							<p>
-								<%= "ID: #{u.id}" %><hr>				
-								<p><%= u.first_name %>
-									<%= "#{u.last_name}" %></p>
-									<p><%= u.email %></p>
-									<p class="text-muted"><%= "Admin: #{u.is_admin}" %></p>
-								</p>	
-								<%= link_to "Voir plus de détails", admins_user_path(u.id), class: "btn btn-primary" %>	
-							</p>	
-						</div> 
-						<% end %>
+					<div class="row">
+						<div class="col">
+							<%= link_to "Créer un utilistaeur", new_admins_user_path, class: "btn btn btn-primary" %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<!-- Loop to display each user -->
+							<%= render 'user_cards_admin_dashboard' %>
+						</div>
 					</div>
 				</div>
-			</main>
+			</div>
 		</div>
 	</div>
 </section>
