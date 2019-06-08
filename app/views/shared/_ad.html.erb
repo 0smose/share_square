@@ -1,0 +1,17 @@
+<h2 class="mt-2"><%= @ad.title%></h2>
+<ul class="list-group list-group-flush mb-3 mt-3">
+	<li class="list-group-item"><%= @ad.description %></li>
+	<li class="list-group-item">Durée de l'activité : <%= @ad.duration %></li>
+	<li class="list-group-item">Fréquence : <%= @ad.frequency %></li>
+	<% if @ad.other_propositions == true %>
+	<li class="list-group-item">Cet utilisateur accepte d'autres propositions d'échange</li>
+	<% else %>
+	<li class="list-group-item">Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
+	<% end %>
+	<li class="list-group-item">Disponibilités : <%= @ad.availability %></li>
+	<li class="list-group-item">Annonce crée par : <%= @ad.user.first_name %> <%= @ad.user.last_name %></li>
+	<li class="list-group-item">Publié le : <%= %></li>
+	<% if current_user != @ad.user %>
+	<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary btn-sm mt-3" %>
+	<%end%>
+</ul>

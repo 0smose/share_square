@@ -13,15 +13,15 @@
 						<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
 							<!-- We display each ad with all informations -->
 							<div class="profil-box mt-3">
-								<% if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.localtime.strftime("%d/%m/%y") %>
+								<% if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
 
-								  <p class="mb-2"><b>Mise en ligne :</b> Aujourd'hui <%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
-								<% elsif ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.yesterday.localtime.strftime("%d/%m/%y") %>
-								<p class="mb-2"><b>Mise en ligne :</b> Hier <%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
+								  <p class="mb-2"><b>Mise en ligne :</b> Aujourd'hui à <%= ad.created_at.hour %>:<%= ad.created_at.min %></p>
+								<% elsif ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+								<p class="mb-2"><b>Mise en ligne :</b> Hier à<%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></p>
 
 								<% else %>
 								
-								<p class="mb-2"><b>Mise en ligne le : </b><%= ad.created_at.localtime.strftime("%d/%m/%y %H:%M") %></p>
+								<p class="mb-2"><b>Mise en ligne le : </b><%= ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=ad.created_at.localtime.strftime("%H:%M")%></p>
 								<% end %>
 								
 								<p><b>Type d'annonce : </b> </b><%= ad.type.name %></p>
