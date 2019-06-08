@@ -1,67 +1,66 @@
 <section>
-    <div class="container">
-        <div class="row">
-            <!-- Partial for the dashboard -->
-            <%= render 'admins/dashboard' %>
+  <div class="container">
+    <div class="row">
+      <!-- Partial for the dashboard -->
+      <%= render 'admins/dashboard' %>
 
-            <!-- Main content -->
-            <div class="col-sm-12 col-md-9">
-                <div class="container">
-                    <!--Title -->
-                    <div class="row">
-                        <div class="col">
-                            <h4 class="p-2 bg-primary-alt"><i class="fas fa-user-friends text-primary"></i> Créer un utilisateur</h4>
-                        </div>
-                    </div>
-                    <!-- Errors -->
-                    <div class="row">
-                        <div class="col mx-2">
-                            <% if @user.errors.any? %>
-                            <div class="alert alert-danger" role="alert">
-                                <p>L'utilisateur ne peut pas être créer pour les raisons suivantes :</p>
-                                <ul>
-                                    <% @user.errors.full_messages.each do |message| %>
-                                    <li><%= message %></li>
-                                    <% end %>
-                                </ul>
-                            </div>
-                            <% end %>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mx-2">
-                          <!-- Zone du formulaire -->
-                          <%= form_tag url_for(action: 'create'), method: 'post' do %>
-
-                          <%= label_tag 'Son prénom' %>
-                          <%= text_field_tag 'first_name', @user.first_name, class: "form-control mb-3" %>
-
-
-                          <%= label_tag 'Son nom' %>
-                          <%= text_field_tag 'last_name', @user.last_name, class: "form-control mb-3" %>
-
-
-                          <%= label_tag 'Sa description' %>
-                          <%= text_area_tag 'description', @user.description, placeholder: "50 caractères minimum", class: "form-control mb-3"  %>
-
-                          <%= label_tag 'Ses compétences' %>
-                          <%= text_field_tag 'skills', @user.skills, placeholder: "Développeur, cuisinier, ...", class: "form-control mb-3"  %>
-
-                          <%= label_tag 'Son email' %>
-                          <%= text_field_tag 'email', @user.email, class: "form-control mb-3"  %>
-
-                          <%= label_tag 'Son mot de passe' %>
-                          <%= password_field_tag 'password', @user.password, placeholder: "6 caractères minimum", class: "form-control mb-3"  %>
-
-                          <%= submit_tag "Créer l'utilisateur", class: "btn btn-primary" %>
-
-                          <% end %>
-                      </div>
-                  </div>
-              </div>
+      <!-- Main content -->
+      <div class="col-sm-12 col-md-9">
+        <div class="container">
+          <!--Title -->
+          <div class="row">
+            <div class="col">
+              <h4 class="p-2 bg-primary-alt"><i class="fas fa-user-friends text-primary"></i> Créer un utilisateur</h4>
+            </div>
           </div>
+          <!-- Errors -->
+          <div class="row">
+            <div class="col mx-2">
+              <% if @user.errors.any? %>
+              <div class="alert alert-danger" role="alert">
+                <p>L'utilisateur ne peut pas être créer pour les raisons suivantes :</p>
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mx-2">
+              <!-- Zone du formulaire -->
+              <%= form_tag url_for(action: 'create'), method: 'post' do %>
+
+              <%= label_tag 'Son prénom' %>
+              <%= text_field_tag 'first_name', @user.first_name, class: "form-control mb-3" %>
+
+
+              <%= label_tag 'Son nom' %>
+              <%= text_field_tag 'last_name', @user.last_name, class: "form-control mb-3" %>
+
+
+              <%= label_tag 'Sa description' %>
+              <%= text_area_tag 'description', @user.description, placeholder: "50 caractères minimum", class: "form-control mb-3"  %>
+
+              <%= label_tag 'Ses compétences' %>
+              <%= text_field_tag 'skills', @user.skills, placeholder: "Développeur, cuisinier, ...", class: "form-control mb-3"  %>
+
+              <%= label_tag 'Son email' %>
+              <%= text_field_tag 'email', @user.email, class: "form-control mb-3"  %>
+
+              <%= label_tag 'Son mot de passe' %>
+              <%= password_field_tag 'password', @user.password, placeholder: "6 caractères minimum", class: "form-control mb-3"  %>
+
+              <%= submit_tag "Créer l'utilisateur", class: "btn btn-primary" %>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </section>
 
