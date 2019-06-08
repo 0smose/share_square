@@ -6,10 +6,6 @@ class Admins::AdsController < ApplicationController
 		@ads = Ad.all
 	end
 
-	def show
-		@ad = Ad.find(params[:id])
-	end
-
 	def new
 		@ad = Ad.new
 	end
@@ -34,7 +30,7 @@ class Admins::AdsController < ApplicationController
 		if @ad.update(title: params[:title], description: params[:description], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), duration: params[:duration], frequency: params[:frequency], other_propositions: params[:other_propositions], availability: params[:availability])
 			
 			flash[:success] = "Vous avez bien édité l'annonce"
-			redirect_to admins_ad_path
+			redirect_to admins_ads_path
 		else
 			flash[:alert] = "Il y a eu un problème"
 			render :edit
