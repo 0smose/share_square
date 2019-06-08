@@ -40,7 +40,7 @@ Category.destroy_all
 
 # ---------- FAKE USERS AND ADS -----------
 
-5.times do 
+10.times do 
 	# We create a few example users
 	user = User.create!(
 		last_name: Faker::Name.last_name,

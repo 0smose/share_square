@@ -8,10 +8,16 @@
 
           <%= user_avatar(@user.id, "avatar avatar-xlg") %>
 
+         
           <%= form_tag user_avatars_path(@user.id), multipart: true, class: "btn btn-sm" do %>
+         <p>
           <%= file_field_tag :avatar %>
-          <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm mt-2" %>
+          </p>
+          <p class="text-left">
+            <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm m-0" %>
+          </p>
           <% end %>
+          
 
           <!-- Form zone  -->
           <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
