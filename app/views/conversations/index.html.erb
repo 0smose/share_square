@@ -1,12 +1,17 @@
 <section>
-	<div class="container">
+	<div class="container mt-3">
 		<div class="row">
 			<div class="col">
 				<h1>Mes conversations</h1>
-
-				<div id="conversations">
-					<%= render @conversations %>
-				</div>
+				<% if @conversations.size > 0 %>
+					<div id="conversations">
+						<%= render @conversations %>
+					</div>
+				<%else%>
+					<div>
+						<p>Vous n'avez aucune conversation en cours.</p>
+					</div>
+				<%end%>
 			</div>
 		</div>
 	</div>
