@@ -2,7 +2,7 @@
 <% @ads.order(created_at: :asc).each do |a| %>
 	<!-- CARD -->
 	<%= link_to(edit_admins_ad_path(a.id), class: "text-default") do %>
-		<div class="card flex-md-row no-gutters o-hidden mx-2 mt-0 mb-2">
+		<div class="card flex-md-row no-gutters o-hidden mx-2 mt-0 mb-2 text-default">
 			<div class="card-body d-flex flex-column col-auto p-3">
 				<div class="d-flex justify-content-between mb-2">
 					<div class="text-small d-flex">
@@ -16,7 +16,7 @@
 					<h5><%= a.title %></h5>
 					<!-- Check if ad was accepted by admin -->
 					<% if a.validated == true %>
-					<p>
+					<p class="">
 						Validation : <i class="fas fa-check-circle text-primary"></i>
 					</p>
 					<% else %>
