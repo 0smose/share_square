@@ -1,44 +1,44 @@
 <section>
-      <div class="container mt-3 ">
-           <div class="row">
-            <!-- Partial for the dashboard -->
-            <%= render 'layouts/dashboard' %>
-            <div class="col col-6 mx-auto text-dark">
+  <div class="container mt-3 ">
+     <div class="row">
+        <!-- Partial for the dashboard -->
+        <%= render 'admins/dashboard' %>
+        <div class="col col-6 mx-auto text-dark">
 
-                  <h2>Editer ses informations personnelles</h2>
+          <h2>Editer ses informations personnelles</h2>
 
-                  <% if @user.avatar.attached? == true %>
-                  <div class="col-md-4">
-                        <%= image_tag @user.avatar, alt: 'avatar', class: 'card-img' %>
-                  </div>
-                  <% end %>
+          <% if @user.avatar.attached? == true %>
+          <div class="col-md-4">
+            <%= image_tag @user.avatar, alt: 'avatar', class: 'card-img' %>
+        </div>
+        <% end %>
 
-                  <%= form_tag user_avatars_path(@user), multipart: true, class: "btn btn-sm" do %>
-                  <%= file_field_tag :avatar %>
-                  <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm mt-2" %>
-                  <% end %>
+        <%= form_tag user_avatars_path(@user), multipart: true, class: "btn btn-sm" do %>
+        <%= file_field_tag :avatar %>
+        <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm mt-2" %>
+        <% end %>
 
-                  <!-- Form zone  -->
-                  <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
+        <!-- Form zone  -->
+        <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
 
-                  <b><%= label_tag 'Son prénom' %></b>
-                  <%= text_field_tag 'first_name', @user.first_name, class: "form-control"  %>
-                  <br />
+        <b><%= label_tag 'Son prénom' %></b>
+        <%= text_field_tag 'first_name', @user.first_name, class: "form-control"  %>
+        <br />
 
-                  <b><%= label_tag 'Son nom' %></b>
-                  <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
-                  <br />
+        <b><%= label_tag 'Son nom' %></b>
+        <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
+        <br />
 
-                  <b><%= label_tag 'Sa description' %></b>
-                  <%= text_area_tag 'description', @user.description, class: "form-control"  %>
-                  <br />
+        <b><%= label_tag 'Sa description' %></b>
+        <%= text_area_tag 'description', @user.description, class: "form-control"  %>
+        <br />
 
-                  <b><%= label_tag 'Ses compétences' %></b>
-                  <%= text_field_tag 'skills', @user.skills, class: "form-control"  %>
-                  <br />
+        <b><%= label_tag 'Ses compétences' %></b>
+        <%= text_field_tag 'skills', @user.skills, class: "form-control"  %>
+        <br />
 
-                  <%= submit_tag "Editer", class: "btn btn-primary mb-3" %>
-                  <% end %> 
-            </div>
-      </div>
+        <%= submit_tag "Editer", class: "btn btn-primary mb-3" %>
+        <% end %> 
+    </div>
+</div>
 </section>
