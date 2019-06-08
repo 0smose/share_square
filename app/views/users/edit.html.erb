@@ -8,11 +8,15 @@
 
           <%= user_avatar(@user.id, "avatar avatar-xlg") %>
 
-         <p> <%= form_tag user_avatars_path(@user.id), multipart: true, class: "btn btn-sm" do %>
+         
+          <%= form_tag user_avatars_path(@user.id), multipart: true, class: "btn btn-sm" do %>
+         <p>
           <%= file_field_tag :avatar %>
-
-          <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm" %>
-          <% end %></p>
+          </p>
+          <p class="text-left">
+            <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm m-0" %>
+          </p>
+          <% end %>
           
 
           <!-- Form zone  -->
