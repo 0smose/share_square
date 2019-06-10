@@ -23,7 +23,7 @@
 					<li class="list-group-item">Annonce crée par : <%= @ad.user.first_name %> <%= @ad.user.last_name %></li>
 					<% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
 						<li class="list-group-item">Mise en ligne : Aujourd'hui à <%= @ad.created_at.hour %>:<%= @ad.created_at.min %></li>
-					<% elsif ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+					<% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
 						<li class="list-group-item"><b>Mise en ligne :</b> Hier à<%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></li>
 					<% else %>					
 						<li class="list-group-item">Mise en ligne le : <%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%></li>
