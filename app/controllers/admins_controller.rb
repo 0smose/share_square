@@ -33,12 +33,14 @@ class AdminsController < ApplicationController
 
   def destroy
     @ad = Ad.find(params[:id])
+    @comment = params[:comment]
     if @ad.destroy
+      UserMailer.ad_not_validated(@ad.user, @ad, @comment).deliver_now
       flash[:success] = "L'annonce a bien été supprimée !"
-      redirect_to admins_users_path
+      redirect_to admins_path
     else
       flash[:alert] = "Il y a eu un problème !"
-      redirect_to admins_users_path
+      redirect_to admins_path
     end
   end
 
@@ -49,3 +51,4 @@ class AdminsController < ApplicationController
   	end
   end
 end
+

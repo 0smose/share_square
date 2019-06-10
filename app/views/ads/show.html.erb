@@ -2,37 +2,70 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<%= link_to "Retour aux annonces", ads_path, class: "btn btn-primary btn-sm" %> 
-				<nav aria-label="breadcrumb" class="mt-3">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#"><%=@ad.type.name%></a></li>
-						<li class="breadcrumb-item active" aria-current="page"><%=@ad.category.name%></li>
-					</ol>
-				</nav>
-				<h2 class="mt-2"><%= @ad.title%></h2>
-				<ul class="list-group list-group-flush mb-3 mt-3">
-					<li class="list-group-item"><%= @ad.description %></li>
-					<li class="list-group-item">Durée de l'activité : <%= @ad.duration %></li>
-					<li class="list-group-item">Fréquence : <%= @ad.frequency %></li>
-					<% if @ad.other_propositions == true %>
-						<li class="list-group-item">Cet utilisateur accepte d'autres propositions d'échange</li>
-					<% else %>
-						<li class="list-group-item">Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
-					<% end %>
-					<li class="list-group-item">Disponibilités : <%= @ad.availability %></li>
-					<li class="list-group-item">Annonce crée par : <%= @ad.user.first_name %> <%= @ad.user.last_name %></li>
-					<% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
-						<li class="list-group-item">Mise en ligne : Aujourd'hui à <%= @ad.created_at.hour %>:<%= @ad.created_at.min %></li>
-					<% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
-						<li class="list-group-item"><b>Mise en ligne :</b> Hier à<%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></li>
-					<% else %>					
-						<li class="list-group-item">Mise en ligne le : <%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%></li>
-					<% end %>
-					<% if current_user != @ad.user %>
-						<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary btn-sm mt-3" %>
-					<%end%>
-				</ul>
+				<!-- Retour aux annonces < -->
+				<%= link_to ads_path do %> 
+				<svg class="icon bg-primary" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<title>Retour aux annonces</title>
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
+						<path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-12.000003, -11.999999) "></path>
+					</g>
+				</svg>
+				<span class="text-small">retour aux annonces</span>
+				<% end %>
+			</div>
+		</div>
+		<!-- Ad show -->
+		<div class="row mt-2">
+			<div class="col col-md-8 offset-md-2">
+				<h2 class="mt-2 text-center"><%= @ad.title%></h2>
+
+				<p class="mb-1"><b>Description :</b></p>
+				<p><%= @ad.description %></p>
+				<hr>
+
+				<p><b>Catégorie : </b><%= @ad.category.name %></p>
+				<hr>
+
+				<p><b>Durée de l'activité : </b><%= @ad.duration %></p>
+				<hr>
+
+				<p><b>Fréquence : </b><%= @ad.frequency %></p>
+				<hr>
+
+				<% if @ad.other_propositions == true %>
+
+				<p class="mb-1"><b>Autres propositions :</b></p>
+				<p>Cet utilisateur accepte d'autres propositions d'échange</p>
+				<hr>
+
+				<% else %>
+				<p class="mb-1"><b>Autres propositions :</b></p>
+				<p>Cet utilisateur n'accepte pas d'autres propositions d'échange</p>
+				<hr>
+				<% end %>
+
+				<p><b>Disponibilités : </b><%= @ad.availability %></p>
+				<hr>
+
+				<p><b>Annonce crée par : </b><%= @ad.user.first_name %> <%= @ad.user.last_name %></p>
+				<hr>
+				<% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+				<p><b>Mise en ligne : </b>Aujourd'hui à <%= @ad.created_at.hour %>:<%= @ad.created_at.min %></p>
+				<hr>
+				<% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+				<p><b>Mise en ligne : </b>Hier à<%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></p>
+				<hr>
+				<% else %>					
+				<p><b>Mise en ligne le : </b><%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%></p>
+				<hr>
+				<% end %>
+				<% if current_user != @ad.user %>
+				<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
+				<%end%>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 </section>
