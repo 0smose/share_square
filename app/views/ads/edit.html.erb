@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col col-md-8 offset-md-2">
+            <div class="col mt-2">
                 <!-- Retour à mes annonces < -->
                 <%= link_to user_path(@ad.user) do %> 
                 <svg class="icon bg-primary" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -13,8 +13,11 @@
                 </svg>
                 <span class="text-small">retour aux annonces</span>
                 <% end %>
-
-                <h2>Éditer votre annonce</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-8 offset-md-2 mt-3">
+                <h2 class="text-center">Éditer votre annonce</h2>
                 
                 <!-- Errors partial -->
                 <%= render 'ads/error_messages' %>
@@ -35,27 +38,33 @@
                 <%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control" %>
 
                 <%= label_tag 'Sa durée :', nil, class: "font-weight-bold mt-3" %>
-                <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "encore plus"]), class: "form-control" %>
+                <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control" %>
 
                 <%= label_tag 'Sa fréquence :', nil, class: "font-weight-bold mt-3" %>
-                <%= select_tag 'frequency',options_for_select(["une seule fois", "quotidien", "tout les deux jours", "hebdomadaire", "mensuel"]), class: "form-control" %>
+                <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control" %>
 
-                <p class=" font-weight-bold mt-3 mb-0"> Êtes vous ouvert à d'autres modalités d'échange ? : </p>
-
-                <p class="mt-1 mb-0">
-                 <p><%= radio_button_tag(:other_propositions, "true") %>
-                    <%= label_tag(:other_propositions_yes, "Oui", class: 'mb-0') %></p>
+                <p class="font-weight-bold mt-3"> Êtes vous ouvert à d'autres modalités d'échange ? </p>
+                
+                <p class="mt-1 m-0 mb-0 p-0">
+                    <% if @ad.other_propositions == true %>
+                    <%= radio_button_tag(:other_propositions, checked = true, "true") %>
+                    <%= label_tag(:other_propositions_yes, "Oui", class: "mr-2") %>
                     <%= radio_button_tag(:other_propositions, "false") %>
-                    <%= label_tag(:other_propositions_no, "Non", class: 'mb-0') %>
+                    <%= label_tag(:other_propositions_no, "Non") %>
+                    <% elsif @ad.other_propositions == false %>
+                    <%= radio_button_tag(:other_propositions, "true") %>
+                    <%= label_tag(:other_propositions_yes, "Oui", class: "mr-2") %>
+                    <%= radio_button_tag(:other_propositions, checked = false, "false") %>
+                    <%= label_tag(:other_propositions_no, "Non") %>
+                    <% end %>
                 </p>
 
-                <%= label_tag 'Vos disponibilités :', nil, class: "font-weight-bold mt-1"  %>
-                <%= select_tag 'availability',options_for_select(["le matin", "le midi", "le soir", "n'importe quand", "seulement le week-end"]), class: "form-control mb-3" %>
+                <%= label_tag 'Vos disponibilités :', nil, class: "font-weight-bold mt-2" %>
+                <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"]), class: "form-control mb-3" %>
 
-                <%= submit_tag "Éditer l'annonce", class: "btn btn-primary mt-2 mb-1" %> 
+                <%= submit_tag "Modifier l'annonce", class: "btn btn-primary mt-2 mb-1" %> 
 
                 <% end %>
-
             </div>
         </div>
     </div>

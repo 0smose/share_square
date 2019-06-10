@@ -19,7 +19,7 @@ class AdsController < ApplicationController
 
 		if @ad.save
 			redirect_to ads_path
-			flash[:success] = "Votre annonce a bien été crée, elle sera visible après validation par un administrateur."
+			flash[:success] = "Votre annonce a bien été créée, elle sera visible après validation par un administrateur."
 		else
 			render :new
 		end
@@ -36,9 +36,9 @@ class AdsController < ApplicationController
 		if @ad.user == current_user
 			if @ad.update(frequency: params[:frequency], duration: params[:duration], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), title: params[:title], description: params[:description], other_propositions: params[:other_propositions], availability: params[:availability])
 				redirect_to ad_path(@ad)
-				flash[:success] = "Votre annonce a bien été modifié"
+				flash[:success] = "Votre annonce a bien été modifiée"
 			else
-				flash[:alert] = "Vous n'avez pas rempli tous les champs, réessayez"
+				flash[:alert] = "Vous n'avez pas rempli tous les champs, veuillez réessayez svp"
 				render :edit
 			end		
 		else
@@ -50,7 +50,7 @@ class AdsController < ApplicationController
 		@ad = Ad.friendly.find(params[:id])	
 		if @ad.destroy
 			redirect_to ads_path
-			flash[:success] = "Votre annonce a bien été supprimé"
+			flash[:success] = "Votre annonce a bien été supprimée"
 		else 
 			flash[:alert] = "Un problème est survenu"
 			render :edit
