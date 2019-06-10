@@ -40,11 +40,13 @@
                         <div class="col">
                             <%= link_to "Valider", admin_path(validated: true), method: "patch", class: "btn btn-primary" %>
                         </div>
+                    </div>
+                      <hr>
+                    <div class="row px-2 mt-3">    
                         <div class="col">
                             <%= form_tag(admin_path, method: "delete") %>
-                            <%= text_area_tag 'comment' %>
-                            <%= submit_tag 'Supprimer', class: "btn btn-danger", :data => {:confirm => "Êtes-vous sûr ?"} %>
-                            
+                            <%= text_area_tag 'comment', nil, class: "col", placeholder: "Explique les raisons de la suppression de l'annonce" %> <br>
+                            <%= submit_tag 'Supprimer', class: "btn btn-danger mt-2", :data => {:confirm => "Êtes-vous sûr ?"} %>      
                         </div>
                     </div>
                 </div>
