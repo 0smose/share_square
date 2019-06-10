@@ -3,11 +3,14 @@
 	<div class="container">
 		<div class="row py-6 text-center justify-content-center align-items-center layer-2">
 			<div class="col-xl-8 col-lg-10">
-				<h1 class="display-4" data-aos="fade-up">Bienvenue</h1>
-				<p class="lead mb-0" data-aos="fade-up" data-aos-delay="150">Share Square est une plate-forme de partage de compétences, n'hésitez pas à aller voir les annonces pour vous faire une idée.
+				<h1 class="display-4" data-aos="fade-up">Échangez vos compétences</h1>
+				<p class="lead mb-0" data-aos="fade-up" data-aos-delay="150">
+					Envie d'apprendre ou besoin d'aide ?<br>
+					Prêt à partager vos connaissances en échange ?
 				</p>
 				<div data-aos="fade-up" data-aos-delay="300">
-					<%= link_to "Voir les annonces", ads_path, class: "btn btn-primary mt-4" %>
+					<%= link_to "Voir les annonces", ads_path, class: "btn btn-primary mt-4" %> 
+					<%= link_to "Créer une annonce", new_ad_path, class: "btn btn-primary-2 mt-4 ml-2" %> 
 				</div>
 			</div>
 		</div>
