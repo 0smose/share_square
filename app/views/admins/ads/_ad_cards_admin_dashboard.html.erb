@@ -1,69 +1,48 @@
 <!-- Begining of the loop -->
 <% @ads.order(created_at: :asc).each do |a| %>
-	<!-- CARD -->
-	<%= link_to(edit_admins_ad_path(a.id), class: "text-default") do %>
-		<div class="card flex-md-row no-gutters o-hidden mx-2 mt-0 mb-2 text-default">
-			<div class="card-body d-flex flex-column col-auto p-3">
-				<div class="d-flex justify-content-between mb-2">
-					<div class="text-small d-flex">
-						<div class="mr-2 text-primary">
-							<%= a.category.name%>
-						</div>
-						<span class="text-muted"><%= a.created_at.localtime.strftime("%d/%m/%y %H:%M") %></span>
-					</div>
-				</div>
-				<div class="flex-grow-1">
-					<h5><%= a.title %></h5>
-					<!-- Check if ad was accepted by admin -->
-					<% if a.validated == true %>
-					<p class="">
-						Validation : <i class="fas fa-check-circle text-primary"></i>
-					</p>
-					<% else %>
-					<p>Validation : en attente </p>
+<!-- CARD -->
+<%= link_to(edit_admins_ad_path(a.id), class: "text-default") do %>
+<div class="card flex-md-row no-gutters o-hidden mt-0 mb-2 text-default">
+	<div class="card-body d-flex flex-column col-auto p-3">
+		<div class="mb-1">
+			<p class="m-0 p-0">
+				<span class=" text-small text-primary m-0 p-0"><%= a.category.name%></span>
+				<span class="text-muted text-small mx-2"><%= a.created_at.localtime.strftime("%d/%m/%y %H:%M") %></span>
+				<!-- Check if ad was accepted by admin -->
+				<% if a.validated == true %>
+				<span class="mb-0 text-small text-muted">
+					Validation : <i class="fas fa-check-circle text-primary"></i>
+				</span>
+				<% else %>
+				<span class="mb-0 text-small text-muted">
+					Validation : en attente
+				</span>
+				<% end %>
+			</p>
+		</div>
+		<div class="flex-grow-1">
+			<h5 class="m-0 p-0"><%= a.title %></h5>
+			<p class="text-muted text-small mt-0 mb-0 p-0">By <%= a.user.first_name %> <%= a.user.last_name %></p>
+		</div>
+	</div>
+	<div class="col-md-3 bg-primary-alt">
+		<div class="container h-100">
+			<div class="row h-100">
+				<div class="col align-self-center text-center">
+					<!-- If ad type is a lesson -->
+					<% if a.type.id == 1 %>
+					<i class="fas fa-user-graduate text-primary big-icon"></i>
+					<!-- If ad type is a help -->
+					<% elsif a.type.id == 2 %>
+					<i class="fas fa-hands-helping text-primary big-icon mt-0 p-0"></i>
+					<!-- If ad type is a project -->
+					<% elsif a.type.id == 3 %>
+					<i class="fas fa-users text-primary big-icon"></i>
 					<% end %>
-				</div>
-				<div class="d-flex align-items-center">
-					<%= user_avatar(a.user.id, "avatar avatar-sm") %>
-					<div class="ml-1">
-						<span class="text-small text-muted">By</span>
-						<span class="text-small"><%= a.user.first_name %> <%= a.user.last_name %></span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 bg-primary-alt d-flex align-items-center text-center ">
-				<div class="container">
-					<div class="row py-3">
-						<div class="col">
-							<!-- If ad type is a lesson -->
-							<% if a.type.id == 1 %>
-							<p>
-								<i class="fas fa-user-graduate text-primary big-icon"></i>
-							</p>
-							<p class="text-default m-0 p-0">
-								Cours
-							</p>
-							<!-- If ad type is a help -->
-							<% elsif a.type.id == 2 %>
-							<p>
-								<i class="fas fa-hands-helping text-primary big-icon"></i>
-							</p>
-							<p class="text-default m-0 p-0">
-								Coup de main
-							</p>
-							<!-- If ad type is a project -->
-							<% elsif a.type.id == 3 %>
-							<p>
-								<i class="fas fa-users text-primary big-icon"></i>
-							</p>
-							<p class="text-default m-0 p-0">
-								Projet
-							</p>
-							<% end %>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
-	<% end %>
+	</div>
+</div>
+<% end %>
 <% end %>

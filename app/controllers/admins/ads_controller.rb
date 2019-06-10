@@ -6,10 +6,6 @@ class Admins::AdsController < ApplicationController
 		@ads = Ad.all
 	end
 
-	def new
-		@ad = Ad.new
-	end
-
 	def create
 		@ad = Ad.new(user_id: current_user.id, title: params[:title], description: params[:description], type: Type.find_by(name: params[:type]), category: Category.find_by(name: params[:category]), duration: params[:duration], frequency: params[:frequency], other_propositions: params[:other_propositions], availability: params[:availability])
 		if @ad.save
