@@ -63,18 +63,24 @@ footer {
 .bg-light-grey {
 	background-color: #f8f9fa;
 }
- /*personal settings for ads index */
+/*personal settings for ads index */
 
 
 /*---------- Ad index buttons change color when checked ---------*/
 .button.is-checked {
-  background-color: #FF8E88;
-  border-color: #FF8E88;
+	background-color: #FF8E88;
+	border-color: #FF8E88;
 }
 
 /*---------- Ad scrollbar to messaging system ----------*/
 .scrollbar {
-  height: 500px;
-  overflow-y: scroll;
-  
+	height: 500px;
+	overflow-y: scroll;
+
+}
+
+/*---------- Ad hover effect on ads index cards ------------*/
+.hover-shadow-3d:hover {
+	box-shadow: 0 0.4rem 0 rgba(233, 236, 239, 0.5);
+	transform: translate3d(0, -4px, 0);
 }
