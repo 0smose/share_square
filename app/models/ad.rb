@@ -16,7 +16,7 @@ class Ad < ApplicationRecord
 	belongs_to :type
 	belongs_to :category
 
-	after_update_commit :ad_validated_send
+	after_update :ad_validated_send
 
 	after_destroy :ad_not_validated_send
 

@@ -35,10 +35,10 @@ class AdminsController < ApplicationController
     @ad = Ad.find(params[:id])
     if @ad.destroy
       flash[:success] = "L'annonce a bien été supprimée !"
-      redirect_to admins_users_path
+      redirect_to admins_path
     else
       flash[:alert] = "Il y a eu un problème !"
-      redirect_to admins_users_path
+      redirect_to admins_path
     end
   end
 
