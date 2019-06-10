@@ -40,32 +40,132 @@ Category.destroy_all
 
 # ---------- FAKE USERS AND ADS -----------
 
-10.times do 
-	# We create a few example users
-	user = User.create!(
-		last_name: Faker::Name.last_name,
-		first_name: Faker::Name.first_name,
-		email: Faker::Internet.email,
+
+	bailly = User.create!(
+		last_name: "Bailly",
+		first_name: "Astrid",
+		email: "Bailly_Astrid@yopmail.com",
 		password: "dumdum",
-		description: Faker::Lorem.paragraph_by_chars(125, false),
-		skills: Faker::Job.field
+		description: "Salut, je suis Astrid j'ai 23 ans, je suis photographe, j'aime les films, les séries et la musique. Je me suis inscrite pour apprendre a faire des patisseries",
+		skills: "photographie, badminton"
 		)
+
 	puts "Fake user added"
 
-	# We create a few example ads
-	a = Ad.create!(
-		title: Faker::Lorem.paragraph_by_chars(40, false),
-		description: Faker::Lorem.paragraph_by_chars(175, false),
-		type: [@lesson, @help, @project].sample,
-		category: [@cooking, @diy, @music, @art, @games, @tech, @garage, @sport, @gardening, @writing, @languages].sample,
-		duration: ["1h", "2h", "3h", "4h", "5h", "6h", "Non défini"].sample,
-		frequency: ["Quotidien", "Hebdomadaire", "Mensuel", "Non défini"].sample,
-		other_propositions: [true, false].sample,
-		availability: ["Semaine", "Week-end", "Semaine et Week-end"].sample,
-		user: user
+	lefevre = User.create!(
+		last_name: "Lefevre",
+		first_name: "Alain",
+		email: "Lefevre.a@yopmail.com",
+		password: "dumdum",
+		description: "Bonjour, je me nomme Alain, 41ans, je suis menuisier depuis 20 ans. Je suis passioné par la pêche et la musique et je suis ici pour qu'on m'enseigne le piano",
+		skills: "menuiserie, pêche"
 		)
-	puts "Fake ad added"
-end
+
+	puts "Fake user added"
+
+	chauvet = User.create!(
+		last_name: "Chauvet",
+		first_name: "Mathilde",
+		email: "Mathidle_c@yopmail.com",
+		password: "dumdum",
+		description: "Moi c'est Mathilde, je suis agée de 32 ans. Je fais de la patisserie depuis mes 25ans, j'aime voyager, la photographie et le tennis, je viens sur ce site pour découvrir le monde de la photographie ",
+		skills: "patissière"
+		)
+
+	puts "Fake user added"
+
+	charrier = User.create!(
+		last_name: "Charrier",
+		first_name: "Thibault",
+		email: "Thibault_charrier@yopmail.com",
+		password: "dumdum",
+		description: "Hello, je suis Thibault, j'ai 21 ans je suis étudiant en langues étrangères. J'adore les animaux et tout ce qui est en rapport avec les animaux , j'aimerais apprendre à cuisiner et a pêcher",
+		skills: "Anglais, Espagnol"
+		)
+
+	puts "Fake user added"
+
+	schmitt = User.create!(
+		last_name: "Schmitt",
+		first_name: "Anne",
+		email: "Schmittanne@yopmail.com",
+		password: "dumdum",
+		description: "Hey, je suis Anne, 28ans, developpeuse web et pianiste dans un groupe de musique, je suis fan d'animation japonaise, je souhaite apprendre l'espagnol et j'aimerais bien découvrir la pêche",
+		skills: "devloppeuse web, pianiste"
+		)
+
+	puts "Fake user added"
+
+
+	a1 = Ad.create!(
+		title: "Projet, création d'une maison en bois",
+		description: "Je cherche des personnes motivés pour construire une maison en bois. Etant menuisier je peux vous donner des astuces et des conseils pour mener la construction à bien",
+		type: @project,
+		category: @diy,
+		duration: ["2h"],
+		frequency: "Non défini",
+		other_propositions: [false],
+		availability: "week-end",
+		user: lefevre
+		)
+
+	puts "fake ad added"
+
+	a2 = Ad.create!(
+		title: "Apprendre a faire un tiramisu",
+		description: "Coucou, j'aimerais bien apprendre a faire un tiramisu pour un repas de famille, je peux enseigner les bases de la photographie en echange si besoin",
+		type: @lesson,
+		category: @cooking,
+		duration: "1h",
+		frequency: "Quotidien",
+		other_propositions: [true],
+		availability: "Semaine et Week-end",
+		user: bailly
+		)
+
+	puts "fake ad added"
+
+	a3 = Ad.create!(
+		title: "Recherche un guitariste",
+		description: "Salut, je cherche un guitariste compétent pour assurer une représentation ce soir avec mon groupe de musique, je peux donner des cours de piano en echange de ce coup de main",
+		type: @help,
+		category: @music,
+		duration: "2h",
+		frequency: "Non défini",
+		other_propositions: [false],
+		availability: "week-end",
+		user: schmitt
+		)
+
+	puts "fake ad added"
+
+	a4 = Ad.create!(
+		title: "Cours de pêche ",
+		description: "Bonsoir, étant passionné de pêche, je cherche une personne apte a m'apprendre les bases de la pêche. En contrepartie je peux enseigner l'anglais ou l'espagnol",
+		type: @lesson,
+		category: @gardening,
+		duration: "3h",
+		frequency: "Hebdomadaire",
+		other_propositions: [true],
+		availability: "Semaine et Week-end",
+		user: charrier
+		)
+
+	puts "fake ad added"
+
+	a5 = Ad.create!(
+		title: "Découvrir l'espagnol",
+		description: "Hello, ayant un bon niveau en anglais, je souhaite apprendre a parler espagnol. Je peux proposer mes sevices de developpeuse web en echange :)",
+		type: @lesson,
+		category: @languages,
+		duration: "3h", 
+		frequency: "Quotidien",
+		other_propositions: [false],
+		availability: "Week-end",
+		user: chauvet
+		)
+
+	puts "fake ad added"
 
 
 # ---------- ADMIN ----------
