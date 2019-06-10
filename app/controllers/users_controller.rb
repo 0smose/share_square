@@ -8,9 +8,9 @@ class UsersController < ApplicationController
 
 	def dont_show
 		@user = User.friendly.find(params[:id])
-		if @user != current_user
-			redirect_to root_path
-			flash[:alert] = "Information confidentielle"
+		if (@user != current_user) 
+			redirect_to root_path flash[:alert] = "Information confidentielle" unless current_user.is_admin 
+			
 		end
 	end
 
