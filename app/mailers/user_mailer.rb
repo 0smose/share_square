@@ -34,11 +34,11 @@ class UserMailer < ApplicationMailer
 		mail(to: @user.email, subject: "Bonne nouvelle")
 	end
 
-	def ad_not_validated(user, ad)
+	def ad_not_validated(user, ad, comment)
 		@user = user
 		@ad = ad
+		@comment = comment
 		@home = 'https://share-square.herokuapp.com'
-		@url = 'http://share-square.herokuapp.com/ads'
 		mail(to: @user.email, subject: "Mauvaise nouvelle")
 	end
 

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<!-- Icone < -->
+				<!-- Retour aux annonces < -->
 				<%= link_to ads_path do %> 
 				<svg class="icon bg-primary" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<title>Retour aux annonces</title>
@@ -13,59 +13,59 @@
 				</svg>
 				<span class="text-small">retour aux annonces</span>
 				<% end %>
-				<!-- Ad show -->
-				<div class="container mt-2">
-					<div class="row">
-						<div class="col col-md-8 offset-md-2">
-							<h2 class="mt-2 text-center"><%= @ad.title%></h2>
+			</div>
+		</div>
+		<!-- Ad show -->
+		<div class="row mt-2">
+			<div class="col col-md-8 offset-md-2">
+				<h2 class="mt-2 text-center"><%= @ad.title%></h2>
 
-							<p class="mb-1"><b>Description :</b></p>
-							<p><%= @ad.description %></p>
-							<hr>
+				<p class="mb-1"><b>Description :</b></p>
+				<p><%= @ad.description %></p>
+				<hr>
 
-							<p><b>Catégorie : </b><%= @ad.category.name %></p>
-							<hr>
+				<p><b>Catégorie : </b><%= @ad.category.name %></p>
+				<hr>
 
-							<p><b>Durée de l'activité : </b><%= @ad.duration %></p>
-							<hr>
+				<p><b>Durée de l'activité : </b><%= @ad.duration %></p>
+				<hr>
 
-							<p><b>Fréquence : </b><%= @ad.frequency %></p>
-							<hr>
+				<p><b>Fréquence : </b><%= @ad.frequency %></p>
+				<hr>
 
-							<% if @ad.other_propositions == true %>
+				<% if @ad.other_propositions == true %>
 
-							<p class="mb-1"><b>Autres propositions :</b></p>
-							<p>Cet utilisateur accepte d'autres propositions d'échange</p>
-							<hr>
+				<p class="mb-1"><b>Autres propositions :</b></p>
+				<p>Cet utilisateur accepte d'autres propositions d'échange</p>
+				<hr>
 
-							<% else %>
-							<p class="mb-1"><b>Autres propositions :</b></p>
-							<p>Cet utilisateur n'accepte pas d'autres propositions d'échange</p>
-							<hr>
-							<% end %>
+				<% else %>
+				<p class="mb-1"><b>Autres propositions :</b></p>
+				<p>Cet utilisateur n'accepte pas d'autres propositions d'échange</p>
+				<hr>
+				<% end %>
 
-							<p><b>Disponibilités : </b><%= @ad.availability %></p>
-							<hr>
+				<p><b>Disponibilités : </b><%= @ad.availability %></p>
+				<hr>
 
-							<p><b>Annonce crée par : </b><%= @ad.user.first_name %> <%= @ad.user.last_name %></p>
-							<hr>
-							<% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
-							<p><b>Mise en ligne : </b>Aujourd'hui à <%= @ad.created_at.hour %>:<%= @ad.created_at.min %></p>
-							<hr>
-							<% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
-							<p><b>Mise en ligne : </b>Hier à<%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></p>
-							<hr>
-							<% else %>					
-							<p><b>Mise en ligne le : </b><%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%></p>
-							<hr>
-							<% end %>
-							<% if current_user != @ad.user %>
-							<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
-							<%end%>
-						</div>
-					</div>
-				</div>
+				<p><b>Annonce crée par : </b><%= @ad.user.first_name %> <%= @ad.user.last_name %></p>
+				<hr>
+				<% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+				<p><b>Mise en ligne : </b>Aujourd'hui à <%= @ad.created_at.hour %>:<%= @ad.created_at.min %></p>
+				<hr>
+				<% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+				<p><b>Mise en ligne : </b>Hier à<%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></p>
+				<hr>
+				<% else %>					
+				<p><b>Mise en ligne le : </b><%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%></p>
+				<hr>
+				<% end %>
+				<% if current_user != @ad.user %>
+				<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
+				<%end%>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 </section>
