@@ -13,21 +13,20 @@
                     </div>
                     <div class="row px-2">
                         <div class="col">
-                            <ul class="list-group">
-                                <% ads_waiting_validation = 0 %>
+                            <div class="list-group">
                                 <% @ads.each do |a| %>
                                     <% if a.validated == nil %>
-                                        <%= link_to edit_admin_path(a.id), class:"list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
-                                            <%= a.title %>
-                                            <i class="far fa-eye text-primary"></i>
-                                        <% end %>  
-                                        ads_waiting_validation++
-                                     <% end %>
+                                        <%= link_to edit_admin_path(a.id), class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
+                                                <%= a.title %>
+                                                <i class="far fa-eye text-primary"></i>
+                                        <% end %>
+                                    <% end %>
                                 <% end %>
-                                <% if ads_waiting_validation == 0 %>
-                                    <p class="m-0 p-0">Il n'y a aucune annonce en attente de validation.</p>
+                                
+                                <% if @ads.where(validated: nil).count == 0 %>
+                                    Il n'y a pas d'annonce à valider pour le moment.
                                 <% end %>
-                            </ul>
+                            </div>
                         </div>
                     </div>
 
