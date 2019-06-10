@@ -33,7 +33,7 @@
 								<div class="row py-3">
 									<div class="col">
 										<!-- If ad type is a lesson -->
-										<% if a.type.id == 1 %>
+										<% if a.type.name == "Cours" %>
 										<p>
 											<i class="fas fa-user-graduate text-primary big-icon"></i>
 										</p>
@@ -41,7 +41,7 @@
 											Cours
 										</p>
 										<!-- If ad type is a help -->
-										<% elsif a.type.id == 2 %>
+										<% elsif a.type.name == "Coup de main" %>
 										<p>
 											<i class="fas fa-hands-helping text-primary big-icon"></i>
 										</p>
@@ -49,7 +49,7 @@
 											Coup de main
 										</p>
 										<!-- If ad type is a project -->
-										<% elsif a.type.id == 3 %>
+										<% elsif a.type.name == "Projet" %>
 										<p>
 											<i class="fas fa-users text-primary big-icon"></i>
 										</p>
