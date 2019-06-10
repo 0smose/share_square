@@ -1,53 +1,53 @@
 <section>
   <div class="container mt-4 ">
-     <div class="row">
+   <div class="row">
 
-        <div class="col col-md-8 offset-md-2">
+    <div class="col col-md-8 offset-md-2">
 
-          <h4>Éditer mes informations personnelles</h4>
+      <h4>Éditer mes informations personnelles</h4>
 
-          <%= user_avatar(@user.id, "avatar avatar-xlg") %>
+      <%= user_avatar(@user.id, "avatar avatar-xlg") %>
 
-         
-          <%= form_tag user_avatars_path(@user.id), multipart: true, class: "btn btn-sm" do %>
-         <p>
-          <%= file_field_tag :avatar %>
-          </p>
-          <p class="text-left">
-            <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm m-0" %>
-          </p>
-          <% end %>
-          
 
-          <!-- Form zone  -->
-          <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
+      <%= form_tag user_avatars_path(@user.id), multipart: true, class: "btn btn-sm" do %>
+      <p>
+        <%= file_field_tag :avatar %>
+      </p>
+      <p class="text-left">
+        <%= submit_tag "Mettre en ligne", class: "btn btn-success btn-sm m-0" %>
+      </p>
+      <% end %>
 
-          <b><%= label_tag 'Mon prénom :' %></b>
-          <%= text_field_tag 'first_name', @user.first_name, class: "form-control"  %>
-          <br />
 
-          <b><%= label_tag 'Mon nom :' %></b>
-          <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
-          <br />
+      <!-- Form zone  -->
+      <%= form_tag url_for(action: 'update'), method: "patch", class: "mt-4" do %>
 
-          <b><%= label_tag 'Ma description :' %></b>
-          <%= text_area_tag 'description', @user.description, class: "form-control"  %>
-          <br />
+      <b><%= label_tag 'Mon prénom :' %></b>
+      <%= text_field_tag 'first_name', @user.first_name, class: "form-control"  %>
+      <br />
 
-          <b><%= label_tag 'Mes compétences :' %></b>
-          <%= text_field_tag 'skills', @user.skills, class: "form-control"  %>
-          <br />
+      <b><%= label_tag 'Mon nom :' %></b>
+      <%= text_field_tag 'last_name', @user.last_name, class: "form-control" %>
+      <br />
 
-          <%= submit_tag "Éditer mon profil", class: "btn btn-primary" %>
+      <b><%= label_tag 'Ma description :' %></b>
+      <%= text_area_tag 'description', @user.description, class: "form-control"  %>
+      <br />
 
-          <% end %>
-      </div>
+      <b><%= label_tag 'Mes compétences :' %></b>
+      <%= text_field_tag 'skills', @user.skills, class: "form-control"  %>
+      <br />
+
+      <%= submit_tag "Éditer mon profil", class: "btn btn-primary" %>
+
+      <% end %>
+    </div>
   </div>
   <div class="row my-3">
     <div class="col col-md-8 offset-md-2">
-        <hr>
+      <hr>
       <i class="fas fa-trash-alt text-danger"></i>
-      <%=link_to "Supprimer mon compte", user_path(@user), method: :delete, data: { confirm: 'Êtes-vous sur ? La suppression du compte est définitive et irréversible.' }, class: "text-danger ml-1" %>
+      <%=link_to "Supprimer mon compte", user_path(@user), method: :delete, data: { confirm: 'Êtes-vous sûr(e) ? La suppression du compte est définitive.' }, class: "text-danger ml-1" %>
+    </div>
   </div>
-</div>
 </section>

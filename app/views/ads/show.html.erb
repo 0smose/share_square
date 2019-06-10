@@ -60,7 +60,7 @@
 							<hr>
 							<% end %>
 							<% if current_user != @ad.user %>
-							<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary btn-sm mt-1" %>
+							<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
 							<%end%>
 						</div>
 					</div>
