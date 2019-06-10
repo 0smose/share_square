@@ -18,16 +18,10 @@ class Ad < ApplicationRecord
 
 	after_update :ad_validated_send
 
-	after_destroy :ad_not_validated_send
-
 	def ad_validated_send
 		if self.validated == true
 			UserMailer.ad_validated(self.user, self).deliver_now
 		end
-	end
-
-	def ad_not_validated_send
-		UserMailer.ad_not_validated(self.user, self).deliver_now
 	end
 end
 
