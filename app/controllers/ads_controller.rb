@@ -28,7 +28,7 @@ class AdsController < ApplicationController
 	def edit
 		@ad = Ad.friendly.find(params[:id])
 		# @user = User.find(params[:id])
-		redirect_to root_path, notice: "Vous ne pouvez pas éditer l'annonce d'autrui !" unless @ad.user == current_user
+		redirect_to root_path, notice: "Vous ne pouvez pas éditer l'annonce d'autrui !" unless @ad.user == current_user || current_user.is_admin
 	end
 
 	def update
