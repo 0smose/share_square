@@ -1,8 +1,8 @@
 <section>
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				<p class="h3 mb-2 mt-3 border-bottom border-gray">Mes annonces</p>
+			<div class="col col-md-8 offset-md-2">
+				<p class="h3 mb-3 mt-3 border-bottom border-gray">Mes annonces</p>
 				<!-- If the current user doe'n have any ad yet, we change the text -->
 				<% if current_user.ads[0] == nil %> 
 				<div class="mt-4">
@@ -10,34 +10,59 @@
 				</div>
 				<% else %> 
 				<% current_user.ads.each do |ad| %>
-				<div class="col col-12 mr-1 mb-2 mt-3 p-2 border rounded shadow">
-					<!-- We display each ad with all informations -->
-					<div class="profil-box mt-3">
-						<h2 class="mt-2"><%= ad.title%></h2>
-						<ul class="list-group list-group-flush mb-3 mt-3">
-							<li class="list-group-item"><%= ad.description %></li>
-							<li class="list-group-item">Durée de l'activité : <%= ad.duration %></li>
-							<li class="list-group-item">Fréquence : <%= ad.frequency %></li>
-							<% if ad.other_propositions == true %>
-							<li class="list-group-item">Cet utilisateur accepte d'autres propositions d'échange</li>
-							<% else %>
-							<li class="list-group-item">Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
-							<% end %>
-							<li class="list-group-item">Disponibilités : <%= ad.availability %></li>
-							<li class="list-group-item">Annonce crée par : <%= ad.user.first_name %> <%= ad.user.last_name %></li>
-							<% if  ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
-							<li class="list-group-item">Mise en ligne : Aujourd'hui à <%= ad.created_at.hour %>:<%= ad.created_at.min %></li>
-							<% elsif ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
-							<li class="list-group-item"><b>Mise en ligne :</b> Hier à<%= ad.created_at.localtime.hour %>:<%= ad.created_at.localtime.min %></li>
-							<% else %>					
-							<li class="list-group-item">Mise en ligne le : <%= ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=ad.created_at.localtime.strftime("%H:%M")%></li>
-							<% end %>
-							<% if current_user != ad.user %>
-							<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: ad.user.id), class: "btn btn-primary btn-sm mt-3" %>
-							<%end%>
-						</ul>
+				<%= link_to(edit_ad_path(ad.id), class: "text-default") do %>
+				<div class="card flex-md-row no-gutters o-hidden mt-2 mb-2 text-default hover-shadow-3d">
+					<div class="card-body d-flex flex-column col-auto p-3">
+						<div class="mb-1">
+							<p class="m-0 p-0">
+								<span class=" text-small text-primary m-0 p-0"><%= ad.category.name%></span>
+								<span class="text-muted text-small mx-2"><%= ad.created_at.localtime.strftime("%d/%m/%y %H:%M") %></span>
+								<!-- Check if ad was accepted by admin -->
+								<% if ad.validated == true %>
+								<span class="mb-0 text-small text-muted">
+									Validation : <i class="fas fa-check-circle text-primary"></i>
+								</span>
+								<% else %>
+								<span class="mb-0 text-small text-muted">
+									Validation : en attente
+								</span>
+								<% end %>
+							</p>
+						</div>
+						<div class="flex-grow-1">
+							<h5 class="m-0 p-0"><%= ad.title %></h5>
+							<p class="text-muted text-small mt-0 mb-0 p-0">Par <%= ad.user.first_name %> <%= ad.user.last_name %></p>
+						</div>
+					</div>
+					<div class="col-md-3 bg-primary-alt">
+						<div class="container h-100">
+							<div class="row h-100">
+								<div class="col align-self-center text-center">
+									<!-- If ad type is a lesson -->
+									<% if ad.type.id == 1 %>
+									<i class="fas fa-user-graduate text-primary big-icon"></i>
+									<p class="text-default m-0 p-0">
+										Cours
+									</p>
+									<!-- If ad type is a help -->
+									<% elsif ad.type.id == 2 %>
+									<i class="fas fa-hands-helping text-primary big-icon mt-0 p-0"></i>
+									<p class="text-default m-0 p-0">
+										Coup de main
+									</p>
+									<!-- If ad type is a project -->
+									<% elsif ad.type.id == 3 %>
+									<i class="fas fa-users text-primary big-icon"></i>
+									<p class="text-default m-0 p-0">
+										Projet
+									</p>
+									<% end %>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+				<% end %>
 				<% end %>
 				<% end %>		
 			</div>		
