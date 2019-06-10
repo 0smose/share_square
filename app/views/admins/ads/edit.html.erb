@@ -32,24 +32,31 @@
 
                             <%= label_tag 'Sa catégorie', nil, class: "font-weight-bold" %>
                             <%= select_tag 'category',options_for_select(["Cuisine", "Artisanat",  "Musique", "Art", "Jeux", "Technologie", "Mécanique", "Sport", "Jardinage", "Écriture", "Langues"]), class: "form-control mb-3" %>
+                            
+                            <%= label_tag 'Sa durée :', nil, class: "font-weight-bold mt-3" %>
+                            <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control" %>
 
-                            <%= label_tag 'Sa durée', nil, class: "font-weight-bold" %>
-                            <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control mb-3" %>
+                            <%= label_tag 'Sa fréquence :', nil, class: "font-weight-bold mt-3" %>
+                            <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control" %>
 
-                            <%= label_tag 'Sa fréquence', nil, class: "font-weight-bold" %>
-                            <%= select_tag 'frequency',options_for_select(["Quotidien", "Tout les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control mb-3" %>
-
-                            <p class="font-weight-bold"> Êtes vous ouvert à d'autres modalités d'échange ? </p>
-
-                            <%= radio_button_tag(:other_propositions, "true") %>
-                            <%= label_tag(:other_propositions_yes, "Yes", class: "mr-2") %>
-                            <%= radio_button_tag(:other_propositions, checked = false, "false") %>
-                            <%= label_tag(:other_propositions_no, "No", class: "mb-3") %>
-
-                            <p>
-                                <%= label_tag 'Vos Disponibilités', nil, class: "font-weight-bold" %>
-                                <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"]), class: "form-control mb-3" %>
+                            <p class="font-weight-bold mt-3"> Êtes vous ouvert à d'autres modalités d'échange ? </p>
+                            
+                            <p class="mt-1 m-0 mb-0 p-0">
+                                <% if @ad.other_propositions == true %>
+                                <%= radio_button_tag(:other_propositions, checked = true, "true") %>
+                                <%= label_tag(:other_propositions_yes, "Oui", class: "mr-2") %>
+                                <%= radio_button_tag(:other_propositions, "false") %>
+                                <%= label_tag(:other_propositions_no, "Non") %>
+                                <% elsif @ad.other_propositions == false %>
+                                <%= radio_button_tag(:other_propositions, "true") %>
+                                <%= label_tag(:other_propositions_yes, "Oui", class: "mr-2") %>
+                                <%= radio_button_tag(:other_propositions, checked = false, "false") %>
+                                <%= label_tag(:other_propositions_no, "Non") %>
+                                <% end %>
                             </p>
+
+                            <%= label_tag 'Vos disponibilités :', nil, class: "font-weight-bold mt-2" %>
+                            <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"]), class: "form-control mb-3" %>
                             <p>
                                 <%= submit_tag "Modifier l'annonce", class: "btn btn-primary" %>
                                 <%= link_to "Supprimer", admins_ad_path(@ad.id), method: :delete, data: { confirm: 'Êtes-vous sur de vouloir la supprimer ? Cette action est irréversible' }, class: "btn btn-danger ml-2" %>
