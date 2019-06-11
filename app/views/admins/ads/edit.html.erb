@@ -57,10 +57,17 @@
                             <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end", "Non défini"], @ad.availability), class: "form-control mb-3" %>
                             <p>
                                 <%= submit_tag "Modifier l'annonce", class: "btn btn-primary" %>
-                                <%= link_to "Supprimer", admins_ad_path(@ad.id), method: :delete, data: { confirm: 'Êtes-vous sur de vouloir la supprimer ? Cette action est irréversible' }, class: "btn btn-danger ml-2" %>
-                                
                             </p>
                             <% end %>
+                         <p>
+
+                            <!-- new form_tag to delete ad -->
+                            <%= form_tag(admin_path, method: "delete", action: "destroy") do %>
+                            <%= text_area_tag 'comment', nil, class: "col", placeholder: "Explique les raisons de la suppression de l'annonce" %> <br>
+                            <%= submit_tag 'Supprimer', class: "btn btn-danger mt-2", :data => {:confirm => "Êtes-vous sûr ?"} %>
+                            <% end %>
+                        </p>
+                            
                         </div>
                     </div>
                 </div>
