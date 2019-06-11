@@ -41,7 +41,7 @@
                 <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"], @ad.duration), class: "form-control" %>
 
                 <%= label_tag 'Sa fréquence :', nil, class: "font-weight-bold mt-3" %>
-                <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel"], @ad.frequency), class: "form-control" %>
+                <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel", "Non défini"], @ad.frequency), class: "form-control" %>
 
                 <p class="font-weight-bold mt-3"> Êtes vous ouvert à d'autres modalités d'échange ?</p>
                 
@@ -60,7 +60,7 @@
                 </p>
 
                 <%= label_tag 'Vos disponibilités :', nil, class: "font-weight-bold mt-2" %>
-                <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end"], @ad.availability), class: "form-control mb-3" %>
+                <%= select_tag 'availability',options_for_select(["Le matin", "Le midi", "Le soir", "N'importe quand", "Seulement le week-end", "Non défini"], @ad.availability), class: "form-control mb-3" %>
 
                 <%= submit_tag "Modifier l'annonce", class: "btn btn-primary mt-2 mb-1" %> 
 
