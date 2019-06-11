@@ -39,19 +39,19 @@
 							<div class="row h-100">
 								<div class="col align-self-center text-center">
 									<!-- If ad type is a lesson -->
-									<% if ad.type.id == 1 %>
+									<% if ad.type.name == "Cours" %>
 									<i class="fas fa-user-graduate text-primary big-icon"></i>
 									<p class="text-default m-0 p-0">
 										Cours
 									</p>
 									<!-- If ad type is a help -->
-									<% elsif ad.type.id == 2 %>
+									<% elsif ad.type.name == "Coup de main" %>
 									<i class="fas fa-hands-helping text-primary big-icon mt-0 p-0"></i>
 									<p class="text-default m-0 p-0">
 										Coup de main
 									</p>
 									<!-- If ad type is a project -->
-									<% elsif ad.type.id == 3 %>
+									<% elsif ad.type.name == "Projet" %>
 									<i class="fas fa-users text-primary big-icon"></i>
 									<p class="text-default m-0 p-0">
 										Projet

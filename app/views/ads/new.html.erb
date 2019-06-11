@@ -9,7 +9,7 @@
                 <!-- Zone du formulaire -->
                 <%= form_tag url_for(action: 'create'), method: "post", class: "mt-4" do %>
 
-                 <%= label_tag 'Quel sera son titre ? :', nil, class: "font-weight-bold" %>
+                 <%= label_tag 'Quel sera son titre ? ', nil, class: "font-weight-bold" %>
                 <%= text_field_tag 'title', @ad.title, class: "form-control" %>
 
                 <%= label_tag 'Sa description :', nil, class: "font-weight-bold mt-3" %>
@@ -25,7 +25,7 @@
                 <%= select_tag 'duration',options_for_select(["1h", "2h", "3h", "3h-5h", "Encore plus"]), class: "form-control" %>
 
                 <%= label_tag 'Sa fréquence :', nil, class: "font-weight-bold mt-3" %>
-                <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel"]), class: "form-control" %>
+                <%= select_tag 'frequency',options_for_select(["Une seule fois", "Quotidien", "Tous les deux jours", "Hebdomadaire", "Mensuel", "Non défini"]), class: "form-control" %>
 
                 <p class=" font-weight-bold mt-3 mb-0"> Êtes vous ouvert à d'autres modalités d'échange ? :</p>
 
