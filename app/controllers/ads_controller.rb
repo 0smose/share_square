@@ -49,7 +49,7 @@ class AdsController < ApplicationController
 	def destroy
 		@ad = Ad.friendly.find(params[:id])	
 		if @ad.destroy
-			redirect_to ads_path
+			redirect_to user_path(current_user)
 			flash[:success] = "Votre annonce a bien été supprimée"
 		else 
 			flash[:alert] = "Un problème est survenu"
