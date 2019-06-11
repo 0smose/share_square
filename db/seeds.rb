@@ -102,9 +102,9 @@ Category.destroy_all
 		description: "Je cherche des personnes motivés pour construire une maison en bois. Etant menuisier je peux vous donner des astuces et des conseils pour mener la construction à bien",
 		type: @project,
 		category: @diy,
-		duration: ["2h"],
+		duration: "2h",
 		frequency: "Non défini",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "week-end",
 		user: lefevre
 		)
@@ -118,7 +118,7 @@ Category.destroy_all
 		category: @cooking,
 		duration: "1h",
 		frequency: "Quotidien",
-		other_propositions: [true],
+		other_propositions: true,
 		availability: "Semaine et Week-end",
 		user: bailly
 		)
@@ -132,7 +132,7 @@ Category.destroy_all
 		category: @music,
 		duration: "2h",
 		frequency: "Non défini",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "week-end",
 		user: schmitt
 		)
@@ -146,7 +146,7 @@ Category.destroy_all
 		category: @gardening,
 		duration: "3h",
 		frequency: "Hebdomadaire",
-		other_propositions: [true],
+		other_propositions: true,
 		availability: "Semaine et Week-end",
 		user: charrier
 		)
@@ -160,7 +160,7 @@ Category.destroy_all
 		category: @languages,
 		duration: "3h", 
 		frequency: "Quotidien",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "Week-end",
 		user: chauvet
 		)
