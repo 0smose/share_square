@@ -8,9 +8,15 @@
           <li class="nav-item">
             <%= link_to "Voir les annonces", ads_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Créer une annonce", new_ad_path, class: "nav-link" %>
-          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Créer une annonce", new_ad_path, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Créer une annonce", "#sign-in-modal", "data-toggle" => "modal", class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "A propos", static_pages_about_us_path, class: "nav-link" %>
           </li>
@@ -25,7 +31,7 @@
       </div>
       <div class="col-lg-5 col-xl-4 mt-3 mt-lg-0">
         <h5>Nous contacter</h5>
-         <p class="mb-2 pb-0">
+        <p class="mb-2 pb-0">
           N'hésitez pas à nous contacter pour toute question : <br>
           <i class="fas fa-envelope"></i> <a href="mailto:thplyon@protonmail.com" class="ml-1">thplyon@protonmail.com</a>
         </p>

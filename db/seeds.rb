@@ -57,7 +57,7 @@ Category.destroy_all
 		first_name: "Alain",
 		email: "Lefevre.a@yopmail.com",
 		password: "dumdum",
-		description: "Bonjour, je me nomme Alain, 41ans, je suis menuisier depuis 20 ans. Je suis passioné par la pêche et la musique et je suis ici pour qu'on m'enseigne le piano",
+		description: "Bonjour, je me nomme Alain, 41 ans, je suis menuisier depuis 20 ans. Je suis passioné par la pêche et la musique et je suis ici pour qu'on m'enseigne le piano",
 		skills: "menuiserie, pêche"
 		)
 
@@ -68,7 +68,7 @@ Category.destroy_all
 		first_name: "Mathilde",
 		email: "Mathidle_c@yopmail.com",
 		password: "dumdum",
-		description: "Moi c'est Mathilde, je suis agée de 32 ans. Je fais de la patisserie depuis mes 25ans, j'aime voyager, la photographie et le tennis, je viens sur ce site pour découvrir le monde de la photographie ",
+		description: "Moi c'est Mathilde, je suis âgée de 32 ans. Je fais de la patisserie depuis mes 25ans, j'aime voyager, la photographie et le tennis, je viens sur ce site pour découvrir le monde de la photographie ",
 		skills: "patissière"
 		)
 
@@ -102,9 +102,9 @@ Category.destroy_all
 		description: "Je cherche des personnes motivés pour construire une maison en bois. Etant menuisier je peux vous donner des astuces et des conseils pour mener la construction à bien",
 		type: @project,
 		category: @diy,
-		duration: ["2h"],
+		duration: "2h",
 		frequency: "Non défini",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "week-end",
 		user: lefevre
 		)
@@ -118,7 +118,7 @@ Category.destroy_all
 		category: @cooking,
 		duration: "1h",
 		frequency: "Quotidien",
-		other_propositions: [true],
+		other_propositions: true,
 		availability: "Semaine et Week-end",
 		user: bailly
 		)
@@ -132,7 +132,7 @@ Category.destroy_all
 		category: @music,
 		duration: "2h",
 		frequency: "Non défini",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "week-end",
 		user: schmitt
 		)
@@ -146,7 +146,7 @@ Category.destroy_all
 		category: @gardening,
 		duration: "3h",
 		frequency: "Hebdomadaire",
-		other_propositions: [true],
+		other_propositions: true,
 		availability: "Semaine et Week-end",
 		user: charrier
 		)
@@ -160,7 +160,7 @@ Category.destroy_all
 		category: @languages,
 		duration: "3h", 
 		frequency: "Quotidien",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "Week-end",
 		user: chauvet
 		)

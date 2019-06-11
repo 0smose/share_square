@@ -2,7 +2,7 @@
 <% @users.order(created_at: :desc).each do |u| %>
 	<!-- CARD -->
 	<%= link_to(admins_user_path(u.id), class: "text-default p-0 m-0") do %>
-		<div class="card row mx-2 o-hidden p-0 mt-0 mb-2">
+		<div class="card row mx-2 o-hidden hover-shadow-3d p-0 mt-0 mb-2">
 			<div class="card-body col p-3">
 				<div class="flex-grow-1">
 					<div class="d-flex align-items-center">
