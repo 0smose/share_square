@@ -24,7 +24,7 @@
                                 <%= text_field_tag 'title', @ad.title, class: "form-control" %>
 
                                 <%= label_tag 'Sa description :', nil, class: "font-weight-bold mt-3" %>
-                                <%= text_field_tag 'description', @ad.description, class: "form-control"  %>
+                                <%= text_area_tag 'description', @ad.description, class: "form-control"  %>
 
                                 <%= label_tag 'Son type d\'activité :', nil, class: "font-weight-bold mt-3" %>
                                 <%= select_tag 'type',options_for_select(["Coup de main", "Cours", "Projet"], @ad.type.name), class: "form-control" %>
@@ -62,7 +62,7 @@
                             <p>
                             <!-- new form_tag to delete ad -->
                             <%= form_tag(admin_path, method: "delete", action: "destroy") do %>
-                                <%= text_area_tag 'comment', nil, class: "col", placeholder: "Explique les raisons de la suppression de l'annonce" %> <br>
+                                <%= text_area_tag 'comment', nil, class: "form-control", placeholder: "Explique les raisons de la suppression de l'annonce" %> <br>
                                 <%= submit_tag 'Supprimer', class: "btn btn-danger mt-2", :data => {:confirm => "Êtes-vous sûr ?"} %>
                             <% end %>
                             </p>
