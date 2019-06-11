@@ -54,7 +54,7 @@
 				<p><b>Mise en ligne : </b>Aujourd'hui à <%= @ad.created_at.hour %>:<%= @ad.created_at.min %></p>
 				<hr>
 				<% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
-				<p><b>Mise en ligne : </b>Hier à<%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></p>
+				<p><b>Mise en ligne : </b>Hier à <%= @ad.created_at.localtime.hour %>:<%= @ad.created_at.localtime.min %></p>
 				<hr>
 				<% else %>					
 				<p><b>Mise en ligne le : </b><%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%></p>
