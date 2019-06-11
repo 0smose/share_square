@@ -160,7 +160,7 @@ Category.destroy_all
 		category: @languages,
 		duration: "3h", 
 		frequency: "Quotidien",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "Week-end",
 		user: chauvet
 		)
