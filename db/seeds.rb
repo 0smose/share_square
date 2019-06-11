@@ -102,7 +102,7 @@ Category.destroy_all
 		description: "Je cherche des personnes motivés pour construire une maison en bois. Etant menuisier je peux vous donner des astuces et des conseils pour mener la construction à bien",
 		type: @project,
 		category: @diy,
-		duration: ["2h"],
+		duration: "2h",
 		frequency: "Non défini",
 		other_propositions: false,
 		availability: "week-end",
