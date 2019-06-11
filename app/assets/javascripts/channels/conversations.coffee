@@ -6,7 +6,7 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
     # with the text-area content, empty the the text area and prevent default behaviors
     $(document).on 'keypress','#text-field', (event) =>
       if event.keyCode is 13
-        @speak(event.target.value)
+        @speak(event.target.value, event.target.dataset.conversation, event.target.dataset.user)
         event.target.value = ""
         event.preventDefault()
 
@@ -26,6 +26,6 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
     # the conversation-body div
     $("#conversation-body").append(data.message)
 
-  speak: (textarea_content) ->
+  speak: (textarea_content, conversation, user) ->
     # We call the function in conversations_channel.rb named speak, passing the text-area content
-    @perform 'speak', message: textarea_content, conversation_id: $('#conversation_id').text()
+    @perform 'speak', message: textarea_content, conversation_id: conversation, user_id: user

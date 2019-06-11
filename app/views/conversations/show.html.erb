@@ -23,16 +23,13 @@
 
 							<div class="container">
 								<div class="row no-gutter">
-									<textarea placeholder="Écrire un nouveau message... lala" clas="col-9 border py-2" id="text-field"></textarea>
+									<textarea placeholder="Écrire un nouveau message..." data-conversation="<%= @conversation.id %>" data-user="<%= current_user.id %>" class="col-9 border py-2" id="text-field"></textarea>
 									<button class="col-2 py-2 btn btn-primary btn ml-1" id="send-btn"><i class="fas fa-paper-plane"></i>
 									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<!-- This is a hidden div to access the conversation id in the channel via conversations.coffee -->
-					<div id="conversation_id", style="display:none"><%= @conversation.id %></div>
 				</div>
 			</div>
 
