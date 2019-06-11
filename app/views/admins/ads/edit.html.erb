@@ -58,6 +58,7 @@
                             <p>
                                 <%= submit_tag "Modifier l'annonce", class: "btn btn-primary" %>
                                 <%= link_to "Supprimer", admins_ad_path(@ad.id), method: :delete, data: { confirm: 'Êtes-vous sur de vouloir la supprimer ? Cette action est irréversible' }, class: "btn btn-danger ml-2" %>
+                                
                             </p>
                             <% end %>
                         </div>
