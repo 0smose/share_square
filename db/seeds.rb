@@ -146,7 +146,7 @@ Category.destroy_all
 		category: @gardening,
 		duration: "3h",
 		frequency: "Hebdomadaire",
-		other_propositions: [true],
+		other_propositions: true,
 		availability: "Semaine et Week-end",
 		user: charrier
 		)
