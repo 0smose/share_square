@@ -104,7 +104,7 @@ Category.destroy_all
 		category: @diy,
 		duration: ["2h"],
 		frequency: "Non défini",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "week-end",
 		user: lefevre
 		)
