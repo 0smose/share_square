@@ -1,6 +1,6 @@
 <div>
    <%= "Conversation avec #{conversation.with(current_user).first_name} #{conversation.with(current_user).last_name}" %>
   <br>
-  <%= link_to 'Voir la conversation', conversation_path(id:conversation) %>
+  <%= link_to 'Voir la conversation', conversation_path(conversation) %>
   <hr>
 </div>
