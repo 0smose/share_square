@@ -9,7 +9,7 @@
                 <!-- Zone du formulaire -->
                 <%= form_tag url_for(action: 'create'), method: "post", class: "mt-4" do %>
 
-                 <%= label_tag 'Quel sera son titre ? :', nil, class: "font-weight-bold" %>
+                 <%= label_tag 'Quel sera son titre ? ', nil, class: "font-weight-bold" %>
                 <%= text_field_tag 'title', @ad.title, class: "form-control" %>
 
                 <%= label_tag 'Sa description :', nil, class: "font-weight-bold mt-3" %>
