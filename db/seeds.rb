@@ -118,7 +118,7 @@ Category.destroy_all
 		category: @cooking,
 		duration: "1h",
 		frequency: "Quotidien",
-		other_propositions: [true],
+		other_propositions: true,
 		availability: "Semaine et Week-end",
 		user: bailly
 		)
