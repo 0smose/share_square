@@ -61,7 +61,11 @@
 				<hr>
 				<% end %>
 				<% if current_user != @ad.user %>
-				<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
+					<% if user_signed_in? %>
+						<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
+					<% else %>
+						<%= link_to "Contacter l'utilisateur", "#sign-in-modal", "data-toggle" => "modal", class: "btn btn-primary mt-1" %>
+					<% end %>
 				<%end%>
 			</div>
 		</div>
