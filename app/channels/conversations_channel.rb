@@ -8,6 +8,6 @@ class ConversationsChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-  	ActionCable.server.broadcast "conversations_channel", message: data['message']
+  	ActionCable.server.broadcast "conversations", message: data['message']
   end
 end
