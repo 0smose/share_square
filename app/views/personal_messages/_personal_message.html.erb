@@ -2,6 +2,7 @@
 	<div class="d-flex flex-row-reverse align-items-center mr-3">
 		<%= user_avatar(personal_message.user.id, "avatar avatar-sm") %> <span class="bg-white shadow-sm text-dark py-2 px-3 mr-1 chat-msg" style="border-radius:2em;"><%= personal_message.body %></span>
 	</div>
+	<!-- Display date-->
 	<div class="d-flex flex-row-reverse text-small text-muted mt-1 mb-2 mr-3">
 		<% if  personal_message.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
 	        Aujourd'hui à <%=personal_message.created_at.localtime.strftime("%H:%M")%>
