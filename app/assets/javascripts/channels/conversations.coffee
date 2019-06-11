@@ -28,4 +28,4 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
 
   speak: (textarea_content) ->
     # We call the function in conversations_channel.rb named speak, passing the text-area content
-    @perform 'speak', message: textarea_content
+    @perform 'speak', message: textarea_content, conversation_id: $('#conversation_id').text()
