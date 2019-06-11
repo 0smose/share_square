@@ -83,4 +83,4 @@ en:
               taken: ": cet email est déjà utilisé."
             password:
               blank: ": veuillez entrer un mot de passe."
-              too_short: ": votre mot de passe est trop court (%{count} cractères minimum)."
+              too_short: ": votre mot de passe est trop court (%{count} caractères minimum)."
