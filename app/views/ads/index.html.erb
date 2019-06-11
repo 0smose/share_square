@@ -1,62 +1,63 @@
 <!-- JUMBOTRON -->
-<div class="jumbotron">
-	<div class="container mt-3">
+<section class="has-divider text-default jarallax bg-primary-alt" data-jarallax="" data-speed="0.5" data-overlay="" style="padding-top: 73px !important;">
+
+	<div class="container">
 		<div class="row">
-			<div class="col">
-				<h1 class="display-4 text-center">Trouve ce qu'il te plaît</h1>
-				<p class="lead text-center">Des milliers d'annonces </p>
-				<hr class="my-3">
-				<p>Faire des rencontres utiles !</p>
-				<%= link_to "Créer une annonce",new_ad_path, class: "btn btn-primary" %>
+			<div class="col col-8">
+				<h3 class="text-dark">Utilise Share Square pour <span data-typed-text="" data-loop="true" data-type-speed="45" data-strings="[&quot;prendre un cours de piano.&quot;,&quot;bricoler.&quot;,&quot;former une équipe.&quot;,&quot;&quot;]"></span></h3>
+				
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="divider">
+		<svg width="100%" height="96px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+			<path d="M0,0 C16.6666667,66 33.3333333,99 50,99 C66.6666667,99 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z"></path>
+		</svg>
+	</div>
+	<div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: -100;">
+		<%= image_tag("pair_work.jpg", alt: "Équipe", class: "jarallax-img opacity-20 blend-mode-multiply", style: "object-fit: cover; object-position: 50% 50%; max-width: none; position: fixed; top: 0px; left: 0px; width: 1225.33px; height: 433.557px; overflow: hidden; pointer-events: none; margin-top: -26.7786px; transform: translate3d(0px, 26.7786px, 0px);") %></div>
+	</section>
 
-<!-- the list of the filters -->
-<section>
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-sm-12 col-md-2">
-				<div class="filters">
-					<div class="ui-group mb-3">
-						<h5 class="text-center">Types</h5>
-						<div class="button-group js-radio-button-group list-unstyled btn-block btn-sm" data-filter-group="type">
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm is-checked" data-filter="">Tout</button></li>
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm " data-filter=".Projet">Projet</button></li>
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cours">Cours</button></li>
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Coup">Coup de main</button></li>
+	<!-- the list of the filters -->
+	<section>
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-sm-12 col-md-3">
+					<div class="filters">
+						<div class="ui-group mb-3">
+							<h5 class="text-center">Types</h5>
+							<div class="button-group js-radio-button-group list-unstyled btn-block btn p-0" data-filter-group="type">
+								<li class="mb-1"><button class="button btn btn-light btn-block is-checked" data-filter="">Tout</button></li>
+								<li class="mb-1"><button class="button btn btn-light btn-block" data-filter=".Projet">Projet</button></li>
+								<li class="mb-1"><button class="button btn btn-light btn-block" data-filter=".Cours">Cours</button></li>
+								<li class="mb-1"><button class="button btn btn-light btn-block" data-filter=".Coup">Coup de main</button></li>
+							</div>
+						</div>
+
+						<div class="ui-group mb-3">
+							<h5 class="text-center">Catégories</h5>
+							<ul class="button-group js-radio-button-group list-unstyled btn-sm p-0" data-filter-group="category">
+								<li class="mb-1"><button class="button btn btn-light is-checked btn-block btn col" data-filter="">Tout</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Cuisine">Cuisine</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Mecanique">Mecanique</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Artisanat">Artisanat</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Musique">Musique</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Art">Art</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Jeux">Jeux</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Technologie">Technologie</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Sport">Sport</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Jardinage">Jardinage</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Ecriture">Écriture</button></li> 
+								<li class="mb-1"><button class="button btn btn-light btn-block btn col" data-filter=".Langues">Langues</button></li> 
+							</ul>
 						</div>
 					</div>
+				</div>
 
-					<div class="ui-group mb-3">
-						<h5 class="text-center">Catégories</h5>
-						<ul class="button-group js-radio-button-group list-unstyled btn-sm" data-filter-group="category">
-							<li class="mb-1"><button class="button btn btn-light is-checked btn-block btn-sm" data-filter="">Tout</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Cuisine">Cuisine</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Mecanique">Mecanique</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Artisanat">Artisanat</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Musique">Musique</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Art">Art</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jeux">Jeux</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Technologie">Technologie</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Sport">Sport</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Jardinage">Jardinage</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Ecriture">Écriture</button></li> 
-							<li class="mb-1"><button class="button btn btn-light btn-block btn-sm" data-filter=".Langues">Langues</button></li> 
-						</ul>
-					</div>
+				<div class="grid col-sm-12 col-md-9 p-0 m-0">
+					<!-- Ads partial -->
+					<%= render '/ads/index_ads' %>
 				</div>
 			</div>
-
-		
-			<div class="grid col-sm-12 col-md-10 p-0 m-0">
-				<%= render '/ads/index_ads' %>				
-
-			<!-- the list of the ads -->
-
-			
-			</div>
-		</div>
-	</div>	
-</section>
+		</div>	
+	</section>

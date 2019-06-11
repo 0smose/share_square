@@ -1,5 +1,5 @@
 <!-- Begining of the loop -->
-<% @users.order(created_at: :asc).each do |u| %>
+<% @users.order(created_at: :desc).each do |u| %>
 	<!-- CARD -->
 	<%= link_to(admins_user_path(u.id), class: "text-default p-0 m-0") do %>
 		<div class="card row mx-2 o-hidden p-0 mt-0 mb-2">

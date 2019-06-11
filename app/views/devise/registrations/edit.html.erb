@@ -2,53 +2,59 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h4>Mettre à jour mon mot de passe</h4>
+        <h4>Mettre à jour mon mot de passe / email</h4>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field mb-3">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="field mb-3">
+        <div class="field">
           <%= f.label "Nouveau mot de passe" %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %><br>
-          <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> caractères minimum</em>
-          
-          <% end %>
+          <%= f.password_field :password, placeholder: "6 caractères minimum",autocomplete: "new-password", class: "form-control" %><br>
         </div>
 
         <div class="field mb-3">
           <%= f.label "Confirmez votre nouveau mot de passe" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %> 
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %> 
         </div>
 
         <div class="field mb-3">
           <%= f.label "Mot de passe actuel" %><br>
-          <%= f.password_field :current_password, autocomplete: "current-password" %> <br><i>(nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %><i class="text-small">(Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications)</i>
         </div>
 
-        <div class="actions my-3">
-          <%= f.submit "Mettre à jour", class: 'btn btn-primary' %>
+        <div class="actions">
+          <%= f.submit "Mettre à jour", class: 'btn btn-primary form-control' %>
         </div>
+        <hr>
         <% end %>
       </div>
     </div>
-    <div class="row mt-4">
+    <div class="row">
       <div class="col-md-6 offset-md-3">
         <h5>Supprimer mon compte</h5>
 
         <p>Non satisfait(e) ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: 'Êtes-vous sûr(e) ? La suppression du compte est définitive.'}, class: 'btn btn-danger btn-sm', method: :delete %></p>
-  
 
-        <%= link_to "Retour", :back %>
+
+        <%= link_to :back do %>
+        <svg class="icon bg-primary" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Retour</title>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
+            <path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-12.000003, -11.999999) "></path>
+          </g>
+        </svg>
+        <span class="text-small">retour</span>
+        <% end %>
       </div>
     </div>
   </div>

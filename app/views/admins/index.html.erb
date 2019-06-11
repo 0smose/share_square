@@ -5,45 +5,49 @@
             <!-- Main content -->
             <div class="col-sm-12 col-md-9">
                 <div class="container">
-                  <!-- Ads that need validation -->
-                  <div class="row">
-                    <div class="col">
-                        <h4 class="p-2 bg-primary-alt"><i class="far fa-calendar-check text-primary"></i> Annonces en attente de validation</h4>
+                    <!-- Ads that need validation -->
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="p-2 bg-primary-alt"><i class="far fa-calendar-check text-primary"></i> Annonces en attente de validation</h4>
+                        </div>
                     </div>
-                </div>
-                <div class="row px-2">
-                    <div class="col">
-                        <ul class="list-group">
-                            <% @ads.each do |a| %>
-                                <% if a.validated == nil %>
-                                    <%= link_to edit_admin_path(a.id), class:"list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
-                                    <%= a.title %>
-                                    <i class="far fa-eye text-primary"></i>
-                                    <% end %>                           
+                    <div class="row px-2">
+                        <div class="col">
+                            <div class="list-group">
+                                <% @ads.each do |a| %>
+                                    <% if a.validated == nil %>
+                                        <%= link_to edit_admin_path(a.id), class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
+                                                <%= a.title %>
+                                                <i class="far fa-eye text-primary"></i>
+                                        <% end %>
+                                    <% end %>
                                 <% end %>
-                            <% end %>
-                        </ul>
+                                
+                                <% if @ads.where(validated: nil).count == 0 %>
+                                    Il n'y a pas d'annonce à valider pour le moment.
+                                <% end %>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Website activity -->
-                <div class="row mt-4">
-                    <div class="col">
-                        <h4 class="p-2 bg-primary-alt"><i class="fas fa-info-circle text-primary"></i> Activité du site</h4>
+                    <!-- Website activity -->
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h4 class="p-2 bg-primary-alt"><i class="fas fa-info-circle text-primary"></i> Activité du site</h4>
+                        </div>
                     </div>
-                </div>
-                <div class="row px-2">
-                    <div class="col">
-                        <h3 class="mb-1"><%= @total_ad_count %></h3>
-                        <p>Annonces sont en ligne</p>
-                    </div>
-                    <div class="col">
-                        <h3 class="mb-1"><%= @total_users_count %></h3>
-                        <p>Utilisateurs sont inscrits</p>
+                    <div class="row px-2">
+                        <div class="col">
+                            <h3 class="mb-1"><%= @total_ad_count %></h3>
+                            <p>Annonces sont en ligne</p>
+                        </div>
+                        <div class="col">
+                            <h3 class="mb-1"><%= @total_users_count %></h3>
+                            <p>Utilisateurs sont inscrits</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>

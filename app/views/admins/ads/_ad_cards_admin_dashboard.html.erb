@@ -1,5 +1,5 @@
 <!-- Begining of the loop -->
-<% @ads.order(created_at: :asc).each do |a| %>
+<% @ads.order(created_at: :desc).each do |a| %>
 <!-- CARD -->
 <%= link_to(edit_admins_ad_path(a.id), class: "text-default") do %>
 <div class="card flex-md-row no-gutters o-hidden mt-0 mb-2 text-default hover-shadow-3d">

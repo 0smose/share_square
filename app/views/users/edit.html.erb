@@ -39,18 +39,20 @@
       <br />
 
       <%= submit_tag "Éditer mon profil", class: "btn btn-primary" %>
+      <hr>
       <p>
         <h4> Éditer les informations liées à mon compte (mot de passe, adresse mail)</h4>
-        <%= link_to "Éditer mot de passe, email", edit_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to "Éditer mot de passe / email", edit_user_registration_path, class: "btn btn-primary" %>
       </p>
       <% end %>
     </div>
   </div>
-  <div class="row my-3">
+
+  <div class="row">
     <div class="col col-md-8 offset-md-2">
       <hr>
       <i class="fas fa-trash-alt text-danger"></i>
-      <%=link_to "Supprimer mon compte", user_path(@user), method: :delete, data: { confirm: 'Êtes-vous sûr(e) ? La suppression du compte est définitive.' }, class: "text-danger ml-1" %>
+      <%=link_to "Supprimer mon compte", user_path(@user), method: :delete, data: { confirm: 'Êtes-vous sûr(e) ? La suppression du compte est définitive.' }, class: "text-danger" %>
     </div>
   </div>
 </section>

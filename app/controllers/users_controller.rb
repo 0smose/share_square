@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 		if current_user == @user
 			if @user.update(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], skills: params[:skills])
 				redirect_to user_path 
-				flash[:success] = "Ton profil a été édité avec succès"
+				flash[:success] = "Votre profil a été édité avec succès"
 			else 
 				flash[:alert] = "Un problème est survenu, veuillez reessayer"
 				render :edit
@@ -37,6 +37,6 @@ class UsersController < ApplicationController
 		@user = User.friendly.find(params[:id])
 		@user.destroy
 		redirect_to "/"
-		flash[:success] = "Ton profil a été supprimé avec succès"
+		flash[:success] = "Votre profil a été supprimé avec succès"
 	end
 end
