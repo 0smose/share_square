@@ -30,6 +30,23 @@
                                 <li class="list-group-item"><b>Disponibilités : </b><%= @ad.availability %></li>
                                 <% if @ad != nil %>
                                 <li class="list-group-item"><b>Utilisateur : </b><%= @ad.user.email %></li>
+                                <li class="list-group-item"><b>Créée : </b>
+                                    <% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+                                            Aujourd'hui à <%=@ad.created_at.localtime.strftime("%H:%M")%>
+                                            
+                                        <% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+                                            Hier à <%=@ad.created_at.localtime.strftime("%H:%M")%>
+                                            
+                                        <% else %>                  
+                                            <%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%>
+                                            
+                                        <% end %></li>
+
+
+
+
+
+
                                 <% end %>
                             </ul>
                         </div>
