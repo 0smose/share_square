@@ -32,6 +32,12 @@
     <!-- Page content -->
     <%= yield %>
 
+    <!-- login modal -->
+    <%= render 'devise/sessions/login_modal' %>
+
+    <!-- sign_up modal -->
+    <%= render 'devise/registrations/sign_up_modal' %>
+
     <!-- Back to top button -->
     <%= render 'layouts/back_to_top' %>
 
