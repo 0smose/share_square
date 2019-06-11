@@ -57,7 +57,7 @@ Category.destroy_all
 		first_name: "Alain",
 		email: "Lefevre.a@yopmail.com",
 		password: "dumdum",
-		description: "Bonjour, je me nomme Alain, 41ans, je suis menuisier depuis 20 ans. Je suis passioné par la pêche et la musique et je suis ici pour qu'on m'enseigne le piano",
+		description: "Bonjour, je me nomme Alain, 41 ans, je suis menuisier depuis 20 ans. Je suis passioné par la pêche et la musique et je suis ici pour qu'on m'enseigne le piano",
 		skills: "menuiserie, pêche"
 		)
 
@@ -68,7 +68,7 @@ Category.destroy_all
 		first_name: "Mathilde",
 		email: "Mathidle_c@yopmail.com",
 		password: "dumdum",
-		description: "Moi c'est Mathilde, je suis agée de 32 ans. Je fais de la patisserie depuis mes 25ans, j'aime voyager, la photographie et le tennis, je viens sur ce site pour découvrir le monde de la photographie ",
+		description: "Moi c'est Mathilde, je suis âgée de 32 ans. Je fais de la patisserie depuis mes 25ans, j'aime voyager, la photographie et le tennis, je viens sur ce site pour découvrir le monde de la photographie ",
 		skills: "patissière"
 		)
 
