@@ -17,15 +17,27 @@
                                 <% @ads.each do |a| %>
                                     <% if a.validated == nil %>
                                         <%= link_to edit_admin_path(a.id), class: "list-group-item list-group-item-action d-flex justify-content-between align-items-center py-2" do %>
-                                                <%= a.title %>
+                                                <%= a.title %> 
+                                                <span class="text-align-right">
+                                                    <% if  a.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+                                                        Aujourd'hui à <%=a.created_at.localtime.strftime("%H:%M")%>
+                                                
+                                                    <% elsif a.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+                                                        Hier à <%=a.created_at.localtime.strftime("%H:%M")%>
+                                                
+                                                    <% else %>                  
+                                                        <%= a.created_at.localtime.strftime("%d/%m/%y") %> à <%=a.created_at.localtime.strftime("%H:%M")%>
+                                                
+                                                    <% end %>
+                                                </span>
                                                 <i class="far fa-eye text-primary"></i>
                                         <% end %>
                                     <% end %>
                                 <% end %>
                                 
-                                <% if @ads.where(validated: nil).count == 0 %>
-                                    Il n'y a pas d'annonce à valider pour le moment.
-                                <% end %>
+                            <% if @ads.where(validated: nil).count == 0 %>
+                                Il n'y a pas d'annonce à valider pour le moment.
+                            <% end %>
                             </div>
                         </div>
                     </div>
