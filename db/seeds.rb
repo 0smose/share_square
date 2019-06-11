@@ -132,7 +132,7 @@ Category.destroy_all
 		category: @music,
 		duration: "2h",
 		frequency: "Non défini",
-		other_propositions: [false],
+		other_propositions: false,
 		availability: "week-end",
 		user: schmitt
 		)
