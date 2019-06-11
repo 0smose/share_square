@@ -9,8 +9,12 @@
 					Prêt à partager vos connaissances en échange ?
 				</p>
 				<div data-aos="fade-up" data-aos-delay="300">
-					<%= link_to "Voir les annonces", ads_path, class: "btn btn-primary mt-4" %> 
-					<%= link_to "Créer une annonce", new_ad_path, class: "btn btn-primary-2 mt-4 ml-2" %> 
+					<%= link_to "Voir les annonces", ads_path, class: "btn btn-primary mt-4" %>
+					<% if user_signed_in? %> 
+						<%= link_to "Créer une annonce", new_ad_path, class: "btn btn-primary-2 mt-4 ml-2" %> 
+					<% else %>
+						<%= link_to "Créer une annonce", "#sign-in-modal", "data-toggle" => "modal", class: "btn btn-primary-2 mt-4 ml-2" %>
+					<% end %>
 				</div>
 			</div>
 		</div>
