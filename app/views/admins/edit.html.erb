@@ -19,6 +19,8 @@
                     <div class="row px-2">
                         <div class="col">
                             <ul class="list-group list-group-flush border-bottom">
+                                <li class="list-group-item"><b>Type : </b><%= @ad.type.name %></li>
+                                <li class="list-group-item"><b>Catégorie : </b><%= @ad.category.name %></li>
                                 <li class="list-group-item"><b>Description : </b><%= @ad.description %></li>
                                 <li class="list-group-item"><b>Durée : </b><%= @ad.duration %></li>
                                 <li class="list-group-item"><b>Fréquence : </b><%= @ad.frequency %></li>
@@ -29,24 +31,18 @@
                                 <% end %>
                                 <li class="list-group-item"><b>Disponibilités : </b><%= @ad.availability %></li>
                                 <% if @ad != nil %>
-                                <li class="list-group-item"><b>Utilisateur : </b><%= @ad.user.email %></li>
-                                <li class="list-group-item"><b>Créée : </b>
-                                    <% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+                                    <li class="list-group-item"><b>Utilisateur : </b><%= @ad.user.email %></li>
+                                    <li class="list-group-item"><b>Créée : </b>
+                                        <% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
                                             Aujourd'hui à <%=@ad.created_at.localtime.strftime("%H:%M")%>
-                                            
+                                                
                                         <% elsif @ad.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
                                             Hier à <%=@ad.created_at.localtime.strftime("%H:%M")%>
-                                            
+                                                
                                         <% else %>                  
-                                            <%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%>
-                                            
-                                        <% end %></li>
-
-
-
-
-
-
+                                            <%= @ad.created_at.localtime.strftime("%d/%m/%y") %> à <%=@ad.created_at.localtime.strftime("%H:%M")%>                 
+                                        <% end %>
+                                    </li>
                                 <% end %>
                             </ul>
                         </div>
@@ -58,7 +54,7 @@
                             <%= link_to "Valider", admin_path(validated: true), method: "patch", class: "btn btn-primary" %>
                         </div>
                     </div>
-                      <hr>
+                    <hr>
                     <div class="row px-2 mt-3">    
                         <div class="col">
                             <%= form_tag(admin_path, method: "delete") %>
