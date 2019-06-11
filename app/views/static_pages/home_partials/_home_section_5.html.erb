@@ -13,7 +13,11 @@
 				<i class="fas fa-user-plus big-icon mt-4" data-aos="fade-left"></i>
 				<h3 class="mt-2" data-aos="fade-up">S'inscrire</h3>
 				<div data-aos="fade-left" data-aos-delay="150" >
-					<%= link_to "Je m'inscris", new_user_registration_path, class:"btn btn-light mb-4 text-primary" %>
+					<% if user_signed_in? %>
+						<%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-light mb-4 text-primary" %>
+					<% else %>
+						<%= link_to "Je m'inscris", "#sign-up-modal", "data-toggle" => "modal", class: "btn btn-light mb-4 text-primary" %>
+					<% end %>
 				</div>
 			</div>
 		</div>
