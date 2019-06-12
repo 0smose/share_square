@@ -1,5 +1,4 @@
-<% @conversation = Conversation.find(personal_message.conversation_id)%>
-<% if personal_message.user.id == @conversation.sender_id %>
+<% if personal_message.user.id == personal_message.conversation.sender_id %>
 	<div class="d-flex flex-row-reverse align-items-center mr-3">
 		<%= user_avatar(personal_message.user.id, "avatar avatar-sm") %> <span class="bg-white shadow-sm text-dark py-2 px-3 mr-1 chat-msg" style="border-radius:2em;"><%= personal_message.body %></span>
 	</div>
