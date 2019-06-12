@@ -1,4 +1,4 @@
-![Share Square Logo](https://share-square-staging.herokuapp.com/assets/logo-d568c814537f7fa70551d0d3b1caa707a78d8813e1e8b07bb6cd8f8fa1675876.svg)
+![Share Square Logo](https://zupimages.net/up/19/24/bj7s.jpg)
 # Share Square
 
 Voici notre plateforme d'échange de compétences.
@@ -22,7 +22,11 @@ Nous proposons une plateforme complète :
 ## Prochaines features
 
 * Charte éthique à respecter pour les annonces
-* ....
+* Fonctionnalité de notations et de commentaires pour les utilisateurs
+* Améliorer le front du chat 
+* Possibilité de faire une recherche par mots clés dans l'index des annonces et dans le dashboard administrateur
+* Ajouter des tests de models, controllers et de views
+* Plateforme accessible seulement pour la ville de Lyon dans un premier temps
 
 ## Créé avec
 
@@ -35,5 +39,5 @@ Nous proposons une plateforme complète :
 * Lahouari Belabbes : [https://github.com/Jahlawa](https://github.com/Jahlawa)
 * Robin d' Ercole : [https://github.com/0smose](https://github.com/0smose)
 * François Loupias : [https://github.com/fralps](https://github.com/fralps)
-* Mentor : Josselin GIFFARD-CARLET
+* Mentor : Josselin Giffard-Carlet
 
