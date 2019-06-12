@@ -28,6 +28,8 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
     # The content received by conversations_channel.rb is added at the end of
     # the conversation-body div
     $("#conversation-body").append(data.message)
+    $('#conversation-body')[0].scrollTop = $('#conversation-body')[0].scrollHeight;
+
 
   speak: (textarea_content, conversation, user) ->
     # We call the function in conversations_channel.rb named speak, passing the text-area content
