@@ -93,4 +93,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.perform_deliveries = true
+
+  # Redis / ActionCable config for production
+  config.web_socket_server_url = "wss://share-square-staging.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://share-square-staging.herokuapp.com', 'http://share-square-staging.herokuapp.com']
+
 end
