@@ -14,8 +14,8 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
 
     # Same thing when user clicks on the send button
     $(document).on 'click','#send-btn', (event) =>
-      @speak($('#text-field').val())
-      event.target.value = ""
+      @speak($('#text-field').val(), event.target.dataset.conversation, event.target.dataset.user)
+      $('#text-field').val('')
       event.preventDefault()
       
 
