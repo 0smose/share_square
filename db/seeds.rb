@@ -176,8 +176,8 @@ admin = User.create(
 	first_name: "John",
 	email: "johnadmin@yopmail.com",
 	password: "admin123",
-	description: Faker::Lorem.paragraph_by_chars(125, false),
-	skills: Faker::Job.field,
+	description: "Bonjour, je m'appelle John j'ai 30 ans, je suis l'administrateur de Share Square. Je suis développeur web full stack. J'aime le football, le handball et le volley et j'aimerais bien découvrir le golf. N'hésitez pas a me contacter pour toutes questions concerant le site ",
+	skills: "Développeur web full stack",
 	is_admin: true
 	)
 
