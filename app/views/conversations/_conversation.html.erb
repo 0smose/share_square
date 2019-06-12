@@ -2,5 +2,8 @@
    <%= "Conversation avec #{conversation.with(current_user).first_name} #{conversation.with(current_user).last_name}" %>
   <br>
   <%= link_to 'Voir la conversation', conversation_path(conversation) %>
+  	<% if current_user.unread_messages > 0 %>
+		<span class="badge badge-pill badge-primary-2 m-1 px-2"><%= current_user.unread_messages %></span>
+	<% end %>
   <hr>
 </div>
