@@ -11,7 +11,7 @@ class PersonalMessagesController < ApplicationController
   end
 
   def create
-    #If the conversation doesn't existe, we create one.
+    #If the conversation doesn't exist, we create one.
     @conversation ||= Conversation.create(sender_id: current_user.id,
       recipient_id: @recipient.id) 
     # The personnal messages are "created" and saved later in the data base
