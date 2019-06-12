@@ -30,13 +30,13 @@
 			<div class="row h-100">
 				<div class="col align-self-center text-center">
 					<!-- If ad type is a lesson -->
-					<% if a.type.id == 1 %>
+					<% if a.type.name == "Cours" %>
 					<i class="fas fa-user-graduate text-primary big-icon"></i>
 					<!-- If ad type is a help -->
-					<% elsif a.type.id == 2 %>
+					<% elsif a.type.name == "Coup de main" %>
 					<i class="fas fa-hands-helping text-primary big-icon mt-0 p-0"></i>
 					<!-- If ad type is a project -->
-					<% elsif a.type.id == 3 %>
+					<% elsif a.type.name == "Projet" %>
 					<i class="fas fa-users text-primary big-icon"></i>
 					<% end %>
 				</div>
