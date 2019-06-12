@@ -10,12 +10,12 @@ class ConversationsChannel < ApplicationCable::Channel
   # This method is launched by conversations.coffee
   def speak(data)
     #We stock the conversation id, the user id and the user's input
-  	conversation_id = data['conversation_id'].to_i
-		user_id = data['user_id'].to_i
+
+  	conversation_id = data['conversation_id']
   	text_content = data['message']
-    
+
     # We use the informations above to create the message in the database
-  	message = PersonalMessage.create(body: text_content, conversation_id: conversation_id, user_id: user_id)
+  	message = PersonalMessage.create!(body: text_content, conversation_id: conversation_id, user_id: current_user.id)
  
   	# We create a variable html which stocks the whole personnal_message partial with the message
   	# added in it

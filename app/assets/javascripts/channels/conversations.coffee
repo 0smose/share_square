@@ -19,7 +19,6 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
       $('#text-field').val('')
       event.preventDefault()
       
-
   disconnected: ->
     # Called when the subscription has been terminated by the server
 
