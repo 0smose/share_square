@@ -50,7 +50,7 @@ Category.destroy_all
 		skills: "photographie, badminton"
 		)
 
-	puts "Fake user added"
+	puts "User added"
 
 	lefevre = User.create!(
 		last_name: "Lefevre",
@@ -61,7 +61,7 @@ Category.destroy_all
 		skills: "menuiserie, pêche"
 		)
 
-	puts "Fake user added"
+	puts "User added"
 
 	chauvet = User.create!(
 		last_name: "Chauvet",
@@ -72,7 +72,7 @@ Category.destroy_all
 		skills: "patissière"
 		)
 
-	puts "Fake user added"
+	puts "User added"
 
 	charrier = User.create!(
 		last_name: "Charrier",
@@ -83,7 +83,7 @@ Category.destroy_all
 		skills: "Anglais, Espagnol"
 		)
 
-	puts "Fake user added"
+	puts "User added"
 
 	schmitt = User.create!(
 		last_name: "Schmitt",
@@ -94,7 +94,7 @@ Category.destroy_all
 		skills: "devloppeuse web, pianiste"
 		)
 
-	puts "Fake user added"
+	puts "User added"
 
 
 	a1 = Ad.create!(
@@ -109,7 +109,7 @@ Category.destroy_all
 		user: lefevre
 		)
 
-	puts "fake ad added"
+	puts "Ad added"
 
 	a2 = Ad.create!(
 		title: "Apprendre a faire un tiramisu",
@@ -123,7 +123,7 @@ Category.destroy_all
 		user: bailly
 		)
 
-	puts "fake ad added"
+	puts "Ad added"
 
 	a3 = Ad.create!(
 		title: "Recherche un guitariste",
@@ -137,7 +137,7 @@ Category.destroy_all
 		user: schmitt
 		)
 
-	puts "fake ad added"
+	puts "Ad added"
 
 	a4 = Ad.create!(
 		title: "Cours de pêche ",
@@ -151,7 +151,7 @@ Category.destroy_all
 		user: charrier
 		)
 
-	puts "fake ad added"
+	puts "Ad added"
 
 	a5 = Ad.create!(
 		title: "Découvrir l'espagnol",
@@ -165,20 +165,20 @@ Category.destroy_all
 		user: chauvet
 		)
 
-	puts "fake ad added"
+	puts "Ad added"
 
 
 # ---------- ADMIN ----------
 
 # We create the admin user
-admin = User.create(
+admin = User.create!(
 	last_name: "Admin",
 	first_name: "John",
 	email: "johnadmin@yopmail.com",
 	password: "admin123",
-	description: "Bonjour, je m'appelle John j'ai 30 ans, je suis l'administrateur de Share Square. Je suis développeur web full stack. J'aime le football, le handball et le volley et j'aimerais bien découvrir le golf. N'hésitez pas a me contacter pour toutes questions concerant le site ",
+	description: "Bonjour, je m'appelle John j'ai 30 ans, je suis l'administrateur de Share Square. Je suis développeur web full stack. N'hésitez pas a me contacter pour toutes questions concerant le site ",
 	skills: "Développeur web full stack",
-	is_admin: true
+	is_admin: "true"
 	)
 
 puts "----------------------"
@@ -186,6 +186,3 @@ puts "-- Admin created !! --"
 puts "----------------------"
 puts "login: johnadmin@yopmail.com"
 puts "password: admin123"
-
-
-
