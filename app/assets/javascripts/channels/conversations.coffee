@@ -1,5 +1,7 @@
 App.conversations = App.cable.subscriptions.create "ConversationsChannel",
   connected: ->
+    $('#conversation-body')[0].scrollTop = $('#conversation-body')[0].scrollHeight;
+
     # Called when the subscription is ready for use on the server
 
     # When the user hits enter in the text area, we launch the speak method from this file
@@ -15,6 +17,7 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
       @speak($('#text-field').val())
       event.target.value = ""
       event.preventDefault()
+      
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
