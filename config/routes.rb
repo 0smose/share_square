@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  # Routes for Devise
-  devise_for :users
-
   # We define root to the homepage
   root to: 'static_pages#home'
+
+  # Static pages
+  get 'static_pages/about_us'
+
+  # Routes for Devise
+  devise_for :users
 
   # ------- Route declarations : ---------
   resources :home, only: [:index]
   resources :ads
   resources :admins, only: [:index, :edit, :update, :destroy]
 
-  # Static pages
-  get 'static_pages/about_us'
 
    # Message system
   resources :personal_messages, only: [:new, :create]
@@ -30,4 +31,7 @@ Rails.application.routes.draw do
     resources :users
     resources :ads, only: [:index, :edit, :update, :destroy]
   end
+
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
 end

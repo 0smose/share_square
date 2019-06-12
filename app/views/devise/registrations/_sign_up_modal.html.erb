@@ -20,34 +20,32 @@
 
 					<div class="field mb-3 mt-5">
 						<%= f.label :first_name, "Veuillez entrer votre prénom :" %><br />
-						<%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class: "form-control" %>
+						<%= f.text_field :first_name, autocomplete: "first name", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">
 						<%= f.label :last_name, "Veuillez entrer votre nom :" %><br />
-						<%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class: "form-control" %>
+						<%= f.text_field :last_name, autocomplete: "last name", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">
 						<%= f.label :description, "Une petite description vous concernant :"%><br />
-						<%= f.text_area :description, autofocus: true, autocomplete: "description", placeholder: "Entre 50 et 200 caractères", class: "form-control" %>
+						<%= f.text_area :description, autocomplete: "description", placeholder: "Entre 50 et 200 caractères", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">
 						<%= f.label :skills, "Vos compétences :" %><br />
-						<%= f.text_field :skills, autofocus: true, autocomplete: "skills", placeholder: "Développeur, cuisinier, ...", class: "form-control" %>
+						<%= f.text_field :skills, autocomplete: "skills", placeholder: "Développeur, cuisinier, ...", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">
 						<%= f.label :email, "Votre email :" %><br />
-						<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+						<%= f.email_field :email, autocomplete: "email", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">
 						<%= f.label :password, "Votre mot de passe :" %>
-						<% if @minimum_password_length %>
-						<% end %><br />
-						<%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} caractères minimum", class: "form-control" %>
+						<%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} 6 caractères minimum", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">

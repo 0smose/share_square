@@ -1,7 +1,8 @@
-<% if personal_message.user == current_user %>
+<% if personal_message.user.id == personal_message.conversation.sender_id %>
 	<div class="d-flex flex-row-reverse align-items-center mr-3">
 		<%= user_avatar(personal_message.user.id, "avatar avatar-sm") %> <span class="bg-white shadow-sm text-dark py-2 px-3 mr-1 chat-msg" style="border-radius:2em;"><%= personal_message.body %></span>
 	</div>
+	<!-- Display date-->
 	<div class="d-flex flex-row-reverse text-small text-muted mt-1 mb-2 mr-3">
 		<% if  personal_message.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
 	        Aujourd'hui à <%=personal_message.created_at.localtime.strftime("%H:%M")%>
@@ -10,14 +11,18 @@
 	    <% else %>                  
 	    	<%= personal_message.created_at.localtime.strftime("%d/%m/%y") %> à <%=personal_message.created_at.localtime.strftime("%H:%M")%>
 	    <% end %>
-
-
 	</div>
 <% else %>
 	<div class="d-flex flex-row align-items-center">
 		<%= user_avatar(personal_message.user.id, "avatar avatar-sm") %> <span class="bg-primary shadow-sm text-light py-2 px-3 ml-1 chat-msg" style="border-radius:2em;"><%= personal_message.body %></span>
 	</div>
 	<div class="d-flex flex-row text-small text-muted mt-1 mb-2">
-		<%= personal_message.created_at %>
+		<% if  personal_message.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
+	        Aujourd'hui à <%=personal_message.created_at.localtime.strftime("%H:%M")%>
+	    <% elsif personal_message.created_at.strftime("%d/%m/%y") == Time.now.yesterday.strftime("%d/%m/%y") %>
+	        Hier à <%=personal_message.created_at.localtime.strftime("%H:%M")%>
+	    <% else %>                  
+	    	<%= personal_message.created_at.localtime.strftime("%d/%m/%y") %> à <%=personal_message.created_at.localtime.strftime("%H:%M")%>
+	    <% end %>
 	</div>
 <% end %>

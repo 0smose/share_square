@@ -20,18 +20,14 @@
 					<div class="row">
 						<div class="col">
 							<hr class="mt-3 mb-4">
-							<!-- Form to send a new message -->
-							<%= form_for(@personal_message, remote: true) do |f| %>
-							<%= hidden_field_tag 'conversation_id', @conversation.id %>
-								<div class="container">
-									<div class="row no-gutter">
-										<%= f.text_field :body, placeholder: "Écrire un nouveau message...", class: "col-9 border py-2", id: "text-field" %>
-										<%= button_tag(type: "submit", class: "col-2 py-2 btn btn-primary btn ml-1", id: "send-btn") do %>
-										<i class="fas fa-paper-plane"></i>
-										<% end %>
-									</div>
+
+							<div class="container">
+								<div class="row no-gutter">
+									<textarea placeholder="Écrire un nouveau message..." data-conversation="<%= @conversation.id %>" data-user="<%= current_user.id %>" class="col-9 border py-2" id="text-field"></textarea>
+									<button class="col-2 py-2 btn btn-primary btn ml-1" data-conversation="<%= @conversation.id %>" data-user="<%= current_user.id %>" id="send-btn"><i class="fas fa-paper-plane"></i>
+									</button>
 								</div>
-							<% end %>
+							</div>
 						</div>
 					</div>
 				</div>

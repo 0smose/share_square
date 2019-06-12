@@ -1,17 +1,17 @@
 // Display new message with Ajax
-document.getElementById("conversation-body").insertAdjacentHTML("beforeend", "<%= j render 'personal_message', personal_message: @personal_message %>");
+//document.getElementById("conversation-body").insertAdjacentHTML("beforeend", "<%= j render 'personal_message', personal_message: @personal_message %>");
 // We call the function to keep the scrollbar down
-updateScroll()
+//updateScroll()
 // We stock the text field in a "var" variable so it can be reused
-var textField = document.getElementById("text-field")
+//var textField = document.getElementById("text-field")
 
 // We make a function to empty the textfield
-function Clear(){
-	textField.value = '';
-}
+//function Clear(){
+//	textField.value = '';
+//}
 
 // We stock the button in a variable
-var btn = document.getElementById('send-btn');
+//var btn = document.getElementById('send-btn');
 
 // When the button gets focus we call the clear function
-btn.onfocus = Clear();
+//btn.onfocus = Clear();

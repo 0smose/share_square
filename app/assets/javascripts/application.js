@@ -62,8 +62,5 @@ $(document).ready(function() {
 
 	//Manages the double filter in ad's index
 //= require ads_filter
-	
-	//Make the scrollbar go to the botton of the chat
-//=require scroll
 
 
