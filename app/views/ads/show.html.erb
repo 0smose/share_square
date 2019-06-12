@@ -19,10 +19,14 @@
 		<div class="row mt-2">
 			<div class="col col-md-8 offset-md-2">
 				<h2 class="mt-2 text-center"><%= @ad.title%></h2>
+				<hr class="mb-3">
 
 				<p class="mb-1"><b>Description :</b></p>
 				<p><%= @ad.description %></p>
 				<hr>
+
+				<p><b>Type d'annonce : </b><%= @ad.type.name %></p>
+				<hr>	
 
 				<p><b>Catégorie : </b><%= @ad.category.name %></p>
 				<hr>
@@ -48,7 +52,7 @@
 				<p><b>Disponibilités : </b><%= @ad.availability %></p>
 				<hr>
 
-				<p><b>Annonce crée par : </b><%= @ad.user.first_name %> <%= @ad.user.last_name %></p>
+				<p><b>Annonce créée par : </b><%= @ad.user.first_name %> <%= @ad.user.last_name %></p>
 				<hr>
 				<% if  @ad.created_at.localtime.strftime("%d/%m/%y") == Time.now.strftime("%d/%m/%y") %>
 				<p><b>Mise en ligne : </b>Aujourd'hui à <%=@ad.created_at.localtime.strftime("%H:%M")%></p>
@@ -61,7 +65,11 @@
 				<hr>
 				<% end %>
 				<% if current_user != @ad.user %>
-				<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
+					<% if user_signed_in? %>
+						<%= link_to "Contacter l'utilisateur", new_personal_message_path(recipient_id: @ad.user.id), class: "btn btn-primary mt-1" %>
+					<% else %>
+						<%= link_to "Contacter l'utilisateur", "#sign-in-modal", "data-toggle" => "modal", class: "btn btn-primary mt-1" %>
+					<% end %>
 				<%end%>
 			</div>
 		</div>

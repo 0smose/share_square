@@ -65,9 +65,13 @@
             <li class="nav-item">
               <%= link_to "Voir les annonces", ads_path, class: "nav-link" %>
             </li>
+            <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "Créer une annonce", new_ad_path, class: "nav-link" %>
             </li>
+            <% else %>
+            <%= link_to "Créer une annonce", "#sign-in-modal", "data-toggle" => "modal", class: "nav-link d-inline" %>
+            <% end %>
           </ul>
         </div>
       </div>
