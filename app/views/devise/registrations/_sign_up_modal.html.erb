@@ -45,9 +45,7 @@
 
 					<div class="field mb-3">
 						<%= f.label :password, "Votre mot de passe :" %>
-						<% if @minimum_password_length %>
-						<% end %><br />
-						<%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} caractères minimum", class: "form-control" %>
+						<%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} 6 caractères minimum", class: "form-control" %>
 					</div>
 
 					<div class="field mb-3">
