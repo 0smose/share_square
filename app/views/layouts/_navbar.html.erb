@@ -32,12 +32,12 @@
           </span>
           <!-- User dropdown menu content -->
           <div class="dropdown-menu dropdown-menu-right dropdown-content">
-            <!-- Add admin dashboard if user is admin -->
-            <% if current_user.is_admin %>
-            <%= link_to "Espace admin", admins_path, class: "nav-link text-default" %>
-            <% end %>
             <%=link_to "Mes annonces", user_path(current_user), class: "nav-link text-default" %>
             <%=link_to "Mon profil", edit_user_path(current_user), class: "nav-link text-default" %>
+            <!-- Add admin dashboard if user is admin -->
+            <% if current_user.is_admin %>
+            <%= link_to "Espace admin", admins_path, class: "nav-link text-primary" %>
+            <% end %>
             <%= link_to "Se déconnecter", destroy_user_session_path , method: 'delete', class: "nav-link text-primary-2" %>
           </div>
           <% else %>
