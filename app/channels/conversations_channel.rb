@@ -13,6 +13,7 @@ class ConversationsChannel < ApplicationCable::Channel
 
   	conversation_id = hash_from_conversations['conversation_id'].to_i
 		user_id = hash_from_conversations['user_id'].to_i
+    @conversation = Conversation.find(conversation_id)
 
   	text_content = hash_from_conversations['message']
 
