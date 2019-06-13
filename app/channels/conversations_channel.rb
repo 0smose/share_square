@@ -19,7 +19,10 @@ class ConversationsChannel < ApplicationCable::Channel
  
   	# We create a variable html which stocks the whole personnal_message partial with the message
   	# added in it
-  	html = ApplicationController.render(partial:'personal_messages/personal_message', locals:{
+       renderer = ApplicationController.renderer.new(
+    http_host: 'share-square-staging.herokuapp.com'
+  )
+  	html = renderer.render(partial:'personal_messages/personal_message', locals:{
   		personal_message: message})
 
   	# Then we send it back to conversations.coffee
