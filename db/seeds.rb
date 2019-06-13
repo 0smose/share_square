@@ -101,7 +101,7 @@ peron = User.create!(
 	first_name: "Émilie",
 	email: "Emilile_peron-andre@yopmail.com",
 	password: "dumdum",
-	description: "Coucou, moi c'est Émilie, j'ai 24 ans et je suis fleuriste, j'aime l'agriculture. Je me suis inscrite pour apprendre a créer un site internet"
+	description: "Coucou, moi c'est Émilie, j'ai 24 ans et je suis fleuriste, j'aime l'agriculture. Je me suis inscrite pour apprendre a créer un site internet",
 	skills: "Fleuriste"
 	)
 
@@ -124,7 +124,7 @@ chauveau = User.create!(
 	email: "André_chauveau@yopmail.com",
 	password: "dumdum",
 	description: "Je m'appelle André, 46 ans, je suis chef de partie dans un grand restaurant. Je voudrais apprendre a jouer de la batterie.",
-	skills: "Dessins, peinture"
+	skills: "Cuisinier"
 	)
 
 puts "User added"
@@ -146,7 +146,7 @@ barbe = User.create!(
 	email: "Barbe-victor@yopmail.com",
 	password: "dumdum",
 	description: "Hello, je suis Victor, 29 ans, je travaille dans la carrosserie. Je fais de la danse depuis 10 ans et j'aimerais apprendre a faire des tours de magie",
-	skills: "Croupière, Magicienne"
+	skills: "Carrossier"
 	)
 
 puts "User added"
@@ -213,7 +213,7 @@ a5 = Ad.create!(
 	description: "Hello, ayant un bon niveau en anglais, je souhaite apprendre a parler espagnol. Je peux proposer mes sevices de developpeuse web en echange :)",
 	type: @lesson,
 	category: @languages,
-	duration: "3h", 
+	duration: "1h", 
 	frequency: "Quotidien",
 	other_propositions: false,
 	availability: "Week-end",
@@ -222,7 +222,75 @@ a5 = Ad.create!(
 
 puts "Ad added"
 
+a6 = Ad.create!(
+	title: "Tours de magie",
+	description: "Coucou, Je voudrais apprendre a faire des tours de magie, en contrepartie, je peux donner des cours de cuisine.",
+	type: @lesson,
+	category: @games,
+	duration: "2h", 
+	frequency: "Mensuel",
+	other_propositions: false,
+	availability: "N'importe quand",
+	user: chauveau
+	)
 
+puts "Ad added"
+
+a7 = Ad.create!(
+	title: "Tours de magie",
+	description: "Bonjour je cherche a monter un groupe de danse, je peux vous enseigner la danse pour ceux qui en ont jamais fait.",
+	type: @project,
+	category: @sport,
+	duration: "2h", 
+	frequency: "Hebdomadaire",
+	other_propositions: true,
+	availability: "N'importe quand",
+	user: barbe
+	)
+
+puts "Ad added"
+
+a8 = Ad.create!(
+	title: "Jardinage",
+	description: "Salut, j'aurais besoin d'un coup de main pour faire planter des tomates, des roses et de la menthe, je peux en echange donner des cours de dessins ou de peinture",
+	type: @help,
+	category: @gardening,
+	duration: "1h", 
+	frequency: "Non défini",
+	other_propositions: true,
+	availability: "Semaine et week-end",
+	user: garcia
+	)
+
+puts "Ad added"
+
+a9 = Ad.create!(
+	title: "Apprendre a entretenir une voiture",
+	description: "Bonjour, je cherche quelqu'un qui pourrait m'apprendre comment bien entretenir ma voiture, je peux en echange vous apprendre a faire des GIF via photoshop",
+	type: @help,
+	category: @garage,
+	duration: "3h", 
+	frequency: "Mensuel",
+	other_propositions: false,
+	availability: "week-end",
+	user: schmitt
+	)
+
+puts "Ad added"
+
+a10 = Ad.create!(
+	title: "Gateau au chocolat",
+	description: "Salut, je propose un atelier ou l'on ferais un gateau a la fraise. Sachant que je suis pas douée en cuisine si quelqu'un s'y connait pour nous coacher en même temps, ce serais parfait",
+	type: @project,
+	category: @cooking,
+	duration: "2h", 
+	frequency: "Non défini",
+	other_propositions: true,
+	availability: "Semaine et week-end",
+	user: aubry
+	)
+
+puts "Ad added"
 # ---------- ADMIN ----------
 
 # We create the admin user
