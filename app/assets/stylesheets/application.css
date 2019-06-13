@@ -84,3 +84,12 @@ footer {
 	box-shadow: 0 0.4rem 0 rgba(233, 236, 239, 0.5);
 	transform: translate3d(0, -4px, 0);
 }
+
+/* Modify the alert margin acording to screen size  */
+.flash-screen {margin-top: 0px; }
+
+@media (max-width:415px) {
+
+	.flash-screen {margin-top: 25px; }
+
+}
