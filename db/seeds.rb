@@ -237,7 +237,7 @@ a6 = Ad.create!(
 puts "Ad added"
 
 a7 = Ad.create!(
-	title: "Tours de magie",
+	title: "Alors on danse",
 	description: "Bonjour je cherche a monter un groupe de danse, je peux vous enseigner la danse pour ceux qui en ont jamais fait.",
 	type: @project,
 	category: @sport,
