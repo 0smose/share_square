@@ -30,6 +30,10 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
     $("#conversation-body").append(data.message)
     # We reset the scrollbar to the bottom
     $('#conversation-body')[0].scrollTop = $('#conversation-body')[0].scrollHeight;
+    # we fetch the conversation id
+    conversation_id = $("#conversation-main").data("conversation")
+    #We call the update method in read channel to set messages to read = true
+    App.read.update(conversation_id)
 
 
   speak: (textarea_content, conversation, user) ->
