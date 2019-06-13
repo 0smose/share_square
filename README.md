@@ -8,11 +8,18 @@ Voici notre plateforme d'échange de compétences.
 * Version Ruby : 2.5.1
 * Version Rails : 5.2.3
 
+## Le pitch
+Share square est une plateforme qui favorise l'échange et le partage de compétences. Le système d’annonce est le coeur de l’application, et doit présenter le besoin de l’utilisateur. Il existe trois types d’annonces : cours, coup de main et projet.
+
+Par exemple, Marco veut apprendre le piano. Il dépose donc une annonce de type cours, avec une courte description de ce qu’il souhaite, et de ce qu’il propose en retour.
+
+Si un autre utilisateur peut répondre au besoin de Marco, et est intéressé par sa proposition d’échange, il peut le contacter via la messagerie, et convenir d’un rendez-vous pour se rencontrer, afin de se mettre d’accord.
+
 ## Toutes nos features
 
 Nous proposons une plateforme complète :
-* L' accueil est une landing page expliquant notre concept
-* Une page dédiée aux annonces avec un système de filtre par type d' annonce et par catégorie
+* L'accueil est une landing page expliquant notre concept
+* Une page dédiée aux annonces avec un système de filtre par type d'annonce et par catégorie
 * Chaque utilisateur a un profil personnalisable
 * Un mailer (création et suppression de compte, validation ou refus d'annonce, premier message avec un autre utilisateur)
 * Chaque utilisateur peut mettre en ligne une annonce
@@ -23,7 +30,7 @@ Nous proposons une plateforme complète :
 
 * Charte éthique à respecter pour les annonces
 * Fonctionnalité de notations et de commentaires pour les utilisateurs
-* Améliorer le front du chat 
+* Améliorer le front du chat (rajouter la liste des conversations sur le côté gauche)
 * Possibilité de faire une recherche par mots clés dans l'index des annonces et dans le dashboard administrateur
 * Ajouter des tests de models, controllers et de views
 * Plateforme accessible seulement pour la ville de Lyon dans un premier temps
