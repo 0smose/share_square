@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:6bb2864476528d7ead7f8841bc7f49e5@porgy.redistogo.com:11306/
+  url: redis://redistogo:2268d928aa748a4b23595ec2c8a7a9b9@porgy.redistogo.com:11375/
   # channel_prefix: share_square_production
