@@ -56,11 +56,19 @@ window.addEventListener("load", function () {
 // JQuery
 $(document).ready(function() {
 	// Make an element disappear after a short time
-  $('.delay_fadeout').delay(2750).fadeOut(400); 
+	$('.delay_fadeout').delay(2750).fadeOut(400); 
+  // New personal message sends when we hit enter
+  $('#personal_message_body').keydown(function(event) {
+  	if (event.which == 13) {
+  		this.form.submit();
+  		event.preventDefault();
+  	}
+  });
 });
 	// Make an element disappear after a short time
 
 	//Manages the double filter in ad's index
 //= require ads_filter
+
 
 
