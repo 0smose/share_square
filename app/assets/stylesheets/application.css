@@ -38,6 +38,22 @@ footer {
 	height: 280px;
 }
 
+
+/*Footer media queries */
+@media (max-width:1000px) {
+	body {margin-bottom:343px;}
+	}
+
+@media (max-width:1000px) {
+
+	footer {
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	height: 345px;
+}
+}
+
 /*Big icons (ex: landing page ad type)*/
 .big-icon {
 	font-size:3.5em;
@@ -92,4 +108,10 @@ footer {
 
 	.flash-screen {margin-top: 25px; }
 
+}
+
+/*reducing title font-size when screen size < 379 px (XS screen size)*/
+.test-police {}
+@media (max-width:379px) {
+	.test-police {font-size: 19px;}
 }
