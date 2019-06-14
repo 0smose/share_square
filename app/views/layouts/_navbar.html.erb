@@ -9,7 +9,7 @@
       <!-- Right part (displayed before for responsive behavior) -->
       <!-- User dropdown menu -->
       <div class="d-flex align-items-center order-lg-3">
-        <div class="dropdown ml-4">    
+        <div class="dropdown">    
           <!----- If user is signed in ----->
           <% if user_signed_in? %>
 
@@ -28,7 +28,7 @@
           <!-- User picture -->
           <span style="cursor:pointer;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= user_avatar(current_user.id, "avatar avatar-sm dropdown-toggle") %>
-            <span><%= current_user.first_name %></span> <i class="fas fa-caret-down"></i>
+            <span class="d-none d-md-inline"><%= current_user.first_name %></span> <i class="fas fa-caret-down"></i>
           </span>
           <!-- User dropdown menu content -->
           <div class="dropdown-menu dropdown-menu-right dropdown-content">
