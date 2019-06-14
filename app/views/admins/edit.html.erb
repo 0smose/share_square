@@ -24,10 +24,11 @@
                                 <li class="list-group-item"><b>Description : </b><%= @ad.description %></li>
                                 <li class="list-group-item"><b>Durée : </b><%= @ad.duration %></li>
                                 <li class="list-group-item"><b>Fréquence : </b><%= @ad.frequency %></li>
+                                <li class="list-group-item"><b>Compétences de <%= @ad.user.first_name %> : </b><%= @ad.user.skills %></li>
                                 <% if @ad.other_propositions == true %>
-                                <li class="list-group-item"><b>Autres propositions : </b>Cet utilisateur accepte d'autres propositions d'échange</li>
+                                <li class="list-group-item"><b>Propositions : </b>Cet utilisateur accepte des propositions liées à d'autres compétences</li>
                                 <% else %>
-                                <li class="list-group-item"><b>Autres propositions : </b>Cet utilisateur n'accepte pas d'autres propositions d'échange</li>
+                                <li class="list-group-item"><b>Propositions : </b>Cet utilisateur n'accepte pas de propositions liées à d'autres compétences</li>
                                 <% end %>
                                 <li class="list-group-item"><b>Disponibilités : </b><%= @ad.availability %></li>
                                 <% if @ad != nil %>
