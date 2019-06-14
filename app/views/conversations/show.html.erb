@@ -26,10 +26,10 @@
 								<div class="row no-gutter">
 
 									<!-- Text area -->
-									<%= text_area_tag 'text-field', nil, class: "col-9 border py-2", placeholder: 'Écrire un nouveau message...', data: {conversation: @conversation.id} %>
+									<%= text_area_tag 'text-field', nil, class: "col border py-2", placeholder: 'Écrire un nouveau message...', data: {conversation: @conversation.id} %>
 
 									<!-- Button send -->
-									<%= button_tag(type: 'button', class: 'col-2 py-2 btn btn-primary btn ml-1', id: 'send-btn', data: {conversation: @conversation.id} ) do %>
+									<%= button_tag(type: 'button', class: 'col-2 py-2 btn btn-primary btn ml-2', id: 'send-btn', data: {conversation: @conversation.id} ) do %>
 									<i class="fas fa-paper-plane"></i>
 									<% end %>
 
