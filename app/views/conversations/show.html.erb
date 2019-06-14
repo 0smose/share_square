@@ -10,8 +10,9 @@
 			</div>
 
 			<div class="row m-0 p-0 mt-0 bg-light-grey">
+
 				<div class="col col-md-12 p-4">
-					<div id="conversation-main">
+					<div id="conversation-main" data-conversation="<%= @conversation.id %>">
 						<div id="conversation-body" class="scrollbar">
 							<!-- Show every message in the conversation -->
 							<%= render @conversation.personal_messages %>

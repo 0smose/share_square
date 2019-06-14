@@ -53,6 +53,19 @@ class User < ApplicationRecord
     return @unread_messages.size
   end
 
+  def conversation_unread_messages(conversation)
+    # We create an empty array to stock the unread messages
+    @conv_unread_messages = []
+    # We check all the messages in the conversation
+    conversation.personal_messages.each do |message|
+    # We stock in the array all the unread messages received by the user
+      if message.read != true && message.user_id != self.id
+        @conv_unread_messages << message
+      end
+    end
+    return @conv_unread_messages.size
+  end
+
   def user_slug_name
     "#{self.first_name} #{self.last_name} #{self.id}"
   end

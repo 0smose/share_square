@@ -40,5 +40,4 @@ class Conversation < ApplicationRecord
 	def conversation_slug
 		"#{self.sender.first_name} #{self.recipient.first_name}"
 	end
-
 end
