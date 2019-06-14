@@ -3,7 +3,8 @@
 
 Voici notre plateforme d'échange de compétences.
  
-**Application en production :** [https://share-square.herokuapp.com/](https://share-square.herokuapp.com/) 
+**Application en production :** [https://share-square.herokuapp.com/](https://share-square.herokuapp.com/)  
+
 **Lien Trello:** [https://trello.com/b/Q4gVuzN2/share-square](https://trello.com/b/Q4gVuzN2/share-square)
 
 * Version Ruby : 2.5.1
