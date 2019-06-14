@@ -153,8 +153,8 @@ puts "User added"
 
 
 a1 = Ad.create!(
-	title: "Projet, création d'une maison en bois",
-	description: "Je cherche des personnes motivées pour construire une maison en bois. Étant menuisier je peux vous donner des astuces et des conseils pour mener la construction à bien",
+	title: "Création d'une maison en bois",
+	description: "Je cherche des personnes motivées pour construire une maison en bois. Profils recherchés : connaissances en architecture, connaissances légales...",
 	type: @project,
 	category: @diy,
 	duration: "2h",
@@ -196,7 +196,7 @@ puts "Ad added"
 
 a4 = Ad.create!(
 	title: "Cours de pêche ",
-	description: "Bonsoir, étant passionné de pêche, je cherche une personne apte a m'apprendre les bases de la pêche. En contrepartie je peux enseigner l'anglais ou l'espagnol",
+	description: "Bonsoir, je m'intéresse à la pêche, je cherche une personne apte à m'apprendre les bases de la pêche. En contrepartie je peux enseigner l'anglais ou l'espagnol",
 	type: @lesson,
 	category: @gardening,
 	duration: "3h",
@@ -210,7 +210,7 @@ puts "Ad added"
 
 a5 = Ad.create!(
 	title: "Découvrir l'espagnol",
-	description: "Hello, ayant un bon niveau en anglais, je souhaite apprendre à parler espagnol. Je peux proposer mes sevices de développeuse web en échange :)",
+	description: "Hello, ayant un bon niveau en anglais, je souhaite apprendre à parler espagnol. Je peux proposer mes sevices de développeuse web en échange ou des cours d'anglais :)",
 	type: @lesson,
 	category: @languages,
 	duration: "1h", 
@@ -238,7 +238,7 @@ puts "Ad added"
 
 a7 = Ad.create!(
 	title: "Alors on danse",
-	description: "Bonjour je cherche à monter un groupe de danse, je peux vous enseigner la danse pour ceux qui en ont jamais fait.",
+	description: "Bonjour je cherche à monter un groupe de danse, je cherche des danseurs hommes et femmes. Contactez moi si intéressé.",
 	type: @project,
 	category: @sport,
 	duration: "2h", 
@@ -252,7 +252,7 @@ puts "Ad added"
 
 a8 = Ad.create!(
 	title: "Jardinage",
-	description: "Salut, j'aurais besoin d'un coup de main pour faire planter des tomates, des roses et de la menthe, je peux en échange donner des cours de dessin ou de peinture",
+	description: "Salut, j'aurais besoin d'un coup de main pour faire pousser des tomates, des roses et de la menthe, je peux en échange donner des cours de dessin ou de peinture",
 	type: @help,
 	category: @gardening,
 	duration: "1h", 
@@ -267,7 +267,7 @@ puts "Ad added"
 a9 = Ad.create!(
 	title: "Apprendre à entretenir une voiture",
 	description: "Bonjour, je cherche quelqu'un qui pourrait m'apprendre comment bien entretenir ma voiture, je peux en échange vous apprendre à faire des GIF via photoshop",
-	type: @help,
+	type: @lesson,
 	category: @garage,
 	duration: "3h", 
 	frequency: "Mensuel",
@@ -279,18 +279,33 @@ a9 = Ad.create!(
 puts "Ad added"
 
 a10 = Ad.create!(
-	title: "Gâteau au chocolat",
-	description: "Salut, je propose un atelier où l'on ferait un gâteau à la fraise. Sachant que je suis pas douée en cuisine si quelqu'un s'y connait pour nous coacher en même temps, ce serais parfait",
-	type: @project,
+	title: "Gâteau à la fraise",
+	description: "Salut, j'aimerais savoir faire un jolie gâteau à la fraise, je peux vous donner des conseils pour faire des jolies photos :).",
+	type: @lesson,
 	category: @cooking,
 	duration: "2h", 
 	frequency: "Non défini",
 	other_propositions: true,
 	availability: "Semaine et week-end",
+	user: bailly
+	)
+
+puts "Ad added"
+
+a10 = Ad.create!(
+	title: "cherche assistant pour un spectacle",
+	description: "Hello, dans le cadre de mon spectacle de magie, je suis à la recherche d'un assistant afin de réaliser mes tours de magie sur scène.",
+	type: @project,
+	category: @art,
+	duration: "1h", 
+	frequency: "Une seule fois",
+	other_propositions: true,
+	availability: "week-end",
 	user: aubry
 	)
 
 puts "Ad added"
+
 # ---------- ADMIN ----------
 
 # We create the admin user

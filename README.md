@@ -3,7 +3,7 @@
 
 Voici notre plateforme d'échange de compétences.
  
-**Application en production :** [Share Square]([https://share-square.herokuapp.com/](https://share-square.herokuapp.com/)) 
+**Application en production :** [https://share-square.herokuapp.com/](https://share-square.herokuapp.com/) 
 
 * Version Ruby : 2.5.1
 * Version Rails : 5.2.3
@@ -37,7 +37,7 @@ Nous proposons une plateforme complète :
 
 ## Créé avec
 
-* **Thème :**  [Leap Bootstrap]([https://leap.mediumra.re/index.html](https://leap.mediumra.re/index.html))
+* **Thème :**  [Leap Bootstrap](https://leap.mediumra.re/index.html)
 
 ## Auteurs
 
