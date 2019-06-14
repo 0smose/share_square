@@ -25,6 +25,6 @@ class ConversationsChannel < ApplicationCable::Channel
   		personal_message: message})
 
   	# Then we send it back to conversations.coffee
-  	ActionCable.server.broadcast "conversations", message: html
+  	ActionCable.server.broadcast "conversations", message: html, message_conv_id: message.conversation_id
   end
 end

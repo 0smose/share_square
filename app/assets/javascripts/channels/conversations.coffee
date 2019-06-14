@@ -24,16 +24,16 @@ App.conversations = App.cable.subscriptions.create "ConversationsChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-
-    # The content received by conversations_channel.rb is added at the end of
-    # the conversation-body div
-    $("#conversation-body").append(data.message)
-    # We reset the scrollbar to the bottom
-    $('#conversation-body')[0].scrollTop = $('#conversation-body')[0].scrollHeight;
     # we fetch the conversation id
     conversation_id = $("#conversation-main").data("conversation")
-    #We call the update method in read channel to set messages to read = true
-    App.read.update(conversation_id)
+    if data['message_conv_id'] == conversation_id
+      # The content received by conversations_channel.rb is added at the end of
+      # the conversation-body div
+      $("#conversation-body").append(data.message)
+      # We reset the scrollbar to the bottom
+      $('#conversation-body')[0].scrollTop = $('#conversation-body')[0].scrollHeight;
+      #We call the update method in read channel to set messages to read = true
+      App.read.update(conversation_id)
 
 
   speak: (textarea_content, conversation, user) ->
