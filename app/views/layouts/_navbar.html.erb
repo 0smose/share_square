@@ -42,8 +42,8 @@
           </div>
           <% else %>
           <!-- If user isn't signed in -->
-          <%= link_to "Se connecter", "#sign-in-modal", "data-toggle" => "modal", class: "nav-link d-inline" %>
-          <%= link_to "S'inscrire", "#sign-up-modal", "data-toggle" => "modal", class: "nav-link btn btn-primary text-light d-inline" %>
+          <%= link_to "Se connecter", "#sign-in-modal", "data-toggle" => "modal", class: "nav-link d-none d-md-inline" %>
+          <%= link_to "S'inscrire", "#sign-up-modal", "data-toggle" => "modal", class: "nav-link btn btn-primary text-light d-none d-md-inline" %>
           <% end %>
         </div>
         <div class="ml-2">
@@ -61,7 +61,17 @@
       </div>
       <div class="collapse navbar-collapse justify-content-between order-lg-2" style="">
         <div class="py-2 py-lg-0">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav text-center">
+            <% if !user_signed_in? %>
+            <!-- If user isn't signed in -->
+            <li class="nav-item">
+              <%= link_to "Se connecter", "#sign-in-modal", "data-toggle" => "modal", class: "nav-link mb-1 d-md-none" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "S'inscrire", "#sign-up-modal", "data-toggle" => "modal", class: "nav-link btn btn-primary text-light mb-2 d-md-none" %>
+            </li>
+            <% end %>
+
             <li class="nav-item">
               <%= link_to "Voir les annonces", ads_path, class: "nav-link" %>
             </li>

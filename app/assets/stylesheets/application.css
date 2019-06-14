@@ -101,15 +101,6 @@ footer {
 	transform: translate3d(0, -4px, 0);
 }
 
-/* Modify the alert margin acording to screen size  */
-.flash-screen {margin-top: 0px; }
-
-@media (max-width:415px) {
-
-	.flash-screen {margin-top: 25px; }
-
-}
-
 /*reducing title font-size when screen size < 379 px (XS screen size)*/
 .test-police {}
 @media (max-width:379px) {
