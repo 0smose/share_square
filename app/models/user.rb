@@ -18,8 +18,8 @@ class User < ApplicationRecord
   validates :description, length:  {in: 50..200}
   validates :skills, presence: true
 
-  has_many :sender_conversations, class_name: 'Conversation', foreign_key: 'sender_id'
-  has_many :recipient_conversations, class_name: 'Conversation', foreign_key: 'recipient_id'
+  has_many :sender_conversations, class_name: 'Conversation', foreign_key: 'sender_id', dependent: :destroy
+  has_many :recipient_conversations, class_name: 'Conversation', foreign_key: 'recipient_id', dependent: :destroy
   has_many :personal_messages, dependent: :destroy
   has_many :ads, dependent: :destroy
   has_one_attached :avatar
