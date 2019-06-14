@@ -9,7 +9,7 @@
 						<%= hidden_field_tag 'recipient_id', @recipient.id %>
 						<div class="container">
 							<div class="row no-gutter">
-								<%= f.text_field :body, placeholder: "Écrire un nouveau message...", class: "col-9 py-2" %>
+								<%= f.text_area :body, placeholder: "Écrire un nouveau message...", class: "col-9 py-2" %>
 								<%= button_tag(type: "submit", class: " col-2 py-2 btn btn-primary btn ml-1", remote: true) do %>
 								<i class="fas fa-paper-plane"></i>
 								<% end %>
