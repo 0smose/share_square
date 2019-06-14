@@ -110,7 +110,7 @@ puts "User added"
 garcia = User.create!(
 	last_name: "Garcia",
 	first_name: "François",
-	email: "garcia.francois@yopmail.com"
+	email: "garcia.francois@yopmail.com",
 	password: "dumdum",
 	description: "Bonjour, je me nomme François, j'ai 39 ans. Je suis peintre à mon compte, j'aime dessiner, la peinture et je veux apprendre la cuisine orientale",
 	skills: "Dessin, peinture"
